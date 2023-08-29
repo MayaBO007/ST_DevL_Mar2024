@@ -7,7 +7,7 @@ function timeline() {
             studySessionData = data[indexI];
             deleteFromSessionData();
             let updatedDates = updateDates();
-            if (updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate() && studySessionData.subId != "64ed9eaed2c8fb647d0adc5f") { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {
+            if ((updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) && (studySessionData.subId != "64ed9eaed2c8fb647d0adc5f")) {
                 if (window.matchMedia("(orientation: landscape)").matches) {
                     document.getElementById("fiveAM").style.display = "inline";
                 } else {
