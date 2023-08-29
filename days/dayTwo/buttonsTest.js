@@ -146,7 +146,7 @@ function showButtons() {
             } else {
                 repeatShowButtons()
             }
-        }, randTimeButtons());
+        }, randTimeStars());
     }
     timeoutForButtons();
 };
