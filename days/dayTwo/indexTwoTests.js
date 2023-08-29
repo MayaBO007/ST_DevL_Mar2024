@@ -5,6 +5,7 @@ function timeline() {
     platform.getAllSessions().then((data) => {
         getIndexSessionData(data).then((indexI) => {
             studySessionData = data[indexI];
+            console.log(studySessionData);
             deleteFromSessionData();
             let updatedDates = updateDates();
             if ((updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) && (studySessionData.subId != "64eda725d2c8fb647d0adc6e")) {
