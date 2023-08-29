@@ -131,7 +131,7 @@ async function startIntervalButtons() {
 function showButtons() {
     function repeatShowButtons() {
         document.getElementById('redButton').style.top = randTopButtons() + "%";
-        document.getElementById('blueButton').style.left = randTopButtons() + "%";
+        document.getElementById('blueButton').style.top = randTopButtons() + "%";
         setTimeout(() => {
             timeoutForButtons();
         }, 1000);
