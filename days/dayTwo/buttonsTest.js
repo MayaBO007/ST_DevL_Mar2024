@@ -16,7 +16,6 @@ const responsesButtons = {
 };
 
 platform.saveSession(responsesButtons, true);
-saveResponsesButtons = {};
 timeoutCountButtons = 0;
 ButtonsNum = null;
 
@@ -114,11 +113,8 @@ async function startIntervalButtons() {
             timeoutCountButtons++;
             endButtons = 1;
             if (timeoutCountButtons == 1) {
-                getButtonsNum().then((ButtonsNum) => {
-                    howManyButtonss.push(ButtonsNum);
-                    platform.saveSession(responsesButtons, false);
-                    resolve("done2");
-                });
+                platform.saveSession(responsesButtons, false);
+                resolve("done4");
             } else {
                 clearInterval(sessionIntervalButtons);
                 clearTimeout(sessionTimerButtons);
@@ -137,8 +133,6 @@ function showButtonss() {
         document.getElementById('redButton').style.top = randTopButtons() + "%";
         document.getElementById('blueButton').style.left = randTopButtons() + "%";
         setTimeout(() => {
-            document.getElementById('redButton').style.top = "35%";
-            document.getElementById('blueButton').style.left = "35%"
             timeoutForButtons();
         }, 1000);
     }
