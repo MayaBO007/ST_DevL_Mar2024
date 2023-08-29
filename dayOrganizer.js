@@ -3,6 +3,7 @@ function moveToDay() {
     platform.getAllSessions().then((data) => {
         getIndexSessionData(data).then((indexI) => {
             studySessionData = data[indexI];
+            console.log(studySessionData);
 
             if ((typeof studySessionData == "undefined") || (studySessionData.doneInstructions == "")) {
                 platform.goToUrl("instructions/instructions.html");
