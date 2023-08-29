@@ -44,7 +44,7 @@ async function startIntervalButtons() {
                 buttonChoice = 0;
                 if (countButtons >= randCount) {
                     clearInterval(sessionIntervalButtons);
-                    setTimeout(ButtonstIntervalButtons, 2000);
+                    setTimeout(startIntervalButtons, 2000);
                     document.getElementById("airplane").style.display = "inline";
                     document.getElementById("airplane").style.animationPlayState = "running";
                     platform.saveSession(responsesButtons, false);

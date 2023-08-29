@@ -81,6 +81,7 @@ async function start2tests() {
                                             document.getElementById("iframe-element").style.top = "18%";
                                         }, 4000)
                                         setTimeout(() => {
+                                            clearInterval(sessionInterval2Test2);
                                             document.getElementById("redButton").style.display = "inline";
                                             document.getElementById("blueButton").style.display = "inline";
                                             document.getElementById("startYellowTestButton").style.display = "none";

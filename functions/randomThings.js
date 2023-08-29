@@ -30,14 +30,12 @@ function randColor() { // 1 or 0 - random choice of car color
 
 // Random car choise buttons test:
 function randColorButtons() { // 2 or 1 or 0
-    const colorArry = [0, 1, 2];
+    const colorArry = [0, 1];
     let car = colorArry[Math.floor(Math.random() * colorArry.length)];
     if (car == 0) {
         redChoiceButtons.push(new Date().getTime() - milliseconds);
-    } else if (car == 1) {
-        blueChoiceButtons.push(new Date().getTime() - milliseconds)
     } else {
-        yellowChoiceButtons.push(new Date().getTime() - milliseconds)
+        blueChoiceButtons.push(new Date().getTime() - milliseconds)
     }
     allChoicesButtons.push(new Date().getTime() - milliseconds);
     return car
