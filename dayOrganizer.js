@@ -18,7 +18,7 @@ function moveToDay() {
                     }
                 }
             } else if ((studySessionData.doneDay1 == "doneDayOne") && (studySessionData.doneDay2 != "doneDayTwo")) {
-                if ((studySessionData.doneDay2 == "")) {
+                if ((studySessionData.doneDay2 == "") || (studySessionData.subId == "64eda725d2c8fb647d0adc6e")) {
                     platform.goToUrl("days/dayTwo/dayTwo.html");
                 } else {
                     if (window.matchMedia("(orientation: landscape)").matches) {
