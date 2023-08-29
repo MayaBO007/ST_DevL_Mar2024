@@ -16,8 +16,8 @@ function moveToDay() {
                         document.getElementById("problem_hor").style.display = "inline";
                     }
                 }
-            } else if ((studySessionData.doneDay1 == "doneDayOne") && (studySessionData.doneDay2 != "doneDayTwo") || (studySessionData.subId == "64eba909d2c8fb647d0adc41")) {
-                if ((studySessionData.doneDay2 == "") || (studySessionData.subId == "64eba909d2c8fb647d0adc41")) {
+            } else if ((studySessionData.doneDay1 == "doneDayOne") && (studySessionData.doneDay2 != "doneDayTwo")) {
+                if ((studySessionData.doneDay2 == "")) {
                     platform.goToUrl("days/dayTwo/dayTwo.html");
                 } else {
                     if (window.matchMedia("(orientation: landscape)").matches) {
