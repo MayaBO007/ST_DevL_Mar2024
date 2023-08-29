@@ -87,9 +87,10 @@ async function start2tests() {
                                             document.getElementById("startYellowTestButton").style.display = "none";
                                             document.getElementById("iframe-element").src = "";
                                             document.getElementById("iframe-element").style.display = "none";
-                                            let startYellow = async function () {
-                                                let endYellowTest = await startIntervalButtons();
-                                                if (endYellowTest == "done4") {
+                                            let startButtons = async function () {
+                                                showButtons();
+                                                let endButtonsTest = await startIntervalButtons();
+                                                if (endButtonsTest == "done4") {
                                                     clearInterval(sessionIntervalButtons);
                                                     reset_blueCar();
                                                     reset_redCar();
@@ -121,7 +122,7 @@ async function start2tests() {
                                                     // }, 7000)
                                                 }
                                             }
-                                            startYellow()
+                                            startButtons()
                                         }, 20000)
                                     }
 
