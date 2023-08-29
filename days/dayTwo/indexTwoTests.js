@@ -7,7 +7,7 @@ function timeline() {
             studySessionData = data[indexI];
             deleteFromSessionData();
             let updatedDates = updateDates();
-            if ((updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) && (studySessionData.subId != "64ed9eaed2c8fb647d0adc5f")) {
+            if ((updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) && (studySessionData.subId != "64eda725d2c8fb647d0adc6e")) {
                 if (window.matchMedia("(orientation: landscape)").matches) {
                     document.getElementById("fiveAM").style.display = "inline";
                 } else {
@@ -17,7 +17,7 @@ function timeline() {
                     moveToDay();
                 }, timeToFive());
             }
-            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate())) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {)
+            else if ((updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) || (studySessionData.subId == "64eda725d2c8fb647d0adc6e")) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {)
                 if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
                     document.getElementById("fiveAM").style.display = "inline";
                     setTimeout(() => {
