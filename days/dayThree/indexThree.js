@@ -65,12 +65,13 @@ function timeline() {
                                                     document.getElementById("redButton").style.display = "none";
                                                     sumCorrectFirstPress().then((sum) => {
                                                         showWinningsEnd(sum);
-                                                        platform.saveSession(totalWins, true);
-                                                        setTimeout(() => {
-                                                            hideWinningsEnd();
-                                                            document.getElementById("endOfGame").style.display = "inline";
-                                                        }, 10000);
-                                                    })
+                                                        platform.saveSession(totalWins, true).then(() => {
+                                                            setTimeout(() => {
+                                                                hideWinningsEnd();
+                                                                document.getElementById("endOfGame").style.display = "inline";
+                                                            }, 10000);
+                                                        });
+                                                    });
                                                 }
                                             }
                                             startDevaluation();

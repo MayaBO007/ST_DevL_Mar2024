@@ -12,8 +12,9 @@ function timeline() {
                 if (doneInstructions == "doneInstructions") {
                     studySessionData.doneInstructions = "doneInstructions";
                     studySessionData.expDaysDate = updatedDates.fullDate;
-                    platform.saveSession(studySessionData).then(
-                        platform.goToUrl("instructions/questions/Multiple-Choice-Quiz-JavaScript-master/index.html"));
+                    platform.saveSession(studySessionData).then(() => {
+                        platform.goToUrl("instructions/questions/Multiple-Choice-Quiz-JavaScript-master/index.html")
+                    });
                 } else {
                     moveToDay()
                 }

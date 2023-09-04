@@ -15,24 +15,25 @@ function timeline() {
                     reset_blueCar();
                     studySessionData.doneDay1 = "doneDayOne";
                     studySessionData.expDaysDate = updatedDates.fullDate;
-                    platform.saveSession(studySessionData, true)
-                    document.getElementById("endDayMsg").style.display = "inline";
-                    document.getElementById("endDayMsg").addEventListener("click", function () {
-                        showWinnings()
-                        setTimeout(() => {
-                            platform.goToUrl("days/dayTwo/dayTwo.html");
-                        }, timeToFive())
-                        setTimeout(() => {
-                            hideWinnings();
-                            if (window.matchMedia("(orientation: landscape)").matches) {
+                    platform.saveSession(studySessionData, true).then(() => {
+                        document.getElementById("endDayMsg").style.display = "inline";
+                        document.getElementById("endDayMsg").addEventListener("click", function () {
+                            showWinnings()
+                            setTimeout(() => {
+                                platform.goToUrl("days/dayTwo/dayTwo.html");
+                            }, timeToFive())
+                            setTimeout(() => {
                                 hideWinnings();
-                                document.getElementById("fiveAM").style.display = "inline";
-                            } else {
-                                hideWinnings();
-                                document.getElementById("fiveAM_hor").style.display = "inline";
-                            }
-                        }, 10000)
-                    })
+                                if (window.matchMedia("(orientation: landscape)").matches) {
+                                    hideWinnings();
+                                    document.getElementById("fiveAM").style.display = "inline";
+                                } else {
+                                    hideWinnings();
+                                    document.getElementById("fiveAM_hor").style.display = "inline";
+                                }
+                            }, 10000)
+                        })
+                    });
                 }
             }
             goOne();
