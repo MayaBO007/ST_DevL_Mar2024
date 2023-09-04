@@ -47,7 +47,7 @@ function timeline() {
                                     if (startTrainning == "done3") {
                                         setTimeout(() => {
                                             document.getElementById("startDevtestButtonRed").style.display = "inline";
-                                            document.getElementById("iframe-element").style.top = "1%"
+                                            document.getElementById("iframe-element").style.top = "5%"
                                             document.getElementById("iframe-element").src = "../../timer/timer.html";
                                             document.getElementById('iframe-element').classList.remove('hidden');
                                             document.getElementById("iframe-element").style.display = "inline";
