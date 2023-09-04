@@ -5,13 +5,14 @@ function timeline() {
         if ((typeof data == "undefined") || (studySessionData.doneInstructions == "")) {
             let updatedDates = updateDates();
             studySessionData.startDate = startDate;
+            platform.saveSession(studySessionData, true)
             let goIns = async function () {
                 let doneInstructions = await startFirstDay();
                 studySessionData.doneInstructions = "stratIns";
                 if (doneInstructions == "doneInstructions") {
                     studySessionData.doneInstructions = "doneInstructions";
                     studySessionData.expDaysDate = updatedDates.fullDate;
-                    platform.saveSession(studySessionData, true).then(
+                    platform.saveSession(studySessionData).then(
                         platform.goToUrl("instructions/questions/Multiple-Choice-Quiz-JavaScript-master/index.html"));
                 } else {
                     moveToDay()
