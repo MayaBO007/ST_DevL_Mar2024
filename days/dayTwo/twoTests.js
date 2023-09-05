@@ -110,7 +110,7 @@ async function start2tests() {
                                     }
                                 }
                                 afterStarTest();
-                            }, 4000)
+                            }, 4500)
                         }
 
                     }
