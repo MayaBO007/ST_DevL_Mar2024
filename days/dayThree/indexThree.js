@@ -46,30 +46,31 @@ function timeline() {
                                     let startTrainning = await startInterval2Tests2();
                                     if (startTrainning == "done3") {
                                         setTimeout(() => {
-                                            document.getElementById("startDevtestButtonRed").style.display = "inline";
+                                            document.getElementById("startDevtestButtonBlue").style.display = "inline";
                                             document.getElementById("iframe-element").style.top = "5%"
                                             document.getElementById("iframe-element").src = "../../timer/timer.html";
                                             document.getElementById('iframe-element').classList.remove('hidden');
                                             document.getElementById("iframe-element").style.display = "inline";
                                         }, 1000)
                                         setTimeout(() => {
-                                            document.getElementById("startDevtestButtonRed").style.display = "none";
+                                            document.getElementById("startDevtestButtonBlue").style.display = "none";
                                             document.getElementById("iframe-element").style.display = "none";
                                             let startDevaluation = async function () {
                                                 let doneDayThree = await startDevTest(); // add promise and resolve
                                                 if (doneDayThree == "doneDevTest") {
                                                     studySessionData.doneDay3 = "doneDevTest";
                                                     studySessionData.expDaysDate = updatedDates.fullDate;
-                                                    platform.saveSession(studySessionData, true)
-                                                    document.getElementById("blueButton").style.display = "none";
-                                                    document.getElementById("redButton").style.display = "none";
-                                                    sumCorrectFirstPress().then((sum) => {
-                                                        showWinningsEnd(sum);
-                                                        platform.saveSession(totalWins, true).then(() => {
-                                                            setTimeout(() => {
-                                                                hideWinningsEnd();
-                                                                document.getElementById("endOfGame").style.display = "inline";
-                                                            }, 10000);
+                                                    platform.saveSession(studySessionData, true).then(() => {
+                                                        document.getElementById("blueButton").style.display = "none";
+                                                        document.getElementById("redButton").style.display = "none";
+                                                        sumCorrectFirstPress().then((sum) => {
+                                                            showWinningsEnd(sum);
+                                                            platform.saveSession(totalWins, true).then(() => {
+                                                                setTimeout(() => {
+                                                                    hideWinningsEnd();
+                                                                    document.getElementById("endOfGame").style.display = "inline";
+                                                                }, 10000);
+                                                            });
                                                         });
                                                     });
                                                 }
