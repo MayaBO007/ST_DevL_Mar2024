@@ -53,7 +53,6 @@ async function startDevTest() {
                         document.getElementById("TenSecTimeout").style.display = "none";
                         function startIntervalDevtest() {
                             count = 0;
-                            reset_gif();
                             document.getElementById("break").style.display = "none";
                             document.getElementById("redButton").style.display = "inline";
                             document.getElementById("blueButton").style.display = "inline";
