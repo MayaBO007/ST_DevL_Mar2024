@@ -243,7 +243,7 @@ async function startInterval2Tests2() {
                     }
                 })
             };
-            savingTrainingThree2
+            savingTrainingThree2()
         }, 30000);
         // }, 3000);
     });
