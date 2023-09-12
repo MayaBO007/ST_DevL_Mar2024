@@ -69,7 +69,9 @@ async function start2tests() {
                                         clearInterval(sessionInterval2Test2);
                                         reset_blueCar();
                                         reset_redCar();
+                                        console.log("After star")
                                         let startButtons = async function () {
+                                            console.log("startButtons")
                                             clearInterval(sessionInterval2Test2);
                                             showButtons();
                                             let endButtonsTest = await startIntervalButtons();
