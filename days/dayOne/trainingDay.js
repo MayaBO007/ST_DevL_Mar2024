@@ -45,7 +45,7 @@ async function trainingDay() {
             document.getElementById("startButton").style.display = "none";
             function startIntervalTrainingDay() {
                 let randCount = randCountAirplane();
-                document.getElementById("break").style.display = "none";
+                // document.getElementById("break").style.display = "none";
                 document.getElementById("redButton").style.display = "inline";
                 document.getElementById("blueButton").style.display = "inline";
                 document.getElementById("gameScreen").style.display = "inline";
