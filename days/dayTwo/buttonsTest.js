@@ -153,7 +153,7 @@ function showButtons() {
             if (endButtons == 1) {
                 clearTimeout(repeat);
                 document.getElementById('redButton').style.top = "35%";
-                document.getElementById('blueButton').style.left = "35%";
+                document.getElementById('blueButton').style.top = "35%";
             } else {
                 repeatShowButtons()
             }
