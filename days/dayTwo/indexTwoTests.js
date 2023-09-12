@@ -19,7 +19,7 @@ function timeline() {
                 }, timeToFive());
             }
             else if (updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {)
-                if (0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) {
+                if ((0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) && (studySessionData.subId != "64eda725d2c8fb647d0adc6e")) {
                     document.getElementById("fiveAM").style.display = "inline";
                     setTimeout(() => {
                         moveToDay();

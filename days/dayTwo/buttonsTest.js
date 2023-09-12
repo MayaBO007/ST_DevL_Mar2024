@@ -18,7 +18,7 @@ const responsesButtons = {
 platform.saveSession(responsesButtons, true);
 timeoutCountButtons = 0;
 ButtonsNum = null;
-let saveAttemptButtons = 0;
+
 document.getElementById("redButton").addEventListener("click", function () {
     allRedPressesButtons.push(new Date().getTime() - milliseconds);
 });
@@ -26,6 +26,7 @@ document.getElementById("blueButton").addEventListener("click", function () {
     allBluePressesButtons.push(new Date().getTime() - milliseconds);
 });
 
+saveAttemptButtons = 0;
 //let sessionIntervalButtons = null;
 let endButtons = null;
 let countButtons = 0;

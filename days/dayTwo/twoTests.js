@@ -53,7 +53,7 @@ async function start2tests() {
                                 document.getElementById("iframe-element2").src = "../../timer/timer2.html";
                                 document.getElementById('iframe-element2').classList.remove('hidden');
                                 document.getElementById("iframe-element2").style.display = "inline";
-                            }, 1000)
+                            }, 500)
                             setTimeout(() => {
                                 document.getElementById("startAfterStarTestButton").style.display = "none";
                                 document.getElementById("iframe-element2").style.display = "none";
