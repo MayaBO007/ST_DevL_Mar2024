@@ -46,6 +46,7 @@ function timeline() {
                                     let startTrainning = await startInterval2Tests2();
                                     if (startTrainning == "done3") {
                                         setTimeout(() => {
+                                            clearInterval(sessionInterval2Test2);
                                             document.getElementById("startDevtestButtonRed").style.display = "inline";
                                             document.getElementById("iframe-element").style.top = "5%"
                                             document.getElementById("iframe-element").src = "../../timer/timer.html";
