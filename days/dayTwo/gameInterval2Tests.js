@@ -244,7 +244,7 @@ async function startInterval2Tests2() {
                 })
             };
             savingTrainingThree2()
-        }, 30000);
+        }, 20000);
         // }, 3000);
     });
 };
