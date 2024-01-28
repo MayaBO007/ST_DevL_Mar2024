@@ -73,7 +73,11 @@ function timeline() {
                     goTwo();
                 }
             } else {
-                document.getElementById("endOfGame").style.display = "inline";
+                if (window.matchMedia("(orientation: landscape)").matches) {
+                    document.getElementById("endOfGame").style.display = "inline";
+                } else {
+                    document.getElementById("endOfGame_hor").style.display = "inline";
+                }
             }
         })
     })
