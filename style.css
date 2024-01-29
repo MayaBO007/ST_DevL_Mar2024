@@ -503,10 +503,10 @@
 
 #next {
     position: fixed;
-    left: 29%;
+    left: 24%;
     top: 87%;
-    width: 42%;
-    height: 10%;
+    width: 52%;
+    height: 8%;
     border: none;
     color: none;
     background-color: transparent;
@@ -521,9 +521,9 @@
 
 #doNotDisturb {
     position: fixed;
-    left: 20%;
+    left: 12.5%;
     top: 65%;
-    width: 60%;
+    width: 75%;
     height: 17%;
     border: none;
     color: none;
@@ -538,10 +538,10 @@
 
 #doNotDisturbGoBack {
     position: fixed;
-    left: 35%;
+    left: 30%;
     top: 85%;
-    width: 28%;
-    height: 10%;
+    width: 40%;
+    height: 12%;
     border: none;
     color: none;
     background-color: transparent;
@@ -556,9 +556,9 @@
 
 #demoStart {
     position: fixed;
-    left: 27.5%;
+    left: 16%;
     top: 80%;
-    width: 45%;
+    width: 70%;
     height: 15%;
     border: none;
     color: none;
@@ -613,7 +613,7 @@
     left: 28.5%;
     top: 28%;
     width: 43%;
-    height: 34%;
+    height: 43%;
     border: none;
     color: none;
     background-color: transparent;
@@ -626,7 +626,7 @@
     left: 28.5%;
     top: 28%;
     width: 43%;
-    height: 34%;
+    height: 43%;
     border: none;
     color: none;
     background-color: transparent;
@@ -636,10 +636,10 @@
 
 #corrRed {
     position: fixed;
-    left: 28.5%;
+    left: 35%;
     top: 28%;
-    width: 43%;
-    height: 34%;
+    width: 30%;
+    height: 36%;
     border: none;
     color: none;
     background-color: transparent;
@@ -649,10 +649,10 @@
 
 #corrBlue {
     position: fixed;
-    left: 28.5%;
+    left: 35%;
     top: 28%;
-    width: 43%;
-    height: 34%;
+    width: 30%;
+    height: 36%;
     border: none;
     color: none;
     background-color: transparent;
@@ -688,9 +688,9 @@
 
 #qStart {
     position: fixed;
-    left: 36%;
+    left: 35%;
     top: 65%;
-    width: 28%;
+    width: 30%;
     height: 27%;
     border: none;
     color: none;
@@ -722,37 +722,6 @@
     transform: translateY(4px);
 
 } */
-
-#startAfterSwitchTestButton {
-    position: absolute;
-    left: 27.5%;
-    top: 20%;
-    width: 45%;
-    height: 60%;
-    border: none;
-    color: none;
-    background-color: transparent;
-    display: none;
-
-}
-
-/* #startAfterSwitchTestButton:active {
-    transform: translateY(4px);
-
-} */
-
-#wakeup {
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    width: 100%;
-    height: 100%;
-    border: none;
-    color: none;
-    background-color: transparent;
-    display: none;
-
-}
 
 #endOfGame {
     position: absolute;
@@ -805,6 +774,7 @@
     color: none;
     background-color: transparent;
     display: none;
+    z-index: 999991;
 
 }
 
@@ -819,76 +789,6 @@
     background-color: transparent;
     display: none;
 
-}
-
-#endYellowTestButton {
-    position: absolute;
-    left: 22.5%;
-    top: 22.5%;
-    width: 55%;
-    height: 65%;
-    border: none;
-    color: none;
-    background-color: transparent;
-    display: none;
-}
-
-/* #endYellowTestButton:active {
-    transform: translateY(4px);
-} */
-
-#break {
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    width: 100%;
-    height: 100%;
-    border: none;
-    color: none;
-    background-color: transparent;
-    display: none;
-
-}
-
-/*
-#secCountdown {
-
-    position: absolute;
-    left: 17%;
-    top: 32%;
-    width: 55%;
-    height: 60%;
-    border: none;
-    color: none;
-    background-color: transparent;
-    display: none;
-} */
-
-
-#TenSecTimeout {
-
-    position: absolute;
-    left: 40%;
-    top: 60%;
-    width: 20%;
-    height: 30%;
-    border: none;
-    color: none;
-    background-color: transparent;
-    display: none;
-}
-
-#fifteen {
-
-    position: absolute;
-    left: 40%;
-    top: 60%;
-    width: 20%;
-    height: 30%;
-    border: none;
-    color: none;
-    background-color: transparent;
-    display: none;
 }
 
 #horizontal {
@@ -929,23 +829,6 @@
     background-color: transparent;
     display: none;
 
-}
-
-#yellowCars {
-    position: absolute;
-    left: 20%;
-    top: 20%;
-    width: 60%;
-    height: 40%;
-    border: none;
-    color: none;
-    background-color: transparent;
-    display: none;
-
-}
-
-iframe[seamless] {
-    display: none;
 }
 
 #problem {
