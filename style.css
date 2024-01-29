@@ -868,6 +868,10 @@
 
 }
 
+iframe[seamless] {
+    display: none;
+}
+
 #star {
     position: absolute;
     width: 18%;
