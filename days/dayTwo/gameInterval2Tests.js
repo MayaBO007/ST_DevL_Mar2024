@@ -17,12 +17,24 @@ const responsesTrainingDataThree = {
 platform.saveSession(responsesTrainingDataThree, true);
 saveAttemptTrainingThree = 0;
 
+
+
 document.getElementById("redButton").addEventListener("click", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
 });
 document.getElementById("blueButton").addEventListener("click", function () {
     allBluePresses.push(new Date().getTime() - milliseconds);
 });
+
+var redElement = document.getElementById("redButton");
+var blueElement = document.getElementById("blueButton");
+redElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+blueElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+
 
 let count = 0; // counter for iterations
 // 1=red, 2=blue buttons

@@ -25,6 +25,15 @@ document.getElementById("redButton").addEventListener("click", function () {
 document.getElementById("blueButton").addEventListener("click", function () {
     allBluePressesButtons.push(new Date().getTime() - milliseconds);
 });
+var redElement = document.getElementById("redButton");
+var blueElement = document.getElementById("blueButton");
+redElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+blueElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+
 
 saveAttemptButtons = 0;
 //let sessionIntervalButtons = null;

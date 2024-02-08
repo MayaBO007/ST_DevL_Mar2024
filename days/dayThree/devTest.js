@@ -31,6 +31,15 @@ document.getElementById("redButton").addEventListener("click", function () {
 document.getElementById("blueButton").addEventListener("click", function () {
     allBluePressesDev.push(new Date().getTime() - milliseconds);
 });
+var redElement = document.getElementById("redButton");
+var blueElement = document.getElementById("blueButton");
+redElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+blueElement.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+
 
 
 async function startDevTest() {
