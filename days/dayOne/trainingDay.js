@@ -30,6 +30,10 @@ redElement.addEventListener("contextmenu", function (event) {
 blueElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 });
+document.addEventListener('contextmenu', event => {
+    event.preventDefault();
+});
+
 
 
 
