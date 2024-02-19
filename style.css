@@ -896,3 +896,39 @@ iframe[seamless] {
     display: none;
 
 }
+
+#moveToAppButton_lan {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    border: none;
+    color: none;
+    background-color: transparent;
+    display: none;
+
+}
+
+#moveToAppButton_lan:active {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+}
+
+#loading_lan {
+    background: lightblue;
+    border-radius: 50%;
+    width: 12vh;
+    height: 12vh;
+    left: 50vw;
+    top: 65%;
+    display: none;
+    z-index: 999;
+    position: absolute;
+    animation-name: goCircle;
+    -webkit-animation-name: goCircle;
+    animation-duration: 0.7s;
+    -webkit-animation-duration: 0.7s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
