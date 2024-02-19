@@ -69,6 +69,7 @@
     <img id="problem" ; src="pics/problem.png">
     <img id="problem_hor" ; src="pics/problem_hor.png">
     <img id="front" ; src="pics/loadingPage.png">
+    <img id="front_lan" ; src="pics/loadingPage_lan.png">
     <img id="endOfGame" ; src="pics/endOfGame.png">
     <img id="endOfGame_hor" ; src="pics/endOfGame_hor.png">
     <img id="fiveAM_hor" ; src="pics/5am_hor.png">
@@ -85,6 +86,10 @@
         <button type="button" ontouchstart="" id="moveToAppButton"><img src="pics/moveToApp.png" width="100%"
                 height="100%" /></button>
         <button type="button" ontouchstart="" id="moveToAppText"><img src="pics/moveToAppText.png" width="100%"
+                height="100%" /></button>
+        <button type="button" ontouchstart="" id="moveToAppButton_lan"><img src="pics/moveToApp_lan.png" width="100%"
+                height="100%" /></button>
+        <button type="button" ontouchstart="" id="moveToAppText_lan"><img src="pics/moveToAppText_lan.png" width="100%"
                 height="100%" /></button>
 
     </div>
@@ -123,7 +128,7 @@
     </div>
 
     <div id="loading"> </div>
-
+    <div id="loading_lan"> </div>
     <script>
 
         if (
@@ -134,6 +139,30 @@
             addToHomescreen()
         }
 
+        function startApp() {
+            setTimeout(() => {
+                document.getElementById("andInstructions").style.display = "none";
+                document.getElementById("iphoneInstructions").style.display = "none";
+                document.getElementById("iphoneYellow").style.display = "none";
+                document.getElementById("notIphoneYellow").style.display = "none";
+                document.getElementById("installIns").style.display = "none";
+                document.getElementById("startImage").style.display = "none";
+                document.getElementById("moveToAppText").style.display = "none";
+                moveToDay();
+                // platform.goToUrl("days/dayTwo/dayTwo.html");
+                if (window.matchMedia("(orientation: landscape)").matches) {
+                    document.getElementById("moveToAppButton_lan").style.display = "none";
+                    document.getElementById("front_lan").style.display = "inline";
+                    document.getElementById("loading_lan").style.display = "inline";
+                } else {
+                    document.getElementById("moveToAppButton").style.display = "none";
+                    document.getElementById("front").style.display = "inline";
+                    document.getElementById("loading").style.display = "inline";
+                }
+
+
+            }, 500)
+        }
 
         //     check if implemented as PWA:
         const ifPWAitr = setInterval(() => {
@@ -147,45 +176,33 @@
             //     // if app PWA:
             if (isInWebAppiOS || isInWebAppChrome) {
                 clearInterval(ifPWAitr);
-                document.getElementById("moveToAppButton").style.display = "inline";
-                document.getElementById("moveToAppText").style.display = "inline";
-                document.getElementById("moveToAppButton").addEventListener("click", function () {
-                    setTimeout(() => {
-                        document.getElementById("andInstructions").style.display = "none";
-                        document.getElementById("iphoneInstructions").style.display = "none";
-                        document.getElementById("iphoneYellow").style.display = "none";
-                        document.getElementById("notIphoneYellow").style.display = "none";
-                        document.getElementById("installIns").style.display = "none";
-                        document.getElementById("startImage").style.display = "none";
-                        document.getElementById("moveToAppText").style.display = "none";
-                        moveToDay();
-                        // platform.goToUrl("days/dayTwo/dayTwo.html");
-                        document.getElementById("moveToAppButton").style.display = "none";
-                        document.getElementById("front").style.display = "inline";
-                        document.getElementById("loading").style.display = "inline";
+                if (window.matchMedia("(orientation: landscape)").matches) {
+                    document.getElementById("moveToAppButton_lan").style.display = "inline";
+                    document.getElementById("moveToAppText_lan").style.display = "inline";
+                    window.addEventListener("orientationchange", function () {
+                        document.getElementById("moveToAppButton").style.display = "inline";
+                        document.getElementById("moveToAppText").style.display = "inline";
+                        document.getElementById("moveToAppText_lan").style.display = "none";
+                        document.getElementById("moveToAppText_lan").style.display = "none";
+                    })
+                } else {
+                    document.getElementById("moveToAppButton").style.display = "inline";
+                    document.getElementById("moveToAppText").style.display = "inline";
+                    window.addEventListener("orientationchange", function () {
+                        document.getElementById("moveToAppButton_hor").style.display = "inline";
+                        document.getElementById("moveToAppText_hor").style.display = "none";
+                    })
 
-                    }, 500)
-                });
-                document.getElementById("moveToAppText").addEventListener("click", function () {
-                    setTimeout(() => {
-                        document.getElementById("andInstructions").style.display = "none";
-                        document.getElementById("iphoneInstructions").style.display = "none";
-                        document.getElementById("iphoneYellow").style.display = "none";
-                        document.getElementById("notIphoneYellow").style.display = "none";
-                        document.getElementById("installIns").style.display = "none";
-                        document.getElementById("startImage").style.display = "none";
-                        document.getElementById("moveToAppText").style.display = "none";
-                        moveToDay();
-                        document.getElementById("moveToAppButton").style.display = "none";
-                        document.getElementById("front").style.display = "inline";
-                        document.getElementById("loading").style.display = "inline";
+                    document.getElementById("moveToAppButton").addEventListener("click", startApp());
+                    document.getElementById("moveToAppText").addEventListener("click", startApp());
+                    document.getElementById("moveToAppButton_lan").addEventListener("click", startApp());
+                    document.getElementById("moveToAppText_lan").addEventListener("click", startApp());
 
-                    }, 500)
-                });
-
-
+                };
             }
         }, 200);
+
+
 
     </script>
 
