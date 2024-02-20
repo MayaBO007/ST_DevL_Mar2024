@@ -161,15 +161,16 @@
 	height: 100%;
 	border: none;
 	color: none;
+	padding: none;
 	background-color: transparent;
 	display: none;
 
 }
 
-#moveToAppButton_lan:active {
+/* #moveToAppButton_lan:active {
 	-webkit-transform: translateY(5px);
 	transform: translateY(5px);
-}
+} */
 
 #front {
 	position: absolute;
