@@ -693,7 +693,7 @@
     transform: translateY(10px);
 }
 
-#startAfterInstructions {
+/* #startAfterInstructions {
     position: fixed;
     left: 36%;
     top: 65%;
@@ -705,7 +705,7 @@
     background-color: transparent;
     display: none;
 
-}
+} */
 
 /* #startAfterInstructions:active {
     transform: translateY(4px);
