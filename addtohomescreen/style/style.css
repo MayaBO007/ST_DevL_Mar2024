@@ -5,6 +5,7 @@
 	}
 }
 
+/* 
 #startImage {
 	position: absolute;
 	left: 0%;
@@ -17,10 +18,9 @@
 	display: inline;
 	transform: rotate(0deg);
 	-webkit-transform: rotate(0deg);
-	/* object-fit: contain; */
 	z-index: 100;
 }
-
+ */
 
 
 #installIns {
