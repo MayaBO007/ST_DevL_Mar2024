@@ -1,7 +1,7 @@
 {
     "name": "Money Cars",
     "short_name": "Money Cars",
-    "display": "standalone",
+    "display": "fullscreen",
     "background_color": "#5900b3",
     "theme_color": "black",
     "scope": ".",
