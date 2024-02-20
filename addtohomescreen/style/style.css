@@ -5,23 +5,19 @@
 	}
 } */
 
-/* 
+
 #startImage {
-	position: absolute;
+	background-image: src="pics/moveToApp.png";
 	left: 0%;
 	top: 0%;
 	width: 100%;
 	height: 100%;
-	border: none;
-	color: none;
-	background-color: transparent;
-	display: inline;
-	transform: rotate(0deg);
-	-webkit-transform: rotate(0deg);
-	z-index: 100;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	display: none;
 }
- */
-
 
 #installIns {
 	position: absolute;
