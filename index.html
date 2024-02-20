@@ -147,7 +147,7 @@
                 document.getElementById("notIphoneYellow").style.display = "none";
                 document.getElementById("installIns").style.display = "none";
                 document.getElementById("startImage").style.display = "none";
-                document.getElementById("moveToAppText").style.display = "none";
+                // document.getElementById("moveToAppText").style.display = "none";
                 moveToDay();
                 // platform.goToUrl("days/dayTwo/dayTwo.html");
                 if (window.matchMedia("(orientation: landscape)").matches) {
@@ -178,25 +178,25 @@
                 clearInterval(ifPWAitr);
                 if (window.matchMedia("(orientation: landscape)").matches) {
                     document.getElementById("moveToAppButton_lan").style.display = "inline";
-                    document.getElementById("moveToAppText_lan").style.display = "inline";
+                    // document.getElementById("moveToAppText_lan").style.display = "inline";
                     window.addEventListener("orientationchange", function () {
                         document.getElementById("moveToAppButton").style.display = "inline";
-                        document.getElementById("moveToAppText").style.display = "inline";
+                        // document.getElementById("moveToAppText").style.display = "inline";
                         document.getElementById("moveToAppText_lan").style.display = "none";
-                        document.getElementById("moveToAppText_lan").style.display = "none";
+                        // document.getElementById("moveToAppText_lan").style.display = "none";
                     })
                 } else {
                     document.getElementById("moveToAppButton").style.display = "inline";
-                    document.getElementById("moveToAppText").style.display = "inline";
+                    // document.getElementById("moveToAppText").style.display = "inline";
                     window.addEventListener("orientationchange", function () {
-                        document.getElementById("moveToAppButton_hor").style.display = "inline";
-                        document.getElementById("moveToAppText_hor").style.display = "none";
+                        document.getElementById("moveToAppButton").style.display = "inline";
+                        // document.getElementById("moveToAppText_hor").style.display = "none";
                     })
                 }
                 document.getElementById("moveToAppButton").addEventListener("click", startApp());
-                document.getElementById("moveToAppText").addEventListener("click", startApp());
+                // document.getElementById("moveToAppText").addEventListener("click", startApp());
                 document.getElementById("moveToAppButton_lan").addEventListener("click", startApp());
-                document.getElementById("moveToAppText_lan").addEventListener("click", startApp());
+                // document.getElementById("moveToAppText_lan").addEventListener("click", startApp());
             }
         }, 200);
 
