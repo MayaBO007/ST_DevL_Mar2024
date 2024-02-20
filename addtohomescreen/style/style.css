@@ -18,6 +18,12 @@
 	z-index: 100;
 }
 
+@media (max-width: 767px) {
+	.startImage {
+		transform: rotate(0deg);
+	}
+}
+
 #installIns {
 	position: absolute;
 	left: 0%;
