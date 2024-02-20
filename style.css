@@ -910,10 +910,11 @@ iframe[seamless] {
 
 }
 
+/* 
 #moveToAppButton_lan:active {
     -webkit-transform: translateY(5px);
     transform: translateY(5px);
-}
+} */
 
 #loading_lan {
     background: lightblue;
