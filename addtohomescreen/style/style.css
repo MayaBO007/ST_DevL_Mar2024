@@ -17,7 +17,7 @@
 	display: inline;
 	transform: rotate(0deg);
 	-webkit-transform: rotate(0deg);
-	object-fit: contain;
+	/* object-fit: contain; */
 	z-index: 100;
 }
 
