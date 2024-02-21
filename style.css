@@ -129,12 +129,12 @@
     -webkit-user-select: none;
 }
 
-#redButton:active {
+/* #redButton:active {
     -webkit-transform: translateY(10px);
     -moz-transform: translateY(10px);
     transform: translateY(10px);
 
-}
+} */
 
 #blueButton {
     position: absolute;
@@ -150,10 +150,15 @@
     -webkit-user-select: none;
 }
 
-#blueButton:active {
+.button:active {
     -webkit-transform: translateY(10px);
     transform: translateY(10px);
 }
+
+/* #blueButton:active {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+} */
 
 #gameScreen {
     /*background-image: url('road2.png'), url("desert.png");*/
