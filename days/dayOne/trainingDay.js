@@ -20,6 +20,8 @@ var redElement = document.getElementById("redButton");
 var blueElement = document.getElementById("blueButton");
 let red_yellow = false;
 let blue_yellow = false;
+let redTouches = null;
+let blueTouches = null;
 
 document.getElementById("redButton").addEventListener("touchstart", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
@@ -76,10 +78,14 @@ async function trainingDay() {
                             document.getElementById("yellowCar").style.display = "inline";
                             document.getElementById("yellowCar").style.animationPlayState = "running";
                             setTimeout(startIntervalTrainingDay, 800);
-                            document.getElementById("redButton").addEventListener("touchstart", () => {
+                            document.getElementById("redButton").addEventListener("touchstart", (event) => {
+                                event.preventDefault();
+                                redTouches = event.touches;
                                 red_yellow = true;
                             });
-                            document.getElementById("blueButton").addEventListener("touchstart", () => {
+                            document.getElementById("blueButton").addEventListener("touchstart", (event) => {
+                                event.preventDefault();
+                                blueTouches = event.touches;
                                 blue_yellow = true;
                                 setTimeout(() => {
                                     yellowPress();
