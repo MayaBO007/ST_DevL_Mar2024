@@ -6,7 +6,7 @@
 } */
 
 
-#startImage {
+/* #startImage {
 	background-image: src="pics/moveToApp.png";
 	left: 0%;
 	top: 0%;
@@ -17,7 +17,7 @@
 	background-size: cover;
 	position: absolute;
 	display: none;
-}
+} */
 
 #installIns {
 	position: absolute;
