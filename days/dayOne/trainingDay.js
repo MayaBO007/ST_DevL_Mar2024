@@ -48,15 +48,11 @@ platform.saveSession(responsesTrainingData, true)
 
 async function trainingDay() {
     return new Promise(resolve => {
-        countingCars = 0;
-        breaks = 0;
-        //       let x = 0;
         document.getElementById("startButton").style.display = "inline";
         document.getElementById("redButton").style.display = "inline";
         document.getElementById("blueButton").style.display = "inline";
         document.getElementById("gameScreen").style.display = "inline";
         document.getElementById("startButton").onclick = function () {
-            // document.getElementById("loading").style.display = "inline";
             document.getElementById("startButton").style.display = "none";
             function startIntervalTrainingDay() {
                 let randCount = randCountAirplane();
@@ -68,7 +64,6 @@ async function trainingDay() {
                         let choseCar = randColor();
                         let carSpeed = randSpeedCar();
                         // reset_airplane();
-                        reset_yellowCar();
                         buttonChoice = 0;
                         if (count >= randCount) {
                             clearInterval(sessionIntervalTrainingDay);
@@ -81,22 +76,23 @@ async function trainingDay() {
                             document.getElementById("blueButton").addEventListener("click", () => {
                                 blue_yellow = true
                             }).then(() => {
-                                if (red_yellow == true && blue_yellow == true) {
+                                if (red_yellow && blue_yellow) {
                                     correctYellowPress.push(new Date().getTime() - milliseconds);
                                 }
                             });
                             platform.saveSession(responsesTrainingData, false);
-                            count = 0;
-                            countingCars++;
-                            red_yellow = false;
-                            blue_yellow = false;
+                            setTimeout(() => {
+                                reset_yellowCar();
+                                count = 0;
+                                red_yellow = false;
+                                blue_yellow = false;
+                            }, 800);
                         } else {
                             count++;
                             // document.getElementById("counter").innerHTML = count;
                             // document.getElementById("carColorShow").innerHTML = choseCar;
                             // document.getElementById("carSpeedShow").innerHTML = carSpeed;
                             // document.getElementById("finishedShow").innerHTML = "Started";
-                            countingCars++;
                             if (choseCar == 1) { // 1=red, 0=blue
                                 document.getElementById("redCar").style.display = "inline";
                                 document.getElementById("redCar").style.animationPlayState = "running";
