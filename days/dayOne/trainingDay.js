@@ -18,6 +18,8 @@ const responsesTrainingData = {
 
 var redElement = document.getElementById("redButton");
 var blueElement = document.getElementById("blueButton");
+let red_yellow = false;
+let blue_yellow = false;
 
 document.getElementById("redButton").addEventListener("click", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
@@ -71,10 +73,10 @@ async function trainingDay() {
                             document.getElementById("yellowCar").style.animationPlayState = "running";
                             setTimeout(startIntervalTrainingDay, 800);
                             document.getElementById("redButton").addEventListener("click", () => {
-                                red_yellow = true
+                                red_yellow = true;
                             });
                             document.getElementById("blueButton").addEventListener("click", () => {
-                                blue_yellow = true
+                                blue_yellow = true;
                             }).then(() => {
                                 if (red_yellow && blue_yellow) {
                                     correctYellowPress.push(new Date().getTime() - milliseconds);
