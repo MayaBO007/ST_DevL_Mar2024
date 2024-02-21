@@ -76,10 +76,10 @@ async function trainingDay() {
                             document.getElementById("yellowCar").style.display = "inline";
                             document.getElementById("yellowCar").style.animationPlayState = "running";
                             setTimeout(startIntervalTrainingDay, 800);
-                            document.getElementById("redButton").addEventListener("click", () => {
+                            document.getElementById("redButton").addEventListener("touchstart", () => {
                                 red_yellow = true;
                             });
-                            document.getElementById("blueButton").addEventListener("click", () => {
+                            document.getElementById("blueButton").addEventListener("touchstart", () => {
                                 blue_yellow = true;
                                 setTimeout(() => {
                                     yellowPress();
