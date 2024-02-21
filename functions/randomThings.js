@@ -6,40 +6,40 @@ function randColor() { // 1 or 0 - random choice of car color
     let car = colorArry[Math.floor(Math.random() * colorArry.length)]
     if (car == 0) {
         blueChoice.push(new Date().getTime() - milliseconds);
-        allChoices.push(new Date().getTime() - milliseconds);
+        // allChoices.push(new Date().getTime() - milliseconds);
     } else {
         redChoice.push(new Date().getTime() - milliseconds);
-        allChoices.push(new Date().getTime() - milliseconds);
+        // allChoices.push(new Date().getTime() - milliseconds);
     }
     return car
 };
-// // Random car choise yellow test:
+// Random car choise yellow test:
 // function randColorYellow() { // 2 or 1 or 0
 //     const colorArry = [0, 1, 2];
 //     let car = colorArry[Math.floor(Math.random() * colorArry.length)];
 //     if (car == 0) {
-//         redChoiceYellow.push(new Date().getTime() - milliseconds);
+//         blueChoiceYellow.push(new Date().getTime() - milliseconds);
 //     } else if (car == 1) {
-//         blueChoiceYellow.push(new Date().getTime() - milliseconds)
+//         redChoiceYellow.push(new Date().getTime() - milliseconds)
 //     } else {
 //         yellowChoiceYellow.push(new Date().getTime() - milliseconds)
 //     }
-//     allChoicesYellow.push(new Date().getTime() - milliseconds);
+//     // allChoicesYellow.push(new Date().getTime() - milliseconds);
 //     return car
 // };
 
 // Random car choise buttons test:
-function randColorButtons() { // 2 or 1 or 0
-    const colorArry = [0, 1];
-    let car = colorArry[Math.floor(Math.random() * colorArry.length)];
-    if (car == 0) {
-        redChoiceButtons.push(new Date().getTime() - milliseconds);
-    } else {
-        blueChoiceButtons.push(new Date().getTime() - milliseconds)
-    }
-    allChoicesButtons.push(new Date().getTime() - milliseconds);
-    return car
-};
+// function randColorButtons() { // 2 or 1 or 0
+//     const colorArry = [0, 1];
+//     let car = colorArry[Math.floor(Math.random() * colorArry.length)];
+//     if (car == 0) {
+//         blueChoiceButtons.push(new Date().getTime() - milliseconds);
+//     } else {
+//        redChoiceButtons.push(new Date().getTime() - milliseconds)
+//     }
+//     allChoicesButtons.push(new Date().getTime() - milliseconds);
+//     return car
+// };
 
 
 // Random car choise star test:
@@ -51,7 +51,7 @@ function randColorStar() {
     } else {
         redChoiceStar.push(new Date().getTime() - milliseconds)
     }
-    allChoicesStar.push(new Date().getTime() - milliseconds);
+    // allChoicesStar.push(new Date().getTime() - milliseconds);
     return car
 };
 
@@ -64,7 +64,7 @@ function randColorDev() {
     } else {
         redChoiceDev.push(new Date().getTime() - milliseconds)
     }
-    allChoicesDev.push(new Date().getTime() - milliseconds);
+    // allChoicesDev.push(new Date().getTime() - milliseconds);
     return car
 };
 

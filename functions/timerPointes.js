@@ -333,7 +333,7 @@ const allChoicesStar = [];
 const allStars = [];
 const howManyStars = [];
 
-// const correctFirstRedPressYellow = [];
+const correctYellowPress = [];
 // const correctFirstBluePressYellow = [];
 // const correctRedPressYellow = [];
 // const correctBluePressYellow = [];

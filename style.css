@@ -237,7 +237,7 @@
     animation-play-state: paused;
     position: absolute;
     animation-name: yellowCarMoving;
-    animation-duration: 0.85s;
+    animation-duration: 0.7s;
     animation-fill-mode: backwards;
     animation-iteration-count: infinite;
     display: none;
