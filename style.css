@@ -4,6 +4,11 @@
         display: none;
     }
 } */
+body {
+    overscroll-behavior-y: contain;
+    overscroll-behavior-y: none;
+    overflow-anchor: none;
+}
 
 #startButton {
     position: absolute;
