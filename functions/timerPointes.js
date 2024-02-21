@@ -188,10 +188,12 @@ function updateDates() {
 const todayHeb = ":היום הרווחת";
 const redCoinsHeb = ":נקודות אדומות";
 const blueCoinsHeb = ":נקודות כחולות";
+const yellowCoinsHeb = ":נקודות צהובות";
 const seeYouTomorrowHeb = "(:!נתראה מחר";
 const gameOverHeb = "!המשחק הסתיים";
 const totWinsBlueHeb = ":סה״כ נקודות כחולות שנצברו";
 const totWinsRedHeb = ":סה״כ נקודות אדומות שנצברו";
+const totWinsYellowHeb = ":סה״כ נקודות צהובות שנצברו";
 const thanksForPlayingHeb = "!תודה ששיחקתם";
 const contectUsHeb = "אנא פנו אלינו במייל";
 
@@ -202,6 +204,7 @@ function showWinningsEnd(sum) {
     document.getElementById("gameOver").innerHTML = gameOverHeb;
     document.getElementById("totWinsBlue").innerHTML = sum.blueSum + " " + totWinsBlueHeb;
     document.getElementById("totWinsRed").innerHTML = sum.redSum + " " + totWinsRedHeb;
+    document.getElementById("totWinsYellow").innerHTML = sum.redSum + " " + totWinsYellowHeb;
     document.getElementById("thanksForPlaying").innerHTML = thanksForPlayingHeb;
     document.getElementById("contectUs").innerHTML = contectUsHeb;
 }
@@ -210,12 +213,14 @@ function showWinnings() {
 
     let redWinsLength = correctFirstRedPress.length + correctFirstRedPressButtons.length + correctFirstRedPressStar.length; //+ correctRedPressDevtest.length
     let blueWinsLength = correctFirstBluePress.length + correctFirstBluePressStar.length + correctFirstBluePressButtons.length; //+ correctBluePressDevtest.length
+    let yellowWinsLength = correctFirstYellowPress.length + correctFirstYellowPressStar.length + correctFirstYellowPressButtons.length; //+ correctBluePressDevtest.length
     document.getElementById("blueButton").style.display = "none";
     document.getElementById("redButton").style.display = "none";
     document.getElementById("endOfDayMessage").style.display = "inline";
     document.getElementById("todayWins").innerHTML = todayHeb;
     document.getElementById("redWins").innerHTML = redWinsLength + " " + redCoinsHeb;
     document.getElementById("blueWins").innerHTML = blueWinsLength + " " + blueCoinsHeb;
+    document.getElementById("yellowWins").innerHTML = yellowWinsLength + " " + yellowCoinsHeb;
     document.getElementById("seeYouTomorrow").innerHTML = seeYouTomorrowHeb;
 }
 
@@ -224,6 +229,7 @@ function hideWinnings() {
     document.getElementById("todayWins").innerHTML = "";
     document.getElementById("redWins").innerHTML = "";
     document.getElementById("blueWins").innerHTML = "";
+    document.getElementById("yellowWins").innerHTML = "";
     document.getElementById("seeYouTomorrow").innerHTML = "";
 }
 function hideWinningsEnd() {
@@ -231,6 +237,7 @@ function hideWinningsEnd() {
     document.getElementById("gameOver").innerHTML = "";
     document.getElementById("totWinsBlue").innerHTML = "";
     document.getElementById("totWinsRed").innerHTML = "";
+    document.getElementById("totWinsYellow").innerHTML = "";
     document.getElementById("thanksForPlaying").innerHTML = "";
     document.getElementById("contectUs").innerHTML = "";
 }
