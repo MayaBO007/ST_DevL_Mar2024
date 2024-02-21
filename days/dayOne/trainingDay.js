@@ -37,7 +37,11 @@ document.addEventListener('contextmenu', event => {
     event.preventDefault();
 });
 
-
+async function yellowPress() {
+    if (red_yellow && blue_yellow) {
+        correctYellowPress.push(new Date().getTime() - milliseconds);
+    }
+}
 
 
 let saveAttemptTraining = 0;
@@ -74,13 +78,15 @@ async function trainingDay() {
                             setTimeout(startIntervalTrainingDay, 800);
                             document.getElementById("redButton").addEventListener("click", () => {
                                 red_yellow = true;
+                                setTimeout(() => {
+                                    yellowPress();
+                                }, 100);
                             });
                             document.getElementById("blueButton").addEventListener("click", () => {
                                 blue_yellow = true;
-                            }).then(() => {
-                                if (red_yellow && blue_yellow) {
-                                    correctYellowPress.push(new Date().getTime() - milliseconds);
-                                }
+                                setTimeout(() => {
+                                    yellowPress();
+                                }, 100);
                             });
                             platform.saveSession(responsesTrainingData, false);
                             setTimeout(() => {
