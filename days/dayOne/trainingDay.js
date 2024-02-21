@@ -21,10 +21,10 @@ var blueElement = document.getElementById("blueButton");
 let red_yellow = false;
 let blue_yellow = false;
 
-document.getElementById("redButton").addEventListener("click", function () {
+document.getElementById("redButton").addEventListener("touchstart", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
 });
-document.getElementById("blueButton").addEventListener("click", function () {
+document.getElementById("blueButton").addEventListener("touchstart", function () {
     allBluePresses.push(new Date().getTime() - milliseconds);
 });
 redElement.addEventListener("contextmenu", function (event) {
@@ -91,6 +91,15 @@ async function trainingDay() {
                                 count = 0;
                                 red_yellow = false;
                                 blue_yellow = false;
+                                document.removeEventListener("touchstart", () => {
+                                    red_yellow = true;
+                                });
+                                document.removeEventListener("touchstart", () => {
+                                    blue_yellow = true;
+                                    setTimeout(() => {
+                                        yellowPress();
+                                    }, 100);
+                                });
                             }, 800);
                         } else {
                             count++;
@@ -105,7 +114,7 @@ async function trainingDay() {
                                 document.getElementById("redButton").onclick = function () {
                                     correctFirstRedPress.push(new Date().getTime() - milliseconds);
                                     // allCorrectTrainingPress.push(new Date().getTime() - milliseconds);
-                                    document.getElementById("redButton").addEventListener("click", function () {
+                                    document.getElementById("redButton").addEventListener("touchstart", function () {
                                         correctRedPress.push(new Date().getTime() - milliseconds);
                                     });
                                 };
@@ -127,7 +136,7 @@ async function trainingDay() {
                                 document.getElementById("blueButton").onclick = function () {
                                     correctFirstBluePress.push(new Date().getTime() - milliseconds);
                                     // allCorrectTrainingPress.push(new Date().getTime() - milliseconds);
-                                    document.getElementById("blueButton").addEventListener("click", function () {
+                                    document.getElementById("blueButton").addEventListener("touchstart", function () {
                                         correctBluePress.push(new Date().getTime() - milliseconds);
                                     });
                                 };
