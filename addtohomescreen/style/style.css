@@ -5,6 +5,9 @@
 	}
 } */
 body {
+	overscroll-behavior-y: contain;
+	overscroll-behavior-y: none;
+	overflow-anchor: none;
 	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
