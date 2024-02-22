@@ -9,7 +9,7 @@ body {
 }
 
 #startImage {
-	background-image: src="../pics/moveToApp.png";
+	background-image: src="../../pics/moveToApp.png";
 	left: 0%;
 	top: 0%;
 	width: 100%;
