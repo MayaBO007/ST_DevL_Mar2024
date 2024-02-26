@@ -21,53 +21,53 @@ var blueElement = document.getElementById("blueButton");
 let red_yellow = false;
 let blue_yellow = false;
 
-class ButtonManager extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            redButtonPressed: false,
-            blueButtonPressed: false
-        };
-    }
+// class ButtonManager extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             redButtonPressed: false,
+//             blueButtonPressed: false
+//         };
+//     }
 
-    handleRedButtonPress = () => {
-        this.setState({ redButtonPressed: true });
-        setTimeout(() => {
-            this.setState({ redButtonPressed: false });
-        }, 100); // Adjust the timeout value as needed
-    };
+//     handleRedButtonPress = () => {
+//         this.setState({ redButtonPressed: true });
+//         setTimeout(() => {
+//             this.setState({ redButtonPressed: false });
+//         }, 100); // Adjust the timeout value as needed
+//     };
 
-    handleBlueButtonPress = () => {
-        this.setState({ blueButtonPressed: true });
-        setTimeout(() => {
-            this.setState({ blueButtonPressed: false });
-        }, 100); // Adjust the timeout value as needed
-    };
+//     handleBlueButtonPress = () => {
+//         this.setState({ blueButtonPressed: true });
+//         setTimeout(() => {
+//             this.setState({ blueButtonPressed: false });
+//         }, 100); // Adjust the timeout value as needed
+//     };
 
-    render() {
-        const { redButtonPressed, blueButtonPressed } = this.state;
-        return (
-            <div>
-                <button
-                    id="redButton"
-                    onTouchStart={this.handleRedButtonPress}
-                    className={redButtonPressed ? "red-button active" : "red-button"}
-                >
-                    Red Button
-                </button>
-                <button
-                    id="blueButton"
-                    onTouchStart={this.handleBlueButtonPress}
-                    className={blueButtonPressed ? "blue-button active" : "blue-button"}
-                >
-                    Blue Button
-                </button>
-            </div>
-        );
-    }
-}
+//     render() {
+//         const { redButtonPressed, blueButtonPressed } = this.state;
+//         return (
+//             <div>
+//                 <button
+//                     id="redButton"
+//                     onTouchStart={this.handleRedButtonPress}
+//                     className={redButtonPressed ? "red-button active" : "red-button"}
+//                 >
+//                     Red Button
+//                 </button>
+//                 <button
+//                     id="blueButton"
+//                     onTouchStart={this.handleBlueButtonPress}
+//                     className={blueButtonPressed ? "blue-button active" : "blue-button"}
+//                 >
+//                     Blue Button
+//                 </button>
+//             </div>
+//         );
+//     }
+// }
 
-export default ButtonManager;
+// export default ButtonManager;
 
 
 document.getElementById("redButton").addEventListener("touchstart", function () {
