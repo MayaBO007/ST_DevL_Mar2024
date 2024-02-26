@@ -5,11 +5,14 @@
 	}
 } */
 body {
+	overscroll-behavior-y: contain;
+	overscroll-behavior-y: none;
+	overflow-anchor: none;
 	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 #startImage {
-	background-image: src="pics/moveToApp.png";
+	background-image: src="../../pics/moveToApp.png";
 	left: 0%;
 	top: 0%;
 	width: 100%;
@@ -18,7 +21,7 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: absolute;
-	display: none;
+	display: inline;
 }
 
 #installIns {
@@ -217,9 +220,9 @@ body {
 #loading_lan {
 	background: lightblue;
 	border-radius: 50%;
-	width: 12vh;
-	height: 12vh;
-	left: 50vw;
+	width: 20vh;
+	height: 20vh;
+	left: 45vw;
 	top: 65%;
 	display: none;
 	z-index: 999;
