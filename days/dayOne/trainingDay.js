@@ -21,8 +21,6 @@ var blueElement = document.getElementById("blueButton");
 let red_yellow = false;
 let blue_yellow = false;
 
-import React from 'react';
-
 class ButtonManager extends React.Component {
     constructor(props) {
         super(props);
