@@ -133,6 +133,59 @@
                 <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
                 <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
                 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+                <script type="text/babel">
+                        // Your React component code goes here
+                        class ButtonManager extends React.Component {
+                                constructor(props) {
+                                        super(props);
+                                        this.state = {
+                                                redButtonPressed: false,
+                                                blueButtonPressed: false
+                                        };
+                                }
+
+                                handleRedButtonPress = () => {
+                                        this.setState({ redButtonPressed: true });
+                                        setTimeout(() => {
+                                                this.setState({ redButtonPressed: false });
+                                        }, 100); // Adjust the timeout value as needed
+                                };
+
+                                handleBlueButtonPress = () => {
+                                        this.setState({ blueButtonPressed: true });
+                                        setTimeout(() => {
+                                                this.setState({ blueButtonPressed: false });
+                                        }, 100); // Adjust the timeout value as needed
+                                };
+
+                                render() {
+                                        const { redButtonPressed, blueButtonPressed } = this.state;
+                                        return (
+                                                <div>
+                                                        <button
+                                                                id="redButton"
+                                                                onTouchStart={this.handleRedButtonPress}
+                                                                className={redButtonPressed ? "red-button active" : "red-button"}
+                                                        >
+                                                                Red Button
+                                                        </button>
+                                                        <button
+                                                                id="blueButton"
+                                                                onTouchStart={this.handleBlueButtonPress}
+                                                                className={blueButtonPressed ? "blue-button active" : "blue-button"}
+                                                        >
+                                                                Blue Button
+                                                        </button>
+                                                </div>
+                                        );
+                                }
+                        }
+
+                        ReactDOM.render(
+                                <ButtonManager />,
+                                document.getElementById('button-manager')
+                        );
+                </script>
                 <script src="../../functions/randomThings.js"></script>
                 <script src="../../functions/timerPointes.js"></script>
                 <script src="../../functions/restAllFunctions.js"></script>
