@@ -55,14 +55,14 @@ class ButtonManager extends React.Component {
                 <button
                     id="redButton"
                     onTouchStart={this.handleRedButtonPress}
-                    className={redButtonPressed ? "red-button active" : "red-button"}
+                    className={redButtonPressed ? "redButton active" : "redButton"}
                 >
                     Red Button
                 </button>
                 <button
                     id="blueButton"
                     onTouchStart={this.handleBlueButtonPress}
-                    className={blueButtonPressed ? "blue-button active" : "blue-button"}
+                    className={blueButtonPressed ? "blueButton active" : "blueButton"}
                 >
                     Blue Button
                 </button>

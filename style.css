@@ -163,8 +163,8 @@ body {
     transform: translateY(10px);
 } */
 
-.red-button,
-.blue-button {
+.redButton,
+.blueButton {
     position: absolute;
     width: 20%;
     height: 34%;
@@ -175,18 +175,18 @@ body {
     -webkit-user-select: none;
 }
 
-.red-button {
+.redButton {
     left: 0%;
     top: 35%;
 }
 
-.blue-button {
+.blueButton {
     left: 80%;
     top: 35%;
 }
 
-.red-button.active,
-.blue-button.active {
+.redButton.active,
+.blueButton.active {
     -webkit-transform: translateY(10px);
     transform: translateY(10px);
 }
