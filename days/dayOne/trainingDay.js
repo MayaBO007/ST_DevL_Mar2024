@@ -1,4 +1,4 @@
-import { GestureDetector, Gesture } from 'react-native-gesture-handler';
+// import { GestureDetector, Gesture } from 'react-native-gesture-handler';
 import React from 'react';
 
 const responsesTrainingData = {
