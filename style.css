@@ -122,7 +122,7 @@ body {
     transform: translateY(4px);
 } */
 
-/* #redButton {
+#redButton {
     position: absolute;
     left: 0%;
     top: 35%;
@@ -161,10 +161,10 @@ body {
 #blueButton:active {
     -webkit-transform: translateY(10px);
     transform: translateY(10px);
-} */
+}
 
-.redButton,
-.blueButton {
+.red-button,
+.blue-button {
     position: absolute;
     width: 20%;
     height: 34%;
@@ -175,21 +175,22 @@ body {
     -webkit-user-select: none;
 }
 
-.redButton {
+.red-button {
     left: 0%;
     top: 35%;
 }
 
-.blueButton {
+.blue-button {
     left: 80%;
     top: 35%;
 }
 
-.redButton.active,
-.blueButton.active {
+.red-button.active,
+.blue-button.active {
     -webkit-transform: translateY(10px);
     transform: translateY(10px);
 }
+
 
 #gameScreen {
     /*background-image: url('road2.png'), url("desert.png");*/
