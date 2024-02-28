@@ -163,34 +163,6 @@ body {
     transform: translateY(10px);
 }
 
-.red-button,
-.blue-button {
-    position: absolute;
-    width: 20%;
-    height: 34%;
-    border: none;
-    color: none;
-    background-color: transparent;
-    user-select: none;
-    -webkit-user-select: none;
-}
-
-.red-button {
-    left: 0%;
-    top: 35%;
-}
-
-.blue-button {
-    left: 80%;
-    top: 35%;
-}
-
-.red-button.active,
-.blue-button.active {
-    -webkit-transform: translateY(10px);
-    transform: translateY(10px);
-}
-
 
 #gameScreen {
     /*background-image: url('road2.png'), url("desert.png");*/
