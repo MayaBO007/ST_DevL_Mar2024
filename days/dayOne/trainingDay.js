@@ -41,6 +41,8 @@ document.addEventListener('contextmenu', event => {
 function yellowPress() {
     if (red_yellow && blue_yellow) {
         correctYellowPress.push(new Date().getTime() - milliseconds);
+        red_yellow = false;
+        blue_yellow = false;
     }
 }
 
@@ -51,7 +53,6 @@ let count = 0; // counter for iterations
 let buttonChoice = null;
 let sessionInterval = null;
 let startGame = null;
-platform.saveSession(responsesTrainingData, true)
 
 async function trainingDay() {
     return new Promise(resolve => {
@@ -76,31 +77,20 @@ async function trainingDay() {
                             clearInterval(sessionIntervalTrainingDay);
                             document.getElementById("yellowCar").style.display = "inline";
                             document.getElementById("yellowCar").style.animationPlayState = "running";
-                            setTimeout(startIntervalTrainingDay, 800);
-                            document.getElementById("redButton").addEventListener("pointerdown", () => {
+                            platform.saveSession(responsesTrainingData, false);
+                            document.getElementById("redButton").removeEventListener("click", () => {
                                 red_yellow = true;
                             });
-                            document.getElementById("blueButton").addEventListener("pointerdown", () => {
+                            document.getElementById("blueButton").removeEventListener("touchstart", () => {
                                 blue_yellow = true;
                                 setTimeout(() => {
                                     yellowPress();
                                 }, 100);
                             });
-                            platform.saveSession(responsesTrainingData, false);
                             setTimeout(() => {
+                                startIntervalTrainingDay();
                                 reset_yellowCar();
                                 count = 0;
-                                red_yellow = false;
-                                blue_yellow = false;
-                                document.getElementById("redButton").removeEventListener("click", () => {
-                                    red_yellow = true;
-                                });
-                                document.getElementById("blueButton").removeEventListener("touchstart", () => {
-                                    blue_yellow = true;
-                                    setTimeout(() => {
-                                        yellowPress();
-                                    }, 100);
-                                });
                             }, 800);
                         } else {
                             count++;
