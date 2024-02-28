@@ -246,6 +246,7 @@ body {
     left: 48%;
     top: 130%;
     animation-play-state: paused;
+    position: absolute;
     animation-name: yellowCarMoving;
     animation-duration: 0.7s;
     animation-fill-mode: backwards;
