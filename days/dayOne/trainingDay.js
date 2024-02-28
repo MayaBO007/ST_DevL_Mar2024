@@ -24,9 +24,17 @@ let blue_yellow = false;
 
 redElement.addEventListener("click", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
+    this.classList.add('clicked');
+    setTimeout(() => {
+        this.classList.remove('clicked');
+    }, 100); // Adjust the delay as nee
 });
 blueElement.addEventListener("touchstart", function () {
     allBluePresses.push(new Date().getTime() - milliseconds);
+    this.classList.add('clicked');
+    setTimeout(() => {
+        this.classList.remove('clicked');
+    }, 100); // Adjust the delay as nee
 });
 redElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
