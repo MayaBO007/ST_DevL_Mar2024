@@ -78,10 +78,10 @@ async function trainingDay() {
                             document.getElementById("yellowCar").style.display = "inline";
                             document.getElementById("yellowCar").style.animationPlayState = "running";
                             platform.saveSession(responsesTrainingData, false);
-                            document.getElementById("redButton").removeEventListener("click", () => {
+                            document.getElementById("redButton").addEventListener("click", () => {
                                 red_yellow = true;
                             });
-                            document.getElementById("blueButton").removeEventListener("touchstart", () => {
+                            document.getElementById("blueButton").addEventListener("touchstart", () => {
                                 blue_yellow = true;
                                 setTimeout(() => {
                                     yellowPress();
@@ -91,6 +91,15 @@ async function trainingDay() {
                                 startIntervalTrainingDay();
                                 reset_yellowCar();
                                 count = 0;
+                                document.getElementById("redButton").removeEventListener("click", () => {
+                                    red_yellow = true;
+                                });
+                                document.getElementById("blueButton").removeEventListener("touchstart", () => {
+                                    blue_yellow = true;
+                                    setTimeout(() => {
+                                        yellowPress();
+                                    }, 100);
+                                });
                             }, 800);
                         } else {
                             count++;
