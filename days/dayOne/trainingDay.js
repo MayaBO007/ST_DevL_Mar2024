@@ -46,7 +46,6 @@ function yellowPress() {
     }
 }
 
-
 let saveAttemptTraining = 0;
 let count = 0; // counter for iterations
 // 1=red, 2=blue buttons
@@ -80,22 +79,16 @@ async function trainingDay() {
                             platform.saveSession(responsesTrainingData, false);
                             redElement.click();
                             blueElement.click();
-                            redElement.addEventListener("click", () => {
+                            redElement.onclick = () => {
                                 red_yellow = true;
-                            });
-                            blueElement.addEventListener("touchstart", () => {
+                            };
+                            blueElement.onclick = () => {
                                 blue_yellow = true;
-                            });
+                            };
                             setTimeout(() => {
                                 startIntervalTrainingDay();
                                 reset_yellowCar();
                                 count = 0;
-                                redElement.removeEventListener("click", () => {
-                                    red_yellow = true;
-                                });
-                                blueElement.removeEventListener("touchstart", () => {
-                                    blue_yellow = true;
-                                });
                                 yellowPress();
                             }, 800);
                         } else {

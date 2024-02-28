@@ -136,13 +136,8 @@ body {
     -webkit-user-select: none;
 }
 
-#redButton.pressed {
-    animation: pulse-animation 1s infinite alternate;
-}
-
 #redButton:active {
     -webkit-transform: translateY(10px);
-    -moz-transform: translateY(10px);
     transform: translateY(10px);
 
 }
@@ -159,10 +154,6 @@ body {
     display: none;
     user-select: none;
     -webkit-user-select: none;
-}
-
-#blueButton.pressed {
-    animation: pulse-animation 1s infinite alternate;
 }
 
 #blueButton:active {
