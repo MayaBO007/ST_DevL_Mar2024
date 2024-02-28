@@ -134,6 +134,8 @@ body {
     display: none;
     user-select: none;
     -webkit-user-select: none;
+    animation-duration: 0.3s;
+
 }
 
 #redButton:active {
@@ -154,6 +156,8 @@ body {
     display: none;
     user-select: none;
     -webkit-user-select: none;
+    animation-duration: 0.3s;
+
 }
 
 #blueButton:active {
@@ -242,7 +246,6 @@ body {
     left: 48%;
     top: 130%;
     animation-play-state: paused;
-    position: absolute;
     animation-name: yellowCarMoving;
     animation-duration: 0.7s;
     animation-fill-mode: backwards;
