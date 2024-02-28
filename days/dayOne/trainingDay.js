@@ -78,28 +78,23 @@ async function trainingDay() {
                             document.getElementById("yellowCar").style.display = "inline";
                             document.getElementById("yellowCar").style.animationPlayState = "running";
                             platform.saveSession(responsesTrainingData, false);
-                            document.getElementById("redButton").addEventListener("click", () => {
+                            redElement.addEventListener("click", () => {
                                 red_yellow = true;
                             });
-                            document.getElementById("blueButton").addEventListener("touchstart", () => {
+                            blueElement.addEventListener("touchstart", () => {
                                 blue_yellow = true;
-                                setTimeout(() => {
-                                    yellowPress();
-                                }, 100);
                             });
                             setTimeout(() => {
                                 startIntervalTrainingDay();
                                 reset_yellowCar();
                                 count = 0;
-                                document.getElementById("redButton").removeEventListener("click", () => {
+                                redElement.removeEventListener("click", () => {
                                     red_yellow = true;
                                 });
-                                document.getElementById("blueButton").removeEventListener("touchstart", () => {
+                                blueElement.removeEventListener("touchstart", () => {
                                     blue_yellow = true;
-                                    setTimeout(() => {
-                                        yellowPress();
-                                    }, 100);
                                 });
+                                yellowPress();
                             }, 800);
                         } else {
                             count++;
