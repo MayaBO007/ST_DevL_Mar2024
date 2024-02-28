@@ -78,6 +78,8 @@ async function trainingDay() {
                             document.getElementById("yellowCar").style.display = "inline";
                             document.getElementById("yellowCar").style.animationPlayState = "running";
                             platform.saveSession(responsesTrainingData, false);
+                            redElement.click();
+                            blueElement.click();
                             redElement.addEventListener("click", () => {
                                 red_yellow = true;
                             });
