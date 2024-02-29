@@ -151,6 +151,7 @@
                 const startDate = getStartDate();
 
 
+
         </script>
         <div>
                 <script src="../functions/timerPointes.js"></script>
@@ -159,6 +160,7 @@
                 <script src="../dayOrganizer.js"></script>
                 <script src="instructions.js"></script>
                 <script src="Demo.js"></script>
+                <script src="findDevice.js"></script>
                 <script src="instOrder.js"></script>
                 <!-- <script src="../ET_BL/dayOne/firstDay.js"></script>
                 <script src="../ET_BL/dayThree/gameInterval2Tests.js"></script>
@@ -177,7 +179,8 @@
                 document.addEventListener("contextmenu", function (event) {
                         event.preventDefault();
                 });
-
+                const userAgent = navigator.userAgent;
+                const userDevice = extractDeviceName(userAgent);
                 timeline();
 
         </script>

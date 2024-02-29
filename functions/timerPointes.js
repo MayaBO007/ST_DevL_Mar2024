@@ -150,6 +150,7 @@ function timeToWait() {
 
 let studySessionData = {
     startDate: "",
+    userDevice: "",
     doneInstructions: "",
     doneDay1: "",
     doneDay2: "",
