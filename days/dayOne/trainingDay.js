@@ -33,8 +33,9 @@ redElement.addEventListener("click", function () {
 });
 blueElement.addEventListener("touchstart", function () {
     allBluePresses.push(new Date().getTime() - milliseconds);
+    blueElement.style.transform = "translateY(10px)";
+    blueElement.style.webkitTransform = "translateY(10px)";
     setTimeout(() => {
-        // blueElement.style.transform = "translateY(0px)";
         blueElement.style.transform = "initial";
     }, 100); // Adjust the delay as nee
 
