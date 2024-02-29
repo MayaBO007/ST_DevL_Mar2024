@@ -24,15 +24,15 @@ let blue_yellow = false;
 
 redElement.addEventListener("click", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
-    setTimeout(() => {
-        redElement.style.transform = "translateY(0px)";
-    }, 200); // Adjust the delay as nee
+    // setTimeout(() => {
+    //     redElement.style.transform = "translateY(0px)";
+    // }, 200); // Adjust the delay as nee
 });
 blueElement.addEventListener("touchstart", function () {
     allBluePresses.push(new Date().getTime() - milliseconds);
-    setTimeout(() => {
-        blueElement.style.transform = "translateY(0px)";
-    }, 200); // Adjust the delay as nee
+    // setTimeout(() => {
+    //     blueElement.style.transform = "translateY(0px)";
+    // }, 200); // Adjust the delay as nee
 });
 redElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
