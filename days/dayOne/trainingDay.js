@@ -85,13 +85,13 @@ async function trainingDay() {
                             document.getElementById("yellowCar").style.display = "inline";
                             document.getElementById("yellowCar").style.animationPlayState = "running";
                             platform.saveSession(responsesTrainingData, false);
-                            redElement.click();
-                            blueElement.click();
                             redElement.onclick = () => {
                                 red_yellow = true;
+                                redElement.style.transform = "translateY(0px)";
                             };
                             blueElement.onclick = () => {
                                 blue_yellow = true;
+                                blueElement.style.transform = "translateY(0px)";
                             };
                             setTimeout(() => {
                                 startIntervalTrainingDay();
