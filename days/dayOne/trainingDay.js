@@ -26,14 +26,14 @@ let blue_yellow = false;
 redElement.addEventListener("click", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
     setTimeout(() => {
-        redElement.style.transform = "translateY(0px)";
+        // redElement.style.transform = "translateY(0px)";
         redElement.style.transform = "initial";
     }, 100); // Adjust the delay as needed
 });
 blueElement.addEventListener("touchstart", function () {
     allBluePresses.push(new Date().getTime() - milliseconds);
     setTimeout(() => {
-        blueElement.style.transform = "translateY(0px)";
+        // blueElement.style.transform = "translateY(0px)";
         blueElement.style.transform = "initial";
     }, 100); // Adjust the delay as nee
 
