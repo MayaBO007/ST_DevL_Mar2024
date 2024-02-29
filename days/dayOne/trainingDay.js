@@ -10,6 +10,7 @@ const responsesTrainingData = {
     incorrectBluePress: incorrectBluePress,
     redChoice: redChoice,
     blueChoice: blueChoice,
+    yellowChoice: yellowChoice,
     allRedPresses: allRedPresses,
     allBluePresses: allBluePresses,
     // allCorrectTrainingPress: allCorrectTrainingPress,
@@ -24,15 +25,18 @@ let blue_yellow = false;
 
 redElement.addEventListener("click", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
-    // setTimeout(() => {
-    //     redElement.style.transform = "translateY(0px)";
-    // }, 200); // Adjust the delay as nee
+    setTimeout(() => {
+        redElement.style.transform = "translateY(0px)";
+        redElement.style.transform = "initial";
+    }, 100); // Adjust the delay as needed
 });
 blueElement.addEventListener("touchstart", function () {
     allBluePresses.push(new Date().getTime() - milliseconds);
-    // setTimeout(() => {
-    //     blueElement.style.transform = "translateY(0px)";
-    // }, 200); // Adjust the delay as nee
+    setTimeout(() => {
+        blueElement.style.transform = "translateY(0px)";
+        blueElement.style.transform = "initial";
+    }, 100); // Adjust the delay as nee
+
 });
 redElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
@@ -82,6 +86,7 @@ async function trainingDay() {
                             clearInterval(sessionIntervalTrainingDay);
                             document.getElementById("yellowCar").style.display = "inline";
                             document.getElementById("yellowCar").style.animationPlayState = "running";
+                            yellowChoice.push(new Date().getTime() - milliseconds);
                             platform.saveSession(responsesTrainingData, false);
                             redElement.onclick = () => {
                                 red_yellow = true;
