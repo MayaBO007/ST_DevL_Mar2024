@@ -25,10 +25,10 @@ let blue_yellow = false;
 
 redElement.addEventListener("click", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
+    redElement.style.transform = "translateY(10px)";
+    redElement.style.webkitTransform = "translateY(10px)";
     setTimeout(() => {
         redElement.style.transform = "initial";
-        // redElement.style.-webkit-transform = "translateY(10px)";
-        redElement.style.transform = "translateY(10px)";
     }, 100); // Adjust the delay as needed
 });
 blueElement.addEventListener("touchstart", function () {
