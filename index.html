@@ -279,6 +279,7 @@
 
     <script>
         // check if the app is instalabe:
+        const userDevice = extractDeviceName(userAgent);
         let installable = true;
         if (!('serviceWorker' in navigator)) {
             installable = false;
