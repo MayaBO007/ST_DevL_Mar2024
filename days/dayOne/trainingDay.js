@@ -26,13 +26,13 @@ redElement.addEventListener("click", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
     setTimeout(() => {
         redElement.style.transform = "translateY(0px)";
-    }, 100); // Adjust the delay as nee
+    }, 200); // Adjust the delay as nee
 });
 blueElement.addEventListener("touchstart", function () {
     allBluePresses.push(new Date().getTime() - milliseconds);
     setTimeout(() => {
         blueElement.style.transform = "translateY(0px)";
-    }, 100); // Adjust the delay as nee
+    }, 200); // Adjust the delay as nee
 });
 redElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
@@ -85,11 +85,9 @@ async function trainingDay() {
                             platform.saveSession(responsesTrainingData, false);
                             redElement.onclick = () => {
                                 red_yellow = true;
-                                redElement.style.transform = "translateY(0px)";
                             };
                             blueElement.onclick = () => {
                                 blue_yellow = true;
-                                blueElement.style.transform = "translateY(0px)";
                             };
                             setTimeout(() => {
                                 startIntervalTrainingDay();
