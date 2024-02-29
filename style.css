@@ -134,7 +134,7 @@ body {
     display: none;
     user-select: none;
     -webkit-user-select: none;
-    animation-duration: 0.3s;
+    /* animation-duration: 0.3s; */
 
 }
 
