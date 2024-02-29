@@ -23,7 +23,7 @@ let red_yellow = false;
 let blue_yellow = false;
 
 
-redElement.addEventListener("click", function () {
+redElement.addEventListener("touchstart", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
     redElement.style.transform = "translateY(10px)";
     redElement.style.webkitTransform = "translateY(10px)";
