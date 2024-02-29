@@ -90,17 +90,23 @@ async function trainingDay() {
                             document.getElementById("yellowCar").style.animationPlayState = "running";
                             yellowChoice.push(new Date().getTime() - milliseconds);
                             platform.saveSession(responsesTrainingData, false);
-                            redElement.onclick = () => {
+                            redElement.addEventListener("click", function () {
                                 red_yellow = true;
-                            };
-                            blueElement.onclick = () => {
+                            });
+                            blueElement.addEventListener("click", function () {
                                 blue_yellow = true;
-                            };
+                            });
                             setTimeout(() => {
                                 startIntervalTrainingDay();
                                 reset_yellowCar();
                                 count = 0;
                                 yellowPress();
+                                redElement.removeEventListener("click", function () {
+                                    red_yellow = true;
+                                });
+                                blueElement.removeEventListener("click", function () {
+                                    blue_yellow = true;
+                                });
                             }, 800);
                         } else {
                             count++;
