@@ -24,21 +24,7 @@ function timeline() {
                             }, timeToFive())
                             setTimeout(() => {
                                 hideWinnings();
-                                if (window.matchMedia("(orientation: landscape)").matches) {
-                                    hideWinnings();
-                                    document.getElementById("fiveAM").style.display = "inline";
-                                    window.addEventListener("orientationchange", function () {
-                                        document.getElementById("fiveAM_hor").style.display = "inline";
-                                        document.getElementById("fiveAM").style.display = "none";
-                                    })
-                                } else {
-                                    hideWinnings();
-                                    document.getElementById("fiveAM_hor").style.display = "inline";
-                                    window.addEventListener("orientationchange", function () {
-                                        document.getElementById("fiveAM").style.display = "inline";
-                                        document.getElementById("fiveAM_hor").style.display = "none";
-                                    })
-                                }
+                                fiveAMOrient()
                             }, 10000)
                         })
                     });

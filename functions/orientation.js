@@ -10,7 +10,7 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 } else {
     showOnlyLandscapeMessage()
 }
-window.addEventListener("orientationchange", function (event) {
+screen.orientation.addEventListener("change", function (event) {
     // if ortation is changed from the main landscape mode
     if (window.orientation == 0) { // originally I used this: event.target.screen.orientation.angle - but this does not work on iphones
         showOnlyLandscapeMessage()
@@ -41,4 +41,20 @@ function removeOnlyLandscapeMessage() {
     } else {
         document.getElementById("horizontal").style.display = "none";
     }
+}
+function fiveAMOrient() {
+    if (window.matchMedia("(orientation: landscape)").matches) {
+        document.getElementById("fiveAM").style.display = "inline";
+    } else {
+        document.getElementById("fiveAM_hor").style.display = "inline";
+    }
+    screen.orientation.addEventListener("change", function () {
+        if (screen.orientation.type.startsWith("portrait")) {
+            document.getElementById("fiveAM_hor").style.display = "inline";
+            document.getElementById("fiveAM").style.display = "none";
+        } else {
+            document.getElementById("fiveAM_hor").style.display = "none";
+            document.getElementById("fiveAM").style.display = "inline";
+        }
+    })
 }
