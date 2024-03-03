@@ -212,9 +212,9 @@ function showWinningsEnd(sum) {
 
 function showWinnings() {
 
-    let redWinsLength = correctFirstRedPress.length + correctFirstRedPressButtons.length + correctFirstRedPressStar.length; //+ correctRedPressDevtest.length
-    let blueWinsLength = correctFirstBluePress.length + correctFirstBluePressStar.length + correctFirstBluePressButtons.length; //+ correctBluePressDevtest.length
-    let yellowWinsLength = correctYellowPress.length + correctYellowPressStar.length + correctYellowPressButtons.length; //+ correctBluePressDevtest.length
+    let redWinsLength = correctFirstRedPress.length + correctFirstRedPressStar.length; //+ correctRedPressDevtest.length
+    let blueWinsLength = correctFirstBluePress.length + correctFirstBluePressStar.length; //+ correctBluePressDevtest.length
+    let yellowWinsLength = correctYellowPress.length + correctYellowPressStar.length; //+ correctBluePressDevtest.length
     document.getElementById("blueButton").style.display = "none";
     document.getElementById("redButton").style.display = "none";
     document.getElementById("endOfDayMessage").style.display = "inline";
@@ -330,6 +330,7 @@ const correctFirstRedPressStar = [];
 const correctFirstBluePressStar = [];
 const correctRedPressStar = [];
 const correctBluePressStar = [];
+const correctYellowPressStar = [];
 const incorrectRedPressStar = [];
 const incorrectBluePressStar = [];
 const redChoiceStar = [];
