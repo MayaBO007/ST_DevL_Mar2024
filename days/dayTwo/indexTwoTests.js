@@ -1,6 +1,3 @@
-
-const redElement = document.getElementById("redButton");
-const blueElement = document.getElementById("blueButton");
 let red_yellow = false;
 let blue_yellow = false;
 
