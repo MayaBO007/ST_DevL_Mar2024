@@ -81,7 +81,7 @@ async function startIntervalSpeeds() {
                 });
                 buttonChoice = 0;
                 if (countSpeeds >= randCount) {
-                    clearInterval(sessionIntervalTrainingDay);
+                    clearInterval(sessionIntervalSpeeds);
                     document.getElementById("yellowCar").style.display = "inline";
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoiceSpeeds.push(new Date().getTime() - milliseconds);

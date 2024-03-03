@@ -14,27 +14,47 @@ const responsesTrainingDataThree = {
     allChoices: allChoices
 };
 
-platform.saveSession(responsesTrainingDataThree, true);
 saveAttemptTrainingThree = 0;
+let redElement = document.getElementById("redButton");
+let blueElement = document.getElementById("blueButton");
+let red_yellow = false;
+let blue_yellow = false;
 
 
-
-document.getElementById("redButton").addEventListener("click", function () {
+redElement.addEventListener("touchstart", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
+    redElement.style.transform = "translateY(10px)";
+    redElement.style.webkitTransform = "translateY(10px)";
+    setTimeout(() => {
+        redElement.style.transform = "initial";
+    }, 100); // Adjust the delay as needed
 });
-document.getElementById("blueButton").addEventListener("click", function () {
+blueElement.addEventListener("touchstart", function () {
     allBluePresses.push(new Date().getTime() - milliseconds);
-});
+    blueElement.style.transform = "translateY(10px)";
+    blueElement.style.webkitTransform = "translateY(10px)";
+    setTimeout(() => {
+        blueElement.style.transform = "initial";
+    }, 100); // Adjust the delay as nee
 
-var redElement = document.getElementById("redButton");
-var blueElement = document.getElementById("blueButton");
+});
 redElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 });
 blueElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 });
+document.addEventListener('contextmenu', event => {
+    event.preventDefault();
+});
 
+function yellowPress() {
+    if (red_yellow && blue_yellow) {
+        correctYellowPress.push(new Date().getTime() - milliseconds);
+        red_yellow = false;
+        blue_yellow = false;
+    }
+}
 
 let count = 0; // counter for iterations
 // 1=red, 2=blue buttons
@@ -54,15 +74,37 @@ async function startInterval2Tests() {
                 document.getElementById("redButton").style.display = "inline";
                 document.getElementById("blueButton").style.display = "inline";
                 document.getElementById("gameScreen").style.display = "inline";
-                reset_airplane();
                 buttonChoice = 0;
+                blueElement.removeEventListener("touchstart", function () {
+                    correctBluePress.push(new Date().getTime() - milliseconds);
+                })
+                redElement.removeEventListener("touchstart", function () {
+                    correctRedPress.push(new Date().getTime() - milliseconds);
+                });
                 if (count >= randCount) {
                     clearInterval(sessionInterval2Test);
-                    setTimeout(startInterval2Tests, 2000);
-                    document.getElementById("airplane").style.display = "inline";
-                    document.getElementById("airplane").style.animationPlayState = "running";
+                    document.getElementById("yellowCar").style.display = "inline";
+                    document.getElementById("yellowCar").style.animationPlayState = "running";
+                    yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesTrainingDataThree, false);
-                    count = 0;
+                    redElement.addEventListener("click", function () {
+                        red_yellow = true;
+                    });
+                    blueElement.addEventListener("click", function () {
+                        blue_yellow = true;
+                    });
+                    setTimeout(() => {
+                        sessionInterval2Test();
+                        reset_yellowCar();
+                        count = 0;
+                        yellowPress();
+                        redElement.removeEventListener("click", function () {
+                            red_yellow = true;
+                        });
+                        blueElement.removeEventListener("click", function () {
+                            blue_yellow = true;
+                        });
+                    }, 800);
                 } else {
                     count++;
                     countingCars++;
@@ -165,15 +207,37 @@ async function startInterval2Tests2() {
             function carMove() {
                 let choseCar = randColor();
                 let carSpeed = randSpeedCar();
-                reset_airplane();
                 buttonChoice = 0;
+                blueElement.removeEventListener("touchstart", function () {
+                    correctBluePress.push(new Date().getTime() - milliseconds);
+                })
+                redElement.removeEventListener("touchstart", function () {
+                    correctRedPress.push(new Date().getTime() - milliseconds);
+                });
                 if (countTwo >= randCount) {
                     clearInterval(sessionInterval2Test2);
-                    setTimeout(startInterval2Tests2, 2000);
-                    document.getElementById("airplane").style.display = "inline";
-                    document.getElementById("airplane").style.animationPlayState = "running";
+                    document.getElementById("yellowCar").style.display = "inline";
+                    document.getElementById("yellowCar").style.animationPlayState = "running";
+                    yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesTrainingDataThree, false);
-                    countTwo = 0;
+                    redElement.addEventListener("click", function () {
+                        red_yellow = true;
+                    });
+                    blueElement.addEventListener("click", function () {
+                        blue_yellow = true;
+                    });
+                    setTimeout(() => {
+                        sessionInterval2Test2();
+                        reset_yellowCar();
+                        count = 0;
+                        yellowPress();
+                        redElement.removeEventListener("click", function () {
+                            red_yellow = true;
+                        });
+                        blueElement.removeEventListener("click", function () {
+                            blue_yellow = true;
+                        });
+                    }, 800);
                 } else {
                     countTwo++;
                     if (choseCar >= 0.5) {
@@ -270,15 +334,37 @@ async function startInterval2Tests3() {
             function carMove() {
                 let choseCar = randColor();
                 let carSpeed = randSpeedCar();
-                reset_airplane();
+                blueElement.removeEventListener("touchstart", function () {
+                    correctBluePress.push(new Date().getTime() - milliseconds);
+                })
+                redElement.removeEventListener("touchstart", function () {
+                    correctRedPress.push(new Date().getTime() - milliseconds);
+                });
                 buttonChoice = 0;
                 if (countThree >= randCount) {
                     clearInterval(sessionInterval2Test3);
-                    setTimeout(startInterval2Tests3, 2000);
-                    document.getElementById("airplane").style.display = "inline";
-                    document.getElementById("airplane").style.animationPlayState = "running";
+                    document.getElementById("yellowCar").style.display = "inline";
+                    document.getElementById("yellowCar").style.animationPlayState = "running";
+                    yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesTrainingDataThree, false);
-                    countThree = 0;
+                    redElement.addEventListener("click", function () {
+                        red_yellow = true;
+                    });
+                    blueElement.addEventListener("click", function () {
+                        blue_yellow = true;
+                    });
+                    setTimeout(() => {
+                        sessionInterval2Test3();
+                        reset_yellowCar();
+                        count = 0;
+                        yellowPress();
+                        redElement.removeEventListener("click", function () {
+                            red_yellow = true;
+                        });
+                        blueElement.removeEventListener("click", function () {
+                            blue_yellow = true;
+                        });
+                    }, 800);
                 } else {
                     countThree++;
                     if (choseCar >= 0.5) {

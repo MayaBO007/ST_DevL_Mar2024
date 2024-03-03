@@ -87,7 +87,7 @@ async function startIntervalStar() {
                 })
                 buttonChoice = 0;
                 if (countStar >= randCount) {
-                    clearInterval(sessionIntervalTrainingDay);
+                    clearInterval(sessionIntervalStar);
                     document.getElementById("yellowCar").style.display = "inline";
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoice.push(new Date().getTime() - milliseconds);
@@ -99,7 +99,7 @@ async function startIntervalStar() {
                         blue_yellow = true;
                     });
                     setTimeout(() => {
-                        startIntervalTrainingDay();
+                        sessionIntervalStar();
                         reset_yellowCar();
                         count = 0;
                         yellowPress();
