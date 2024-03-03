@@ -1,8 +1,5 @@
 let timeTwoTests = null;
 
-const redElement = document.getElementById("redButton");
-const blueElement = document.getElementById("blueButton");
-
 async function start2tests() {
     return new Promise(resolve => {
         // document.getElementById("startButton").style.display = "inline";
