@@ -4,6 +4,7 @@ const responsesDev = {
     todayDate: getTodayDate(),
     correctRedPressDevtest: correctRedPressDevtest,
     correctBluePressDevtest: correctBluePressDevtest,
+    correctYellowPressDevtest: correctYellowPressDevtest,
     correctFirstRedPressDevtest: correctFirstRedPressDevtest,
     correctFirstBluePressDevtest: correctFirstBluePressDevtest,
     incorrectRedPressDevtest: incorrectRedPressDevtest,
@@ -16,8 +17,6 @@ const responsesDev = {
     allChoicesDev: allChoicesDev,
     devButton: devButton
 };
-
-platform.saveSession(responsesDev, true);
 let saveAttemptDev = 0;
 // 1=red, 2=blue buttons
 //let buttonChoice = null;
@@ -25,22 +24,40 @@ let saveAttemptDev = 0;
 // let startGame = null;
 let startClickDev = null;
 
-document.getElementById("redButton").addEventListener("click", function () {
+redElement.addEventListener("touchstart", function () {
     allRedPressesDev.push(new Date().getTime() - milliseconds);
+    redElement.style.transform = "translateY(10px)";
+    redElement.style.webkitTransform = "translateY(10px)";
+    setTimeout(() => {
+        redElement.style.transform = "initial";
+    }, 100); // Adjust the delay as needed
 });
-document.getElementById("blueButton").addEventListener("click", function () {
+blueElement.addEventListener("touchstart", function () {
     allBluePressesDev.push(new Date().getTime() - milliseconds);
+    blueElement.style.transform = "translateY(10px)";
+    blueElement.style.webkitTransform = "translateY(10px)";
+    setTimeout(() => {
+        blueElement.style.transform = "initial";
+    }, 100); // Adjust the delay as nee
+
 });
-var redElement = document.getElementById("redButton");
-var blueElement = document.getElementById("blueButton");
 redElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 });
 blueElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 });
+document.addEventListener('contextmenu', event => {
+    event.preventDefault();
+});
 
-
+function yellowPressDev() {
+    if (red_yellow && blue_yellow) {
+        correctYellowPressDevtest.push(new Date().getTime() - milliseconds);
+        red_yellow = false;
+        blue_yellow = false;
+    }
+}
 
 async function startDevTest() {
     return new Promise(resolve => {
@@ -56,16 +73,37 @@ async function startDevTest() {
                 function carMove() {
                     let choseCar = randColorDev();
                     let carSpeed = randSpeedCar();
-                    reset_airplane();
+                    blueElement.removeEventListener("click", function () {
+                        correctBluePressDevtest.push(new Date().getTime() - milliseconds);
+                    })
+                    redElement.removeEventListener("click", function () {
+                        correctRedPressDevtest.push(new Date().getTime() - milliseconds);
+                    })
                     buttonChoice = 0;
                     if (count >= randCount) {
                         clearInterval(sessionIntervalTest);
-                        setTimeout(startIntervalDevtest, 2000);
-                        document.getElementById("airplane").style.display = "inline";
-                        document.getElementById("airplane").style.animationPlayState = "running";
+                        document.getElementById("yellowCar").style.display = "inline";
+                        document.getElementById("yellowCar").style.animationPlayState = "running";
+                        yellowChoice.push(new Date().getTime() - milliseconds);
                         platform.saveSession(responsesDev, false);
-                        count = 0;
-                        countingCars++;
+                        redElement.addEventListener("click", function () {
+                            red_yellow = true;
+                        });
+                        blueElement.addEventListener("click", function () {
+                            blue_yellow = true;
+                        });
+                        setTimeout(() => {
+                            sessionIntervalTest();
+                            reset_yellowCar();
+                            count = 0;
+                            yellowPressDev();
+                            redElement.removeEventListener("click", function () {
+                                red_yellow = true;
+                            });
+                            blueElement.removeEventListener("click", function () {
+                                blue_yellow = true;
+                            });
+                        }, 800);
                     } else {
                         count++;
                         countingCars++;
@@ -74,19 +112,14 @@ async function startDevTest() {
                             document.getElementById("redCar").style.animationPlayState = "running";
                             document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
                             document.getElementById("redButton").onclick = function () {
-                                buttonChoice = buttonChoice + 1;
-                                if (buttonChoice == 1) {
-                                    correctFirstRedPressDevtest.push(new Date().getTime() - milliseconds);
-                                    //                                     allCorrectFirstPressDev.push(new Date().getTime() - milliseconds);
-                                } else {
+                                correctFirstRedPressDevtest.push(new Date().getTime() - milliseconds);
+                            }.then(() => {
+                                redElement.addEventListener('click', () => {
                                     correctRedPressDevtest.push(new Date().getTime() - milliseconds);
-                                }
-                            };
+                                })
+                            });
                             document.getElementById("blueButton").onclick = function () {
-                                buttonChoice = buttonChoice - 1;
-                                if (buttonChoice <= -1) {
-                                    incorrectBluePressDevtest.push(new Date().getTime() - milliseconds);
-                                }
+                                incorrectBluePressDevtest.push(new Date().getTime() - milliseconds);
                             };
 
                             setTimeout(() => {
@@ -97,21 +130,15 @@ async function startDevTest() {
                             document.getElementById("blueCar").style.animationPlayState = "running";
                             document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
                             document.getElementById("redButton").onclick = function () {
-                                buttonChoice = buttonChoice - 1;
-                                if (buttonChoice <= -1) {
-                                    incorrectRedPressDevtest.push(new Date().getTime() - milliseconds);
-                                };
+                                incorrectRedPressDevtest.push(new Date().getTime() - milliseconds);
                             };
                             document.getElementById("blueButton").onclick = function () {
-                                buttonChoice = buttonChoice + 1;
-                                if (buttonChoice == 1) {
-                                    correctFirstBluePressDevtest.push(new Date().getTime() - milliseconds);
-                                    //                                     allCorrectFirstPressDev.push(new Date().getTime() - milliseconds);
-                                } else {
+                                correctFirstBluePressDevtest.push(new Date().getTime() - milliseconds);
+                            }.then(() => {
+                                blueElement.addEventListener('click', () => {
                                     correctBluePressDevtest.push(new Date().getTime() - milliseconds);
-                                }
-
-                            };
+                                });
+                            });
 
                             setTimeout(() => {
                                 reset_blueCar();
@@ -150,12 +177,12 @@ async function startDevTest() {
                 function savingDev() {
                     platform.saveSession(responsesDev, false).then(() => {
                         resolve("doneDevTest");
-                        reset_airplane();
+                        reset_yellowCar();
                         reset_blueCar();
                         reset_redCar();
                     }).catch(() => {
-                        if (saveAttemptDev >= 1000) {
-                            document.getElementById("problem").style.display = "inline";
+                        if (saveAttemptDev >= 2000) {
+                            problemOrient();
                         } else {
                             saveAttemptDev++;
                             savingDev()
