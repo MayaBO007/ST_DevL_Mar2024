@@ -212,9 +212,9 @@ function showWinningsEnd(sum) {
 
 function showWinnings() {
 
-    let redWinsLength = correctFirstRedPress.length + correctFirstRedPressStar.length; //+ correctRedPressDevtest.length
-    let blueWinsLength = correctFirstBluePress.length + correctFirstBluePressStar.length; //+ correctBluePressDevtest.length
-    let yellowWinsLength = correctYellowPress.length + correctYellowPressStar.length; //+ correctBluePressDevtest.length
+    let redWinsLength = correctFirstRedPress.length + correctFirstRedPressStar.length + correctFirstRedPressSpeeds.length; //+ correctRedPressDevtest.length
+    let blueWinsLength = correctFirstBluePress.length + correctFirstBluePressStar.length + correctFirstBluePressSpeeds.length; //+ correctBluePressDevtest.length
+    let yellowWinsLength = correctYellowPress.length + correctYellowPressStar.length + correctYellowPressSpeeds.length; //+ correctBluePressDevtest.length
     document.getElementById("blueButton").style.display = "none";
     document.getElementById("redButton").style.display = "none";
     document.getElementById("endOfDayMessage").style.display = "inline";
@@ -357,24 +357,26 @@ const yellowChoice = [];
 // const allChoicesYellow = [];
 // const howManyYellows = [];
 
-const correctFirstRedPressButtons = [];
-const correctFirstBluePressButtons = [];
-const correctRedPressButtons = [];
-const correctBluePressButtons = [];
-const incorrectRedPressButtons = [];
-const incorrectBluePressButtons = [];
-const redChoiceButtons = [];
-const blueChoiceButtons = [];
-const yellowChoiceButtons = [];
-const allRedPressesButtons = [];
-const allBluePressesButtons = [];
-const allCorrectFirstPressButtons = [];
-const allChoicesButtons = [];
+const correctFirstRedPressSpeeds = [];
+const correctFirstBluePressSpeeds = [];
+const correctRedPressSpeeds = [];
+const correctBluePressSpeeds = [];
+const incorrectRedPressSpeeds = [];
+const incorrectBluePressSpeeds = [];
+const correctYellowPressSpeeds = [];
+const redChoiceSpeeds = [];
+const blueChoiceSpeeds = [];
+const yellowChoiceSpeeds = [];
+const allRedPressesSpeeds = [];
+const allBluePressesSpeeds = [];
+const allCorrectFirstPressSpeeds = [];
+const allChoicesSpeeds = [];
 
 const correctFirstRedPressDevtest = [];
 const correctFirstBluePressDevtest = [];
 const correctRedPressDevtest = [];
 const correctBluePressDevtest = [];
+const correctYellowPressDevtest = [];
 const incorrectRedPressDevtest = [];
 const incorrectBluePressDevtest = [];
 const redChoiceDev = [];
@@ -384,6 +386,20 @@ const allBluePressesDev = [];
 const allCorrectFirstPressDev = [];
 const allChoicesDev = [];
 const devButton = [];
+
+// const correctFirstRedPressButtons = [];
+// const correctFirstBluePressButtons = [];
+// const correctRedPressButtons = [];
+// const correctBluePressButtons = [];
+// const incorrectRedPressButtons = [];
+// const incorrectBluePressButtons = [];
+// const redChoiceButtons = [];
+// const blueChoiceButtons = [];
+// const yellowChoiceButtons = [];
+// const allRedPressesButtons = [];
+// const allBluePressesButtons = [];
+// const allCorrectFirstPressButtons = [];
+// const allChoicesButtons = [];
 
 const totalBlues = [];
 const totalReds = [];

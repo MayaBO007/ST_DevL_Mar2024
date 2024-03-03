@@ -68,6 +68,19 @@ function randColorDev() {
     return car
 };
 
+// Random car choise dev test:
+function randColorSpeeds() {
+    const colorArry = [0, 1];
+    let car = colorArry[Math.floor(Math.random() * colorArry.length)]
+    if (car == 0) {
+        blueChoiceSpeeds.push(new Date().getTime() - milliseconds);
+    } else {
+        redChoiceSpeeds.push(new Date().getTime() - milliseconds)
+    }
+    // allChoicesDev.push(new Date().getTime() - milliseconds);
+    return car
+};
+
 //Random count array
 const countArry = [17, 18, 19, 20, 21, 22, 23];
 const choseCount = Array.from({ length: 1000 });
@@ -95,15 +108,6 @@ for (let i = 0; i < choseSpeed.length; i++) {
 
 indexC1 = 0;
 indexC2 = 1;
-// indexV1 = 0;
-// indexV2 = 1;
-
-// // Random car choise function:
-// function randSpeedInterval() {
-//     indexV1++
-//     indexV2++
-//     return (choseSpeed.slice(indexV1, indexV2));
-// };
 
 function randSpeedCar() {
     indexC1++
@@ -189,3 +193,17 @@ function randTopButtons() {
     // indexP2++
     return (topArrayButtons[indexB1]);
 }
+
+const speedArrySpeeds = [0.8, 1.1, 1.3];
+const choseSpeedSpeeds = Array.from({ length: 1000 });
+for (let i = 0; i < choseSpeedSpeeds.length; i++) {
+    let speed = speedArrySpeeds[Math.floor(Math.random() * speedArrySpeeds.length)];
+    choseSpeedSpeeds.fill(speed, i);
+};
+
+indexS1 = 0;
+
+function randSpeedCarSpeeds() {
+    indexS1++
+    return (choseSpeedSpeeds[indexS1]);
+};

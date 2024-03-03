@@ -14,7 +14,6 @@ const responsesTrainingData = {
     allRedPresses: allRedPresses,
     allBluePresses: allBluePresses,
     // allCorrectTrainingPress: allCorrectTrainingPress,
-    allChoices: allChoices
 };
 
 let redElement = document.getElementById("redButton");
@@ -82,8 +81,12 @@ async function trainingDay() {
                     function carMove() {
                         let choseCar = randColor();
                         let carSpeed = randSpeedCar();
-                        // reset_airplane();
-                        buttonChoice = 0;
+                        blueElement.removeEventListener("touchstart", function () {
+                            correctBluePress.push(new Date().getTime() - milliseconds);
+                        })
+                        redElement.removeEventListener("touchstart", function () {
+                            correctRedPress.push(new Date().getTime() - milliseconds);
+                        }); buttonChoice = 0;
                         if (count >= randCount) {
                             clearInterval(sessionIntervalTrainingDay);
                             document.getElementById("yellowCar").style.display = "inline";
@@ -120,11 +123,11 @@ async function trainingDay() {
                                 document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
                                 document.getElementById("redButton").onclick = function () {
                                     correctFirstRedPress.push(new Date().getTime() - milliseconds);
-                                    // allCorrectTrainingPress.push(new Date().getTime() - milliseconds);
+                                }.then(() => {
                                     document.getElementById("redButton").addEventListener("click", function () {
                                         correctRedPress.push(new Date().getTime() - milliseconds);
                                     });
-                                };
+                                });
                                 document.getElementById("blueButton").onclick = function () {
                                     incorrectBluePress.push(new Date().getTime() - milliseconds);
                                 };
@@ -143,10 +146,11 @@ async function trainingDay() {
                                 document.getElementById("blueButton").onclick = function () {
                                     correctFirstBluePress.push(new Date().getTime() - milliseconds);
                                     // allCorrectTrainingPress.push(new Date().getTime() - milliseconds);
+                                }.then(() => {
                                     document.getElementById("blueButton").addEventListener("touchstart", function () {
                                         correctBluePress.push(new Date().getTime() - milliseconds);
                                     });
-                                };
+                                })
 
                                 setTimeout(() => {
                                     reset_blueCar();
@@ -167,7 +171,7 @@ async function trainingDay() {
                             resolve("done");
                         }).catch(() => {
                             if (saveAttemptTraining >= 2000) {
-                                document.getElementById("problem").style.display = "inline";
+                                problemOrient();
                             } else {
                                 saveAttemptTraining++;
                                 savingTraining()

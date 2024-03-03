@@ -18,28 +18,27 @@ const responsesStar = {
 
 };
 
-platform.saveSession(responsesStar, true);
-saveResponsesStar = {};
 timeoutCountStar = 0;
 saveAttemptStars = 0;
 starNum = null;
-async function getStarNum() {
-
-    do {
-        starNum = prompt("כמה כוכבים ספרת?", "");
-    } while (starNum == null || starNum == "" || isNaN(parseInt(starNum)));
-    return starNum;
-};
-
-var redElement = document.getElementById("redButton");
-var blueElement = document.getElementById("blueButton");
 
 
-document.getElementById("redButton").addEventListener("click", function () {
+redElement.addEventListener("touchstart", function () {
     allRedPressesStar.push(new Date().getTime() - milliseconds);
+    redElement.style.transform = "translateY(10px)";
+    redElement.style.webkitTransform = "translateY(10px)";
+    setTimeout(() => {
+        redElement.style.transform = "initial";
+    }, 100); // Adjust the delay as needed
 });
-document.getElementById("blueButton").addEventListener("click", function () {
+blueElement.addEventListener("touchstart", function () {
     allBluePressesStar.push(new Date().getTime() - milliseconds);
+    blueElement.style.transform = "translateY(10px)";
+    blueElement.style.webkitTransform = "translateY(10px)";
+    setTimeout(() => {
+        blueElement.style.transform = "initial";
+    }, 100); // Adjust the delay as nee
+
 });
 redElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
@@ -47,7 +46,25 @@ redElement.addEventListener("contextmenu", function (event) {
 blueElement.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 });
+document.addEventListener('contextmenu', event => {
+    event.preventDefault();
+});
 
+function yellowPressStar() {
+    if (red_yellow && blue_yellow) {
+        correctYellowPressStar.push(new Date().getTime() - milliseconds);
+        red_yellow = false;
+        blue_yellow = false;
+    }
+}
+
+async function getStarNum() {
+
+    do {
+        starNum = prompt("כמה כוכבים ספרת?", "");
+    } while (starNum == null || starNum == "" || isNaN(parseInt(starNum)));
+    return starNum;
+};
 
 //let sessionIntervalStar = null;
 let endStar = null;
@@ -62,35 +79,52 @@ async function startIntervalStar() {
             function carMove() {
                 let choseCar = randColorStar();
                 let carSpeed = randSpeedCar();
-                reset_airplane();
+                blueElement.removeEventListener("click", function () {
+                    correctBluePressStar.push(new Date().getTime() - milliseconds);
+                })
+                redElement.removeEventListener("click", function () {
+                    correctRedPressStar.push(new Date().getTime() - milliseconds);
+                })
                 buttonChoice = 0;
                 if (countStar >= randCount) {
-                    clearInterval(sessionIntervalStar);
-                    setTimeout(startIntervalStar, 2000);
-                    document.getElementById("airplane").style.display = "inline";
-                    document.getElementById("airplane").style.animationPlayState = "running";
+                    clearInterval(sessionIntervalTrainingDay);
+                    document.getElementById("yellowCar").style.display = "inline";
+                    document.getElementById("yellowCar").style.animationPlayState = "running";
+                    yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesStar, false);
-                    countStar = 0;
+                    redElement.addEventListener("click", function () {
+                        red_yellow = true;
+                    });
+                    blueElement.addEventListener("click", function () {
+                        blue_yellow = true;
+                    });
+                    setTimeout(() => {
+                        startIntervalTrainingDay();
+                        reset_yellowCar();
+                        count = 0;
+                        yellowPress();
+                        redElement.removeEventListener("click", function () {
+                            red_yellow = true;
+                        });
+                        blueElement.removeEventListener("click", function () {
+                            blue_yellow = true;
+                        });
+                    }, 800);
                 } else {
                     countStar++;
                     if (choseCar >= 0.5) {
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
                         document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
-                        document.getElementById("redButton").onclick = function () {
-                            buttonChoice = buttonChoice + 1;
-                            if (buttonChoice == 1) {
-                                correctFirstRedPressStar.push(new Date().getTime() - milliseconds);
-                                // allCorrectFirstPressStar.push(new Date().getTime() - milliseconds);
-                            } else {
+                        redElement.onclick = function () {
+                            correctFirstRedPressStar.push(new Date().getTime() - milliseconds);
+                        }.then(() => {
+                            redElement.addEventListener("click", function () {
                                 correctRedPressStar.push(new Date().getTime() - milliseconds);
-                            }
-                        };
+                            })
+                        });
                         document.getElementById("blueButton").onclick = function () {
-                            buttonChoice = buttonChoice - 1;
-                            if (buttonChoice <= -1) {
-                                incorrectBluePressStar.push(new Date().getTime() - milliseconds);
-                            }
+                            incorrectBluePressStar.push(new Date().getTime() - milliseconds);
                         };
 
                         setTimeout(() => {
@@ -100,22 +134,17 @@ async function startIntervalStar() {
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
                         document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
-                        document.getElementById("redButton").onclick = function () {
-                            buttonChoice = buttonChoice - 1;
-                            if (buttonChoice <= -1) {
-                                incorrectRedPressStar.push(new Date().getTime() - milliseconds);
-                            };
+                        redElement.onclick = function () {
+                            incorrectRedPressStar.push(new Date().getTime() - milliseconds);
                         };
-                        document.getElementById("blueButton").onclick = function () {
-                            buttonChoice = buttonChoice + 1;
-                            if (buttonChoice == 1) {
-                                correctFirstBluePressStar.push(new Date().getTime() - milliseconds);
-                                // allCorrectFirstPressStar.push(new Date().getTime() - milliseconds);
-                            } else {
+                        blueElement.onclick = function () {
+                            correctFirstBluePressStar.push(new Date().getTime() - milliseconds);
+                            // allCorrectFirstPressStar.push(new Date().getTime() - milliseconds);
+                        }.then(() => {
+                            blueElement.addEventListener("click", function () {
                                 correctBluePressStar.push(new Date().getTime() - milliseconds);
-                            }
-
-                        };
+                            })
+                        });
 
                         setTimeout(() => {
                             reset_blueCar();
