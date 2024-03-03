@@ -15,11 +15,6 @@ const responsesTrainingDataThree = {
 };
 
 saveAttemptTrainingThree = 0;
-let redElement = document.getElementById("redButton");
-let blueElement = document.getElementById("blueButton");
-let red_yellow = false;
-let blue_yellow = false;
-
 
 redElement.addEventListener("touchstart", function () {
     allRedPresses.push(new Date().getTime() - milliseconds);
