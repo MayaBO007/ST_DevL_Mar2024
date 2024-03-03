@@ -32,19 +32,7 @@ function timeline() {
             }
             goOne();
         } else {
-            if (window.matchMedia("(orientation: landscape)").matches) {
-                document.getElementById("endOfGame").style.display = "inline";
-                window.addEventListener("orientationchange", function () {
-                    document.getElementById("endOfGame_hor").style.display = "inline";
-                    document.getElementById("endOfGame").style.display = "none";
-                })
-            } else {
-                document.getElementById("endOfGame_hor").style.display = "inline";
-                window.addEventListener("orientationchange", function () {
-                    document.getElementById("endOfGame").style.display = "inline";
-                    document.getElementById("endOfGame_hor").style.display = "none";
-                })
-            }
+            endGameOrient()
         }
     })
 }

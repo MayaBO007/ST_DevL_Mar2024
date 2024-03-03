@@ -10,52 +10,28 @@ function moveToDay() {
                 if (studySessionData.doneDay1 == "") {
                     platform.goToUrl("days/dayOne/training.html");
                 } else {
-                    if (window.matchMedia("(orientation: landscape)").matches) {
-                        document.getElementById("problem").style.display = "inline";
-                    } else {
-                        document.getElementById("problem_hor").style.display = "inline";
-                    }
+                    problemOrient()
                 }
             } else if (extractDeviceName(userAgent) == studySessionData.userDevice) {
                 if ((studySessionData.doneDay1 == "doneDayOne") && (studySessionData.doneDay2 != "doneDayTwo")) {
                     if ((studySessionData.doneDay2 == "") || (studySessionData.subId == "64eda725d2c8fb647d0adc6e")) {
                         platform.goToUrl("days/dayTwo/dayTwo.html");
                     } else {
-                        if (window.matchMedia("(orientation: landscape)").matches) {
-                            document.getElementById("problem").style.display = "inline";
-                        } else {
-                            document.getElementById("problem_hor").style.display = "inline";
-                        }
+                        problemOrient()
                     }
                 } else if ((studySessionData.doneDay2 == "doneDayTwo") && (studySessionData.doneDay3 != "doneDevTest")) {
                     if (studySessionData.doneDay3 == "") {
                         platform.goToUrl("days/dayThree/dayThree.html");
                     } else {
-                        if (window.matchMedia("(orientation: landscape)").matches) {
-                            document.getElementById("problem").style.display = "inline";
-                        } else {
-                            document.getElementById("problem_hor").style.display = "inline";
-                        }
+                        problemOrient()
                     }
                 } else if (studySessionData.doneDay3 == "doneDevTest") {
-                    if (window.matchMedia("(orientation: landscape)").matches) {
-                        document.getElementById("endOfGame").style.display = "inline";
-                    } else {
-                        document.getElementById("endOfGame_hor").style.display = "inline";
-                    }
+                    endGameOrient()
                 } else {
-                    if (window.matchMedia("(orientation: landscape)").matches) {
-                        document.getElementById("problem").style.display = "inline";
-                    } else {
-                        document.getElementById("problem_hor").style.display = "inline";
-                    }
+                    problemOrient()
                 }
             } else {
-                if (window.matchMedia("(orientation: landscape)").matches) {
-                    document.getElementById("problem").style.display = "inline";
-                } else {
-                    document.getElementById("problem_hor").style.display = "inline";
-                }
+                problemOrient()
             }
         })
     });

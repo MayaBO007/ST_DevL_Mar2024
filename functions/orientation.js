@@ -58,3 +58,37 @@ function fiveAMOrient() {
         }
     })
 }
+
+function problemOrient() {
+    if (window.matchMedia("(orientation: landscape)").matches) {
+        document.getElementById("problem").style.display = "inline";
+    } else {
+        document.getElementById("problem_hor").style.display = "inline";
+    }
+    screen.orientation.addEventListener("change", function () {
+        if (screen.orientation.type.startsWith("portrait")) {
+            document.getElementById("problem_hor").style.display = "inline";
+            document.getElementById("problem").style.display = "none";
+        } else {
+            document.getElementById("problem_hor").style.display = "none";
+            document.getElementById("problem").style.display = "inline";
+        }
+    })
+}
+
+function endGameOrient() {
+    if (window.matchMedia("(orientation: landscape)").matches) {
+        document.getElementById("endOfGame").style.display = "inline";
+    } else {
+        document.getElementById("endOfGame_hor").style.display = "inline";
+    }
+    screen.orientation.addEventListener("change", function () {
+        if (screen.orientation.type.startsWith("portrait")) {
+            document.getElementById("endOfGame_hor").style.display = "inline";
+            document.getElementById("endOfGame").style.display = "none";
+        } else {
+            document.getElementById("endOfGame_hor").style.display = "none";
+            document.getElementById("endOfGame").style.display = "inline";
+        }
+    })
+}

@@ -9,18 +9,14 @@ function timeline() {
             deleteFromSessionData();
             let updatedDates = updateDates();
             if (updatedDates.fullDate.getDate() == updatedDates.yesterday.getDate()) {
-                if (window.matchMedia("(orientation: landscape)").matches) {
-                    document.getElementById("fiveAM").style.display = "inline";
-                } else {
-                    document.getElementById("fiveAM_hor").style.display = "inline";
-                }
+                fiveAMOrient()
                 setTimeout(() => {
                     moveToDay();
                 }, timeToFive());
             }
             else if (updatedDates.fullDate.getDate() == updatedDates.yesterdayPlusOne.getDate()) { //|| yesterdayPlusOne.getDate() - fullDate.getDate() > 25 ) {)
                 if ((0 <= updatedDates.fullDate.getHours() & updatedDates.fullDate.getHours() < 5) && (studySessionData.subId != "64eda725d2c8fb647d0adc6e")) {
-                    document.getElementById("fiveAM").style.display = "inline";
+                    fiveAMOrient()
                     setTimeout(() => {
                         moveToDay();
                     }, timeToFiveSameDay());
@@ -73,11 +69,7 @@ function timeline() {
                     goTwo();
                 }
             } else {
-                if (window.matchMedia("(orientation: landscape)").matches) {
-                    document.getElementById("endOfGame").style.display = "inline";
-                } else {
-                    document.getElementById("endOfGame_hor").style.display = "inline";
-                }
+                endGameOrient()
             }
         })
     })
