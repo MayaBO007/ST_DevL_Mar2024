@@ -80,13 +80,9 @@ async function startIntervalStar() {
             function carMove() {
                 let choseCar = randColorStar();
                 let carSpeed = randSpeedCar();
-                blueElement.removeEventListener("click", function () {
-                    correctBluePressStar.push(new Date().getTime() - milliseconds);
-                })
-                redElement.removeEventListener("click", function () {
-                    correctRedPressStar.push(new Date().getTime() - milliseconds);
-                })
                 buttonChoice = 0;
+                redPress = 0;
+                bluePress = 0;
                 if (countStar >= randCount) {
                     clearInterval(sessionIntervalStar);
                     document.getElementById("yellowCar").style.display = "inline";
@@ -103,7 +99,7 @@ async function startIntervalStar() {
                         startIntervalStar();
                         reset_yellowCar();
                         countStar = 0;
-                        yellowPress();
+                        yellowPressStar();
                         redElement.removeEventListener("click", function () {
                             red_yellow = true;
                         });
@@ -118,17 +114,25 @@ async function startIntervalStar() {
                         document.getElementById("redCar").style.animationPlayState = "running";
                         document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
                         redElement.onclick = function () {
+                            redPress++;
                             correctFirstRedPressStar.push(new Date().getTime() - milliseconds);
-                            redElement.addEventListener("click", function () {
+                        }
+                        redElement.addEventListener("click", function () {
+                            if (redPress >= 1) {
                                 correctRedPressStar.push(new Date().getTime() - milliseconds);
-                            })
-                        };
-                        document.getElementById("blueButton").onclick = function () {
+                            }
+                        });
+                        blueElement.onclick = function () {
                             incorrectBluePressStar.push(new Date().getTime() - milliseconds);
                         };
 
                         setTimeout(() => {
                             reset_redCar();
+                            redElement.removeEventListenerEventListener("click", function () {
+                                if (redPress >= 1) {
+                                    correctRedPressStar.push(new Date().getTime() - milliseconds);
+                                }
+                            })
                         }, carSpeed * 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -138,15 +142,22 @@ async function startIntervalStar() {
                             incorrectRedPressStar.push(new Date().getTime() - milliseconds);
                         };
                         blueElement.onclick = function () {
+                            bluePress++;
                             correctFirstBluePressStar.push(new Date().getTime() - milliseconds);
-                            // allCorrectFirstPressStar.push(new Date().getTime() - milliseconds);
-                            blueElement.addEventListener("click", function () {
+                        }
+                        blueElement.addEventListener("click", function () {
+                            if (bluePress >= 1) {
                                 correctBluePressStar.push(new Date().getTime() - milliseconds);
-                            })
-                        };
+                            }
+                        });
 
                         setTimeout(() => {
                             reset_blueCar();
+                            blueElement.removeEventListener("click", function () {
+                                if (bluePress >= 1) {
+                                    correctBluePressStar.push(new Date().getTime() - milliseconds);
+                                }
+                            })
                         }, carSpeed * 1000);
                     };
 
