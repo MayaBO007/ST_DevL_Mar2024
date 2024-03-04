@@ -95,7 +95,7 @@ async function startIntervalSpeeds() {
                     setTimeout(() => {
                         startIntervalSpeeds();
                         reset_yellowCar();
-                        count = 0;
+                        countSpeeds = 0;
                         yellowPressSpeeds();
                         redElement.removeEventListener("click", function () {
                             red_yellow = true;

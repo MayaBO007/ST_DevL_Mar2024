@@ -96,7 +96,7 @@ async function startIntervalStar() {
                     setTimeout(() => {
                         startIntervalStar();
                         reset_yellowCar();
-                        count = 0;
+                        countStar = 0;
                         yellowPress();
                         redElement.removeEventListener("click", redYell);
                         blueElement.removeEventListener("click", blueYell);
