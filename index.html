@@ -137,7 +137,9 @@
         }
     </script>
 
+
     <div>
+        <script> const userAgent = navigator.userAgent; </script>
         <script src="dayOrganizer.js"></script>
         <script src="functions/timerPointes.js"></script>
         <script src="findDevice.js"></script>
@@ -279,7 +281,6 @@
 
     <script>
         // check if the app is instalabe:
-        const userAgent = navigator.userAgent;
         let installable = true;
         if (!('serviceWorker' in navigator)) {
             installable = false;

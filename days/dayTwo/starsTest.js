@@ -79,12 +79,8 @@ async function startIntervalStar() {
             function carMove() {
                 let choseCar = randColorStar();
                 let carSpeed = randSpeedCar();
-                blueElement.removeEventListener("click", function () {
-                    correctBluePressStar.push(new Date().getTime() - milliseconds);
-                })
-                redElement.removeEventListener("click", function () {
-                    correctRedPressStar.push(new Date().getTime() - milliseconds);
-                })
+                blueElement.removeEventListener("click", corrPressBlue);
+                redElement.removeEventListener("click", corrPressRed)
                 buttonChoice = 0;
                 if (countStar >= randCount) {
                     clearInterval(sessionIntervalStar);
@@ -92,10 +88,10 @@ async function startIntervalStar() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesStar, false);
-                    redElement.addEventListener("click", function () {
+                    redElement.addEventListener("click", function redYell() {
                         red_yellow = true;
                     });
-                    blueElement.addEventListener("click", function () {
+                    blueElement.addEventListener("click", function blueYell() {
                         blue_yellow = true;
                     });
                     setTimeout(() => {
@@ -103,12 +99,8 @@ async function startIntervalStar() {
                         reset_yellowCar();
                         count = 0;
                         yellowPress();
-                        redElement.removeEventListener("click", function () {
-                            red_yellow = true;
-                        });
-                        blueElement.removeEventListener("click", function () {
-                            blue_yellow = true;
-                        });
+                        redElement.removeEventListener("click", redYell);
+                        blueElement.removeEventListener("click", blueYell);
                     }, 800);
                 } else {
                     countStar++;
@@ -118,11 +110,10 @@ async function startIntervalStar() {
                         document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
                         redElement.onclick = function () {
                             correctFirstRedPressStar.push(new Date().getTime() - milliseconds);
-                        }.then(() => {
-                            redElement.addEventListener("click", function () {
+                            redElement.addEventListener("click", function corrPressRed() {
                                 correctRedPressStar.push(new Date().getTime() - milliseconds);
                             })
-                        });
+                        };
                         document.getElementById("blueButton").onclick = function () {
                             incorrectBluePressStar.push(new Date().getTime() - milliseconds);
                         };
@@ -139,12 +130,10 @@ async function startIntervalStar() {
                         };
                         blueElement.onclick = function () {
                             correctFirstBluePressStar.push(new Date().getTime() - milliseconds);
-                            // allCorrectFirstPressStar.push(new Date().getTime() - milliseconds);
-                        }.then(() => {
-                            blueElement.addEventListener("click", function () {
+                            blueElement.addEventListener("click", function corrPressBlue() {
                                 correctBluePressStar.push(new Date().getTime() - milliseconds);
                             })
-                        });
+                        };
 
                         setTimeout(() => {
                             reset_blueCar();
