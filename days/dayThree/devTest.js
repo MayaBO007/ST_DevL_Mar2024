@@ -66,23 +66,21 @@ async function startDevTest() {
                         document.getElementById("yellowCar").style.animationPlayState = "running";
                         yellowChoice.push(new Date().getTime() - milliseconds);
                         platform.saveSession(responsesDev, false);
-                        redElement.addEventListener("click", function () {
+                        yellowRed = function () {
                             red_yellow = true;
-                        });
-                        blueElement.addEventListener("click", function () {
+                        };
+                        redElement.addEventListener("click", yellowRed);
+                        yellowBlue = function () {
                             blue_yellow = true;
-                        });
+                        };
+                        blueElement.addEventListener("click", yellowBlue);
                         setTimeout(() => {
                             startIntervalDevtest();
                             reset_yellowCar();
                             count = 0;
                             yellowPressDev();
-                            redElement.removeEventListener("click", function () {
-                                red_yellow = true;
-                            });
-                            blueElement.removeEventListener("click", function () {
-                                blue_yellow = true;
-                            });
+                            redElement.removeEventListener("click", yellowRed);
+                            blueElement.removeEventListener("click", yellowBlue);
                         }, 800);
                     } else {
                         count++;
@@ -106,7 +104,7 @@ async function startDevTest() {
                             setTimeout(() => {
                                 reset_redCar();
                                 redElement.removeEventListener("click", redClick);
-                            }, 1000);//carSpeed * 1000);
+                            }, 900);//carSpeed * 1000);
                         } else {
                             document.getElementById("blueCar").style.display = "inline";
                             document.getElementById("blueCar").style.animationPlayState = "running";
@@ -127,7 +125,7 @@ async function startDevTest() {
                             setTimeout(() => {
                                 reset_blueCar();
                                 blueElement.removeEventListener("click", blueClick);
-                            }, 1000);//carSpeed * 1000);
+                            }, 900);//carSpeed * 1000);
                         }
 
                         // if (countingCars >= 280 & breaks <= 2) {

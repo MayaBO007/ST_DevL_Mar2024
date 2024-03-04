@@ -69,7 +69,7 @@ async function startIntervalStar() {
         sessionIntervalStar = setInterval(
             function carMove() {
                 let choseCar = randColorStar();
-                let carSpeed = randSpeedCar();
+                // let carSpeed = randSpeedCar();
                 buttonChoice = 0;
                 redPress = 0;
                 bluePress = 0;
@@ -79,23 +79,21 @@ async function startIntervalStar() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoiceStar.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesStar, false);
-                    redElement.addEventListener("click", function () {
+                    yellowRed = function () {
                         red_yellow = true;
-                    });
-                    blueElement.addEventListener("click", function () {
+                    };
+                    redElement.addEventListener("click", yellowRed);
+                    yellowBlue = function () {
                         blue_yellow = true;
-                    });
+                    };
+                    blueElement.addEventListener("click", yellowBlue);
                     setTimeout(() => {
                         startIntervalStar();
                         reset_yellowCar();
                         countStar = 0;
                         yellowPressStar();
-                        redElement.removeEventListener("click", function () {
-                            red_yellow = true;
-                        });
-                        blueElement.removeEventListener("click", function () {
-                            blue_yellow = true;
-                        });
+                        redElement.removeEventListener("click", yellowRed);
+                        blueElement.removeEventListener("click", yellowBlue);
                     }, 800);
                 } else {
                     countStar++;
@@ -120,7 +118,7 @@ async function startIntervalStar() {
                             reset_redCar();
                             redElement.removeEventListener("click", redClick);
                             // }, carSpeed * 1000);
-                        }, 1000);
+                        }, 900);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
@@ -141,7 +139,7 @@ async function startIntervalStar() {
                         setTimeout(() => {
                             reset_blueCar();
                             blueElement.removeEventListener("click", blueClick)
-                        }, 1000);
+                        }, 900);
                         // }, carSpeed * 1000);
                     };
 

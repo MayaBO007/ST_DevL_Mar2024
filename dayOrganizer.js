@@ -14,7 +14,7 @@ function moveToDay() {
                 }
             } else if (extractDeviceName(userAgent) == studySessionData.userDevice) {
                 if ((studySessionData.doneDay1 == "doneDayOne") && (studySessionData.doneDay2 != "doneDayTwo")) {
-                    if ((studySessionData.doneDay2 == "") || (studySessionData.subId == "64eda725d2c8fb647d0adc6e")) {
+                    if (studySessionData.doneDay2 == "") {
                         platform.goToUrl("days/dayTwo/dayTwo.html");
                     } else {
                         problemOrient()

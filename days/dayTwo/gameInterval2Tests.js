@@ -77,23 +77,22 @@ async function startInterval2Tests() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesTrainingDataThree, false);
-                    redElement.addEventListener("click", function () {
+                    yellowRed = function () {
                         red_yellow = true;
-                    });
-                    blueElement.addEventListener("click", function () {
+                    };
+                    redElement.addEventListener("click", yellowRed);
+                    yellowBlue = function () {
                         blue_yellow = true;
-                    });
+                    };
+                    blueElement.addEventListener("click", yellowBlue);
+
                     setTimeout(() => {
                         sessionInterval2Test();
                         reset_yellowCar();
                         count = 0;
                         yellowPress();
-                        redElement.removeEventListener("click", function () {
-                            red_yellow = true;
-                        });
-                        blueElement.removeEventListener("click", function () {
-                            blue_yellow = true;
-                        });
+                        redElement.removeEventListener("click", yellowRed);
+                        blueElement.removeEventListener("click", yellowBlue);
                     }, 800);
                 } else {
                     count++;
@@ -119,7 +118,7 @@ async function startInterval2Tests() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("click", redClick);
-                        }, 1000);
+                        }, 900);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
@@ -142,7 +141,7 @@ async function startInterval2Tests() {
                         setTimeout(() => {
                             reset_blueCar();
                             blueElement.removeEventListener("click", blueClick);
-                        }, 1000);
+                        }, 900);
                     };
                 };
             }, 1000);// (Maximal carSpeed)*1000
@@ -210,23 +209,21 @@ async function startInterval2Tests2() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesTrainingDataThree, false);
-                    redElement.addEventListener("click", function () {
+                    yellowRed = function () {
                         red_yellow = true;
-                    });
-                    blueElement.addEventListener("click", function () {
+                    };
+                    redElement.addEventListener("click", yellowRed);
+                    yellowBlue = function () {
                         blue_yellow = true;
-                    });
+                    }
+                    blueElement.addEventListener("click", yellowBlue);
                     setTimeout(() => {
                         startInterval2Tests2();
                         reset_yellowCar();
                         countTwo = 0;
                         yellowPress();
-                        redElement.removeEventListener("click", function () {
-                            red_yellow = true;
-                        });
-                        blueElement.removeEventListener("click", function () {
-                            blue_yellow = true;
-                        });
+                        redElement.removeEventListener("click", yellowRed);
+                        blueElement.removeEventListener("click", yellowBlue);
                     }, 800);
                 } else {
                     countTwo++;
@@ -251,7 +248,7 @@ async function startInterval2Tests2() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("click", redClick);
-                        }, 1000);
+                        }, 900);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
@@ -272,7 +269,7 @@ async function startInterval2Tests2() {
                         setTimeout(() => {
                             reset_blueCar();
                             blueElement.removeEventListener("click", blueClick);
-                        }, 1000);
+                        }, 900);
                     };
 
                 };
@@ -335,23 +332,21 @@ async function startInterval2Tests3() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesTrainingDataThree, false);
-                    redElement.addEventListener("click", function () {
+                    yellowRed = function () {
                         red_yellow = true;
-                    });
-                    blueElement.addEventListener("click", function () {
+                    };
+                    redElement.addEventListener("click", yellowRed);
+                    yellowBlue = function () {
                         blue_yellow = true;
-                    });
+                    };
+                    blueElement.addEventListener("click", yellowBlue);
                     setTimeout(() => {
                         startInterval2Tests3();
                         reset_yellowCar();
                         countThree = 0;
                         yellowPress();
-                        redElement.removeEventListener("click", function () {
-                            red_yellow = true;
-                        });
-                        blueElement.removeEventListener("click", function () {
-                            blue_yellow = true;
-                        });
+                        redElement.removeEventListener("click", yellowRed);
+                        blueElement.removeEventListener("click", yellowBlue);
                     }, 800);
                 } else {
                     countThree++;
@@ -377,7 +372,7 @@ async function startInterval2Tests3() {
                             reset_redCar();
                             redElement.removeEventListener("click", redClick);
                             // }, carSpeed * 1000);
-                        }, 1000);
+                        }, 900);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
@@ -399,7 +394,7 @@ async function startInterval2Tests3() {
                             reset_blueCar();
                             blueElement.removeEventListener("click", blueClick);
                             // }, carSpeed * 1000);
-                        }, 1000);
+                        }, 900);
                     };
 
                 };
