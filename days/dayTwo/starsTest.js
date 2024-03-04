@@ -102,7 +102,7 @@ async function startIntervalStar() {
                     setTimeout(() => {
                         sessionIntervalStar();
                         reset_yellowCar();
-                        count = 0;
+                        countStar = 0;
                         yellowPress();
                         redElement.removeEventListener("click", function () {
                             red_yellow = true;
