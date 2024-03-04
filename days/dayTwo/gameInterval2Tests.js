@@ -130,9 +130,9 @@ async function startInterval2Tests() {
                         blueClick = function () {
                             bluePress++;
                             if (bluePress == 1) {
-                                correctFirstBluePressStar.push(new Date().getTime() - milliseconds);
+                                correctFirstBluePress.push(new Date().getTime() - milliseconds);
                             } else {
-                                correctBluePressStar.push(new Date().getTime() - milliseconds);
+                                correctBluePress.push(new Date().getTime() - milliseconds);
                             }
                         }
                         blueElement.addEventListener("click", blueClick);
@@ -262,9 +262,9 @@ async function startInterval2Tests2() {
                         blueClick = function () {
                             bluePress++;
                             if (bluePress == 1) {
-                                correctFirstBluePressStar.push(new Date().getTime() - milliseconds);
+                                correctFirstBluePress.push(new Date().getTime() - milliseconds);
                             } else {
-                                correctBluePressStar.push(new Date().getTime() - milliseconds);
+                                correctBluePress.push(new Date().getTime() - milliseconds);
                             }
                         }
                         blueElement.addEventListener("click", blueClick);
@@ -388,9 +388,9 @@ async function startInterval2Tests3() {
                         blueClick = function () {
                             bluePress++;
                             if (bluePress == 1) {
-                                correctFirstBluePressStar.push(new Date().getTime() - milliseconds);
+                                correctFirstBluePress.push(new Date().getTime() - milliseconds);
                             } else {
-                                correctBluePressStar.push(new Date().getTime() - milliseconds);
+                                correctBluePress.push(new Date().getTime() - milliseconds);
                             }
                         }
                         blueElement.addEventListener("click", blueClick);

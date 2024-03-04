@@ -164,6 +164,10 @@
                 <script>
                         const redElement = document.getElementById("redButton");
                         const blueElement = document.getElementById("blueButton");
+                        let redPress = 0;
+                        let bluePress = 0;
+                        let redClick = 0;
+                        let blueClick = 0;
                 </script>
         </div>
 
@@ -190,6 +194,15 @@
 
         <script>
                 document.addEventListener("contextmenu", function (event) {
+                        event.preventDefault();
+                });
+                redElement.addEventListener("contextmenu", function (event) {
+                        event.preventDefault();
+                });
+                blueElement.addEventListener("contextmenu", function (event) {
+                        event.preventDefault();
+                });
+                document.addEventListener('contextmenu', event => {
                         event.preventDefault();
                 });
                 timeline();

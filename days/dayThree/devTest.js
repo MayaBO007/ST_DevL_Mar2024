@@ -11,6 +11,7 @@ const responsesDev = {
     incorrectBluePressDevtest: incorrectBluePressDevtest,
     redChoiceDev: redChoiceDev,
     blueChoiceDev: blueChoiceDev,
+    yellowChoiceDev: yellowChoiceDev,
     allRedPressesDev: allRedPressesDev,
     allBluePressesDev: allBluePressesDev,
     allCorrectFirstPressDev: allCorrectFirstPressDev,
@@ -18,11 +19,6 @@ const responsesDev = {
     devButton: devButton
 };
 let saveAttemptDev = 0;
-// 1=red, 2=blue buttons
-//let buttonChoice = null;
-// let sessionInterval = null;
-// let startGame = null;
-let startClickDev = null;
 
 redElement.addEventListener("touchstart", function () {
     allRedPressesDev.push(new Date().getTime() - milliseconds);
@@ -39,16 +35,6 @@ blueElement.addEventListener("touchstart", function () {
     setTimeout(() => {
         blueElement.style.transform = "initial";
     }, 100); // Adjust the delay as nee
-
-});
-redElement.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
-});
-blueElement.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
-});
-document.addEventListener('contextmenu', event => {
-    event.preventDefault();
 });
 
 function yellowPressDev() {
@@ -61,8 +47,6 @@ function yellowPressDev() {
 
 async function startDevTest() {
     return new Promise(resolve => {
-        breaks = 0;
-        countingCars = 0;
         count = 0;
         function startIntervalDevtest() {
             let randCount = randCountAirplane();
@@ -72,14 +56,10 @@ async function startDevTest() {
             sessionIntervalTest = setInterval(
                 function carMove() {
                     let choseCar = randColorDev();
-                    let carSpeed = randSpeedCar();
-                    blueElement.removeEventListener("click", function () {
-                        correctBluePressDevtest.push(new Date().getTime() - milliseconds);
-                    })
-                    redElement.removeEventListener("click", function () {
-                        correctRedPressDevtest.push(new Date().getTime() - milliseconds);
-                    })
+                    // let carSpeed = randSpeedCar();
                     buttonChoice = 0;
+                    redPress = 0;
+                    bluePress = 0;
                     if (count >= randCount) {
                         clearInterval(sessionIntervalTest);
                         document.getElementById("yellowCar").style.display = "inline";
@@ -93,7 +73,7 @@ async function startDevTest() {
                             blue_yellow = true;
                         });
                         setTimeout(() => {
-                            sessionIntervalTest();
+                            startIntervalDevtest();
                             reset_yellowCar();
                             count = 0;
                             yellowPressDev();
@@ -106,43 +86,48 @@ async function startDevTest() {
                         }, 800);
                     } else {
                         count++;
-                        countingCars++;
                         if (choseCar >= 0.5) {
                             document.getElementById("redCar").style.display = "inline";
                             document.getElementById("redCar").style.animationPlayState = "running";
-                            document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
-                            document.getElementById("redButton").onclick = function () {
-                                correctFirstRedPressDevtest.push(new Date().getTime() - milliseconds);
-                            }.then(() => {
-                                redElement.addEventListener('click', () => {
+                            // document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
+                            redClick = function () {
+                                redPress++;
+                                if (redPress == 1) {
+                                    correctFirstRedPressDevtest.push(new Date().getTime() - milliseconds);
+                                } else {
                                     correctRedPressDevtest.push(new Date().getTime() - milliseconds);
-                                })
-                            });
+                                }
+                            };
+                            redElement.addEventListener("click", redClick);
                             document.getElementById("blueButton").onclick = function () {
                                 incorrectBluePressDevtest.push(new Date().getTime() - milliseconds);
                             };
 
                             setTimeout(() => {
                                 reset_redCar();
-                            }, carSpeed * 1000);
+                                redElement.removeEventListener("click", redClick);
+                            }, 1000);//carSpeed * 1000);
                         } else {
                             document.getElementById("blueCar").style.display = "inline";
                             document.getElementById("blueCar").style.animationPlayState = "running";
-                            document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
+                            // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
                             document.getElementById("redButton").onclick = function () {
                                 incorrectRedPressDevtest.push(new Date().getTime() - milliseconds);
                             };
-                            document.getElementById("blueButton").onclick = function () {
-                                correctFirstBluePressDevtest.push(new Date().getTime() - milliseconds);
-                            }.then(() => {
-                                blueElement.addEventListener('click', () => {
+                            blueClick = function () {
+                                bluePress++;
+                                if (bluePress == 1) {
+                                    correctFirstBluePressDevtest.push(new Date().getTime() - milliseconds);
+                                } else {
                                     correctBluePressDevtest.push(new Date().getTime() - milliseconds);
-                                });
-                            });
+                                }
+                            }
+                            blueElement.addEventListener("click", blueClick);
 
                             setTimeout(() => {
                                 reset_blueCar();
-                            }, carSpeed * 1000);
+                                blueElement.removeEventListener("click", blueClick);
+                            }, 1000);//carSpeed * 1000);
                         }
 
                         // if (countingCars >= 280 & breaks <= 2) {
@@ -167,7 +152,7 @@ async function startDevTest() {
                         // }
                     }
 
-                }, 1200);// (Maximal carSpeed)*1000
+                }, 1000);//1200);// (Maximal carSpeed)*1000
 
             let sessionTimerTest = setTimeout(function timeCount() {
                 document.getElementById("blueButton").style.display = "none";
