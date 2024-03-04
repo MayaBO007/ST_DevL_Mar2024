@@ -22,8 +22,10 @@ let red_yellow = false;
 let blue_yellow = false;
 let redPress = 0;
 let bluePress = 0;
-let redClick = 0;
-let blueClick = 0;
+let redClick;
+let blueClick;
+let yellowRed;
+let yellowBlue;
 
 
 redElement.addEventListener("touchstart", function () {
@@ -94,23 +96,21 @@ async function trainingDay() {
                             document.getElementById("yellowCar").style.animationPlayState = "running";
                             yellowChoice.push(new Date().getTime() - milliseconds);
                             platform.saveSession(responsesTrainingData, false);
-                            redElement.addEventListener("click", function () {
+                            yellowRed = function () {
                                 red_yellow = true;
-                            });
-                            blueElement.addEventListener("click", function () {
+                            };
+                            redElement.addEventListener("click", yellowRed);
+                            yellowBlue = function () {
                                 blue_yellow = true;
-                            });
+                            };
+                            blueElement.addEventListener("click", yellowBlue);
                             setTimeout(() => {
                                 startIntervalTrainingDay();
                                 reset_yellowCar();
                                 count = 0;
                                 yellowPress();
-                                redElement.removeEventListener("click", function () {
-                                    red_yellow = true;
-                                });
-                                blueElement.removeEventListener("click", function () {
-                                    blue_yellow = true;
-                                });
+                                redElement.removeEventListener("click", yellowRed);
+                                blueElement.removeEventListener("click", yellowBlue);
                             }, 800);
                         } else {
                             count++;
