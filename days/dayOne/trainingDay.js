@@ -139,7 +139,7 @@ async function trainingDay() {
                                     reset_redCar();
                                     redElement.removeEventListener("click", redClick);
                                     // document.getElementById("finishedShow").innerHTML = "Finished";
-                                }, 1000);
+                                }, 900);
                                 // }, carSpeed * 1000);
                             } else {
                                 document.getElementById("blueCar").style.display = "inline";
@@ -163,7 +163,7 @@ async function trainingDay() {
                                     reset_blueCar();
                                     blueElement.removeEventListener("click", blueClick);
                                     // document.getElementById("finishedShow").innerHTML = "Finished";
-                                }, 1000);//carSpeed * 1000);
+                                }, 900);//carSpeed * 1000);
                             }
                         }
                     }, 1000);// 1200);// (Maximal carSpeed)*1000
