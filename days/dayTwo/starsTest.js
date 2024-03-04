@@ -117,7 +117,6 @@ async function startIntervalStar() {
 
                         setTimeout(() => {
                             reset_redCar();
-                            redElement.removeEventListener("click", corrPressRed);
                         }, carSpeed * 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -135,11 +134,12 @@ async function startIntervalStar() {
 
                         setTimeout(() => {
                             reset_blueCar();
-                            blueElement.removeEventListener("click", corrPressBlue);
                         }, carSpeed * 1000);
                     };
 
                 };
+                blueElement.removeEventListener("click", corrPressBlue);
+                redElement.removeEventListener("click", corrPressRed);
             }, 1200);// (Maximal carSpeed)*1000
 
         let sessionTimerStar = setTimeout(function timecountStar() {
