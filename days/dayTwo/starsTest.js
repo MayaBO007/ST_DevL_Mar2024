@@ -21,8 +21,6 @@ const responsesStar = {
 timeoutCountStar = 0;
 saveAttemptStars = 0;
 starNum = null;
-let corrPressBlue;
-let corrPressRed;
 
 redElement.addEventListener("touchstart", function () {
     allRedPressesStar.push(new Date().getTime() - milliseconds);
@@ -87,12 +85,14 @@ async function startIntervalStar() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesStar, false);
-                    redElement.addEventListener("click", function redYell() {
+                    function redYell() {
                         red_yellow = true;
-                    });
-                    blueElement.addEventListener("click", function blueYell() {
+                    }
+                    redElement.addEventListener("click", redYell);
+                    function blueYell() {
                         blue_yellow = true;
-                    });
+                    };
+                    blueElement.addEventListener("click", blueYell);
                     setTimeout(() => {
                         startIntervalStar();
                         reset_yellowCar();
