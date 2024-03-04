@@ -178,6 +178,15 @@
                 document.addEventListener("contextmenu", function (event) {
                         event.preventDefault();
                 });
+                redElement.addEventListener("contextmenu", function (event) {
+                        event.preventDefault();
+                });
+                blueElement.addEventListener("contextmenu", function (event) {
+                        event.preventDefault();
+                });
+                document.addEventListener('contextmenu', event => {
+                        event.preventDefault();
+                });
                 timeline();
 
         </script>

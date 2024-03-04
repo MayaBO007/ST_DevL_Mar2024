@@ -335,6 +335,7 @@ const incorrectRedPressStar = [];
 const incorrectBluePressStar = [];
 const redChoiceStar = [];
 const blueChoiceStar = [];
+const yellowChoiceStar = [];
 const allRedPressesStar = [];
 const allBluePressesStar = [];
 const allCorrectFirstPressStar = [];

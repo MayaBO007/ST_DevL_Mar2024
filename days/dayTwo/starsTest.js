@@ -10,10 +10,9 @@ const responsesStar = {
     incorrectBluePressStar: incorrectBluePressStar,
     redChoiceStar: redChoiceStar,
     blueChoiceStar: blueChoiceStar,
+    yellowChoiceStar: yellowChoiceStar,
     allRedPressesStar: allRedPressesStar,
     allBluePressesStar: allBluePressesStar,
-    // allCorrectFirstPressStar: allCorrectFirstPressStar,
-    allChoicesStar: allChoicesStar,
     allStars: allStars,
     howManyStars: howManyStars
 
@@ -40,15 +39,6 @@ blueElement.addEventListener("touchstart", function () {
         blueElement.style.transform = "initial";
     }, 100); // Adjust the delay as nee
 
-});
-redElement.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
-});
-blueElement.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
-});
-document.addEventListener('contextmenu', event => {
-    event.preventDefault();
 });
 
 function yellowPressStar() {
@@ -87,7 +77,7 @@ async function startIntervalStar() {
                     clearInterval(sessionIntervalStar);
                     document.getElementById("yellowCar").style.display = "inline";
                     document.getElementById("yellowCar").style.animationPlayState = "running";
-                    yellowChoice.push(new Date().getTime() - milliseconds);
+                    yellowChoiceStar.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesStar, false);
                     redElement.addEventListener("click", function () {
                         red_yellow = true;
@@ -161,7 +151,7 @@ async function startIntervalStar() {
             // document.getElementById("redButton").style.display = "none";
             clearInterval(sessionIntervalStar);
             clearTimeout(sessionTimerStar);
-            reset_airplane();
+            // reset_airplane();
             // reset_blueCar();
             // reset_redCar();
             timeoutCountStar++;
@@ -186,7 +176,7 @@ async function startIntervalStar() {
             } else {
                 clearInterval(sessionIntervalStar);
                 clearTimeout(sessionTimerStar);
-                reset_airplane();
+                // reset_airplane();
                 // reset_blueCar();
                 // reset_redCar();
             }

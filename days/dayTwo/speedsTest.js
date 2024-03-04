@@ -10,16 +10,14 @@ const responsesSpeeds = {
     incorrectBluePressSpeeds: incorrectBluePressSpeeds,
     redChoiceSpeeds: redChoiceSpeeds,
     blueChoiceSpeeds: blueChoiceSpeeds,
+    yellowChoiceSpeeds: yellowChoiceSpeeds,
     allRedPressesSpeeds: allRedPressesSpeeds,
     allBluePressesSpeeds: allBluePressesSpeeds,
 };
 
 timeoutCountSpeeds = 0;
-
-// let redElement = document.getElementById("redButton");
-// let blueElement = document.getElementById("blueButton");
-// let red_yellow = false;
-// let blue_yellow = false;
+saveAttemptSpeedss = 0;
+SpeedsNum = null;
 
 
 redElement.addEventListener("touchstart", function () {
@@ -39,27 +37,15 @@ blueElement.addEventListener("touchstart", function () {
     }, 100); // Adjust the delay as nee
 
 });
-redElement.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
-});
-blueElement.addEventListener("contextmenu", function (event) {
-    event.preventDefault();
-});
-document.addEventListener('contextmenu', event => {
-    event.preventDefault();
-});
 
 function yellowPressSpeeds() {
     if (red_yellow && blue_yellow) {
-        correctYellowPressSpeed.push(new Date().getTime() - milliseconds);
+        correctYellowPressSpeeds.push(new Date().getTime() - milliseconds);
         red_yellow = false;
         blue_yellow = false;
     }
 }
 
-
-
-saveAttemptSpeeds = 0;
 //let sessionIntervalSpeeds = null;
 let endSpeeds = null;
 let countSpeeds = 0;
@@ -72,14 +58,10 @@ async function startIntervalSpeeds() {
         sessionIntervalSpeeds = setInterval(
             function carMove() {
                 let choseCar = randColorSpeeds();
-                let carSpeed = randSpeedCar();
-                blueElement.removeEventListener("touchstart", function () {
-                    correctBluePressSpeeds.push(new Date().getTime() - milliseconds);
-                })
-                redElement.removeEventListener("touchstart", function () {
-                    correctRedPressSpeeds.push(new Date().getTime() - milliseconds);
-                });
+                let carSpeed = randSpeedCarSpeeds();
                 buttonChoice = 0;
+                redPress = 0;
+                bluePress = 0;
                 if (countSpeeds >= randCount) {
                     clearInterval(sessionIntervalSpeeds);
                     document.getElementById("yellowCar").style.display = "inline";
@@ -110,20 +92,22 @@ async function startIntervalSpeeds() {
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
                         document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
-                        redElement.onclick = function () {
-                            correctFirstRedPressSpeeds.push(new Date().getTime() - milliseconds);
-                        }.then(() => {
-                            redElement.addEventListener("touchstart", function () {
+                        redClick = function () {
+                            redPress++;
+                            if (redPress == 1) {
+                                correctFirstRedPressSpeeds.push(new Date().getTime() - milliseconds);
+                            } else {
                                 correctRedPressSpeeds.push(new Date().getTime() - milliseconds);
-                            });
-                        })
-
+                            }
+                        };
+                        redElement.addEventListener("click", redClick);
                         blueElement.onclick = function () {
                             incorrectBluePressSpeeds.push(new Date().getTime() - milliseconds);
-                        }
+                        };
 
                         setTimeout(() => {
                             reset_redCar();
+                            redElement.removeEventListener("click", redClick);
                         }, carSpeed * 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -132,50 +116,53 @@ async function startIntervalSpeeds() {
                         redElement.onclick = function () {
                             incorrectRedPressSpeeds.push(new Date().getTime() - milliseconds);
                         };
-                        blueElement.onclick = function () {
-                            correctFirstBluePressSpeeds.push(new Date().getTime() - milliseconds);
-                        }.then(() => {
-                            blueElement.addEventListener("touchstart", function () {
+                        blueClick = function () {
+                            bluePress++;
+                            if (bluePress == 1) {
+                                correctFirstBluePressSpeeds.push(new Date().getTime() - milliseconds);
+                            } else {
                                 correctBluePressSpeeds.push(new Date().getTime() - milliseconds);
-                            })
-                        });
+                            }
+                        }
+                        blueElement.addEventListener("click", blueClick);
 
                         setTimeout(() => {
                             reset_blueCar();
+                            blueElement.removeEventListener("click", blueClick)
                         }, carSpeed * 1000);
                     };
 
                 };
-            }, 1300);// (Maximal carSpeed)*1000
+            }, 1200);// (Maximal carSpeed)*1000
 
         let sessionTimerSpeeds = setTimeout(function timecountSpeeds() {
             // document.getElementById("blueButton").style.display = "none";
             // document.getElementById("redButton").style.display = "none";
             clearInterval(sessionIntervalSpeeds);
             clearTimeout(sessionTimerSpeeds);
-            reset_airplane();
+            // reset_airplane();
             // reset_blueCar();
             // reset_redCar();
             timeoutCountSpeeds++;
             endSpeeds = 1;
             if (timeoutCountSpeeds == 1) {
-                function savingSpeeds() {
+                function savingSpeedss() {
                     platform.saveSession(responsesSpeeds, false).then(() => {
                         resolve("done4");
                     }).catch(() => {
-                        if (saveAttemptSpeeds >= 2000) {
+                        if (saveAttemptSpeedss >= 2000) {
                             problemOrient();
                         } else {
-                            saveAttemptSpeeds++;
-                            savingSpeeds()
+                            saveAttemptSpeedss++;
+                            savingSpeedss()
                         }
-                    })
+                    });
                 }
-                savingSpeeds()
+                savingSpeedss();
             } else {
                 clearInterval(sessionIntervalSpeeds);
                 clearTimeout(sessionTimerSpeeds);
-                reset_airplane();
+                // reset_airplane();
                 // reset_blueCar();
                 // reset_redCar();
             }
@@ -183,5 +170,3 @@ async function startIntervalSpeeds() {
         // }, 30000);
     })
 };
-
-
