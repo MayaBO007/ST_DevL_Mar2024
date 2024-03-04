@@ -22,10 +22,6 @@ timeoutCountStar = 0;
 saveAttemptStars = 0;
 starNum = null;
 
-redElement.addEventListener("click", function corrPressRed() {
-})
-blueElement.addEventListener("click", function corrPressBlue() {
-})
 redElement.addEventListener("touchstart", function () {
     allRedPressesStar.push(new Date().getTime() - milliseconds);
     redElement.style.transform = "translateY(10px)";
@@ -82,8 +78,6 @@ async function startIntervalStar() {
             function carMove() {
                 let choseCar = randColorStar();
                 let carSpeed = randSpeedCar();
-                blueElement.removeEventListener("click", corrPressBlue);
-                redElement.removeEventListener("click", corrPressRed);
                 buttonChoice = 0;
                 if (countStar >= randCount) {
                     clearInterval(sessionIntervalStar);
@@ -123,6 +117,7 @@ async function startIntervalStar() {
 
                         setTimeout(() => {
                             reset_redCar();
+                            redElement.removeEventListener("click", corrPressRed);
                         }, carSpeed * 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -140,6 +135,7 @@ async function startIntervalStar() {
 
                         setTimeout(() => {
                             reset_blueCar();
+                            blueElement.removeEventListener("click", corrPressBlue);
                         }, carSpeed * 1000);
                     };
 
