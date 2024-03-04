@@ -144,7 +144,7 @@ async function trainingDay() {
                             } else {
                                 document.getElementById("blueCar").style.display = "inline";
                                 document.getElementById("blueCar").style.animationPlayState = "running";
-                                document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
+                                // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
                                 document.getElementById("redButton").onclick = function () {
                                     incorrectRedPress.push(new Date().getTime() - milliseconds);
                                 };
@@ -163,7 +163,7 @@ async function trainingDay() {
                                     reset_blueCar();
                                     blueElement.removeEventListener("click", blueClick);
                                     // document.getElementById("finishedShow").innerHTML = "Finished";
-                                }, carSpeed * 1000);
+                                }, 1000);//carSpeed * 1000);
                             }
                         }
                     }, 1000);// 1200);// (Maximal carSpeed)*1000
