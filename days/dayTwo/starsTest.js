@@ -21,6 +21,8 @@ const responsesStar = {
 timeoutCountStar = 0;
 saveAttemptStars = 0;
 starNum = null;
+let corrPressBlue;
+let corrPressRed;
 
 redElement.addEventListener("touchstart", function () {
     allRedPressesStar.push(new Date().getTime() - milliseconds);
@@ -107,7 +109,7 @@ async function startIntervalStar() {
                         document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
                         redElement.onclick = function () {
                             correctFirstRedPressStar.push(new Date().getTime() - milliseconds);
-                            function corrPressRed() {
+                            corrPressRed = function () {
                                 correctRedPressStar.push(new Date().getTime() - milliseconds);
                             }
                             redElement.addEventListener("click", corrPressRed);
@@ -129,7 +131,7 @@ async function startIntervalStar() {
                         };
                         blueElement.onclick = function () {
                             correctFirstBluePressStar.push(new Date().getTime() - milliseconds);
-                            function corrPressBlue() {
+                            corrPressBlue = function () {
                                 correctBluePressStar.push(new Date().getTime() - milliseconds);
                             }
                             blueElement.addEventListener("click", corrPressBlue);
