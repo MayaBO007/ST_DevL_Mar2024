@@ -382,6 +382,7 @@ const incorrectRedPressDevtest = [];
 const incorrectBluePressDevtest = [];
 const redChoiceDev = [];
 const blueChoiceDev = [];
+const yellowChoiceDev = [];
 const allRedPressesDev = [];
 const allBluePressesDev = [];
 const allCorrectFirstPressDev = [];
