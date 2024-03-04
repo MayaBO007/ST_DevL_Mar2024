@@ -188,6 +188,7 @@ body {
     animation-fill-mode: backwards;
     animation-iteration-count: infinite;
     display: none;
+    animation-duration: 1s;
     /* animation-delay: 100ms; */
 
     /*animation-iteration-count: infinite;
@@ -218,6 +219,8 @@ body {
     animation-fill-mode: backwards;
     animation-iteration-count: infinite;
     display: none;
+    animation-duration: 1s;
+
     /* animation-delay: 100ms; */
 
 }

@@ -102,7 +102,7 @@ async function startIntervalStar() {
                     if (choseCar >= 0.5) {
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
-                        document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
+                        // document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
                         redClick = function () {
                             redPress++;
                             if (redPress == 1) {
@@ -119,11 +119,12 @@ async function startIntervalStar() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("click", redClick);
-                        }, carSpeed * 1000);
+                            // }, carSpeed * 1000);
+                        }, 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
-                        document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
+                        // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
                         redElement.onclick = function () {
                             incorrectRedPressStar.push(new Date().getTime() - milliseconds);
                         };
@@ -140,11 +141,12 @@ async function startIntervalStar() {
                         setTimeout(() => {
                             reset_blueCar();
                             blueElement.removeEventListener("click", blueClick)
-                        }, carSpeed * 1000);
+                        }, 1000);
+                        // }, carSpeed * 1000);
                     };
 
                 };
-            }, 1200);// (Maximal carSpeed)*1000
+            }, 1000);// (Maximal carSpeed)*1000
 
         let sessionTimerStar = setTimeout(function timecountStar() {
             // document.getElementById("blueButton").style.display = "none";

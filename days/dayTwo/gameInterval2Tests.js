@@ -58,7 +58,7 @@ async function startInterval2Tests() {
         sessionInterval2Test = setInterval(
             function carMove() {
                 let choseCar = randColor();
-                let carSpeed = randSpeedCar();
+                // let carSpeed = randSpeedCar();
                 document.getElementById("redButton").style.display = "inline";
                 document.getElementById("blueButton").style.display = "inline";
                 document.getElementById("gameScreen").style.display = "inline";
@@ -101,7 +101,7 @@ async function startInterval2Tests() {
                     if (choseCar >= 0.5) {
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
-                        document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
+                        // document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
                         redClick = function () {
                             redPress++;
                             if (redPress == 1) {
@@ -119,11 +119,11 @@ async function startInterval2Tests() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("click", redClick);
-                        }, carSpeed * 1000);
+                        }, 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
-                        document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
+                        // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
                         document.getElementById("redButton").onclick = function () {
                             incorrectRedPress.push(new Date().getTime() - milliseconds);
                         };
@@ -137,14 +137,15 @@ async function startInterval2Tests() {
                         }
                         blueElement.addEventListener("click", blueClick);
 
-                    };
 
-                    setTimeout(() => {
-                        reset_blueCar();
-                        blueElement.removeEventListener("click", blueClick);
-                    }, carSpeed * 1000);
+
+                        setTimeout(() => {
+                            reset_blueCar();
+                            blueElement.removeEventListener("click", blueClick);
+                        }, 1000);
+                    };
                 };
-            }, 1200);// (Maximal carSpeed)*1000
+            }, 1000);// (Maximal carSpeed)*1000
 
         let sessionTimer2test = setTimeout(function timeCount() {
             // document.getElementById("blueButton").style.display = "none";
@@ -193,7 +194,7 @@ async function startInterval2Tests2() {
         sessionInterval2Test2 = setInterval(
             function carMove() {
                 let choseCar = randColor();
-                let carSpeed = randSpeedCar();
+                // let carSpeed = randSpeedCar();
                 buttonChoice = 0;
                 redPress = 0;
                 bluePress = 0;
@@ -232,7 +233,7 @@ async function startInterval2Tests2() {
                     if (choseCar >= 0.5) {
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
-                        document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
+                        // document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
                         redClick = function () {
                             redPress++;
                             if (redPress == 1) {
@@ -250,11 +251,11 @@ async function startInterval2Tests2() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("click", redClick);
-                        }, carSpeed * 1000);
+                        }, 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
-                        document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
+                        // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
                         document.getElementById("redButton").onclick = function () {
                             incorrectRedPress.push(new Date().getTime() - milliseconds);
                         };
@@ -271,11 +272,11 @@ async function startInterval2Tests2() {
                         setTimeout(() => {
                             reset_blueCar();
                             blueElement.removeEventListener("click", blueClick);
-                        }, carSpeed * 1000);
+                        }, 1000);
                     };
 
                 };
-            }, 1200);// (Maximal carSpeed)*1000
+            }, 1000);// (Maximal carSpeed)*1000
 
         let sessionTimer2test2 = setTimeout(function timeCount() {
             clearInterval(sessionInterval2Test2);
@@ -318,7 +319,7 @@ async function startInterval2Tests3() {
         sessionInterval2Test3 = setInterval(
             function carMove() {
                 let choseCar = randColor();
-                let carSpeed = randSpeedCar();
+                // let carSpeed = randSpeedCar();
                 blueElement.removeEventListener("touchstart", function () {
                     correctBluePress.push(new Date().getTime() - milliseconds);
                 })
@@ -357,7 +358,7 @@ async function startInterval2Tests3() {
                     if (choseCar >= 0.5) {
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
-                        document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
+                        // document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
                         redClick = function () {
                             redPress++;
                             if (redPress == 1) {
@@ -375,11 +376,12 @@ async function startInterval2Tests3() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("click", redClick);
-                        }, carSpeed * 1000);
+                            // }, carSpeed * 1000);
+                        }, 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
-                        document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
+                        // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
                         document.getElementById("redButton").onclick = function () {
                             incorrectRedPress.push(new Date().getTime() - milliseconds);
                         };
@@ -396,11 +398,12 @@ async function startInterval2Tests3() {
                         setTimeout(() => {
                             reset_blueCar();
                             blueElement.removeEventListener("click", blueClick);
-                        }, carSpeed * 1000);
+                            // }, carSpeed * 1000);
+                        }, 1000);
                     };
 
                 };
-            }, 1200);// (Maximal carSpeed)*1000
+            }, 1000);// (Maximal carSpeed)*1000
 
         let sessionTimer2test3 = setTimeout(function timeCount() {
             clearInterval(sessionInterval2Test3);
