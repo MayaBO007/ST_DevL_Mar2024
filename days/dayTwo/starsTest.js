@@ -3,6 +3,7 @@ const responsesStar = {
     todayDate: getTodayDate(),
     correctRedPressStar: correctRedPressStar,
     correctBluePressStar: correctBluePressStar,
+    correctYellowPressStar: correctYellowPressStar,
     correctFirstRedPressStar: correctFirstRedPressStar,
     correctFirstBluePressStar: correctFirstBluePressStar,
     incorrectRedPressStar: incorrectRedPressStar,
