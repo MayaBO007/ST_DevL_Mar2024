@@ -113,26 +113,22 @@ async function startIntervalStar() {
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
                         document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
-                        redElement.onclick = function () {
+                        redClick = function () {
                             redPress++;
-                            correctFirstRedPressStar.push(new Date().getTime() - milliseconds);
-                        }
-                        redElement.addEventListener("click", function () {
-                            if (redPress >= 1) {
+                            if (redPress == 1) {
+                                correctFirstRedPressStar.push(new Date().getTime() - milliseconds);
+                            } else {
                                 correctRedPressStar.push(new Date().getTime() - milliseconds);
                             }
-                        });
+                        };
+                        redElement.addEventListener("click", redClick);
                         blueElement.onclick = function () {
                             incorrectBluePressStar.push(new Date().getTime() - milliseconds);
                         };
 
                         setTimeout(() => {
                             reset_redCar();
-                            redElement.removeEventListenerEventListener("click", function () {
-                                if (redPress >= 1) {
-                                    correctRedPressStar.push(new Date().getTime() - milliseconds);
-                                }
-                            })
+                            redElement.removeEventListenerEventListener("click", redClick);
                         }, carSpeed * 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -141,23 +137,19 @@ async function startIntervalStar() {
                         redElement.onclick = function () {
                             incorrectRedPressStar.push(new Date().getTime() - milliseconds);
                         };
-                        blueElement.onclick = function () {
+                        blueClick = function () {
                             bluePress++;
-                            correctFirstBluePressStar.push(new Date().getTime() - milliseconds);
-                        }
-                        blueElement.addEventListener("click", function () {
-                            if (bluePress >= 1) {
+                            if (bluePress == 1) {
+                                correctFirstBluePressStar.push(new Date().getTime() - milliseconds);
+                            } else {
                                 correctBluePressStar.push(new Date().getTime() - milliseconds);
                             }
-                        });
+                        }
+                        blueElement.addEventListener("click", blueClick);
 
                         setTimeout(() => {
                             reset_blueCar();
-                            blueElement.removeEventListener("click", function () {
-                                if (bluePress >= 1) {
-                                    correctBluePressStar.push(new Date().getTime() - milliseconds);
-                                }
-                            })
+                            blueElement.removeEventListener("click", blueClick)
                         }, carSpeed * 1000);
                     };
 
