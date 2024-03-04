@@ -93,7 +93,7 @@ async function startIntervalSpeeds() {
                         blue_yellow = true;
                     });
                     setTimeout(() => {
-                        sessionIntervalSpeeds();
+                        startIntervalSpeeds();
                         reset_yellowCar();
                         count = 0;
                         yellowPressSpeeds();
