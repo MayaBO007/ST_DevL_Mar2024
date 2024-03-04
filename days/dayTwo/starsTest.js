@@ -23,6 +23,7 @@ timeoutCountStar = 0;
 saveAttemptStars = 0;
 starNum = null;
 
+
 redElement.addEventListener("touchstart", function () {
     allRedPressesStar.push(new Date().getTime() - milliseconds);
     redElement.style.transform = "translateY(10px)";
@@ -79,6 +80,12 @@ async function startIntervalStar() {
             function carMove() {
                 let choseCar = randColorStar();
                 let carSpeed = randSpeedCar();
+                blueElement.removeEventListener("click", function () {
+                    correctBluePressStar.push(new Date().getTime() - milliseconds);
+                })
+                redElement.removeEventListener("click", function () {
+                    correctRedPressStar.push(new Date().getTime() - milliseconds);
+                })
                 buttonChoice = 0;
                 if (countStar >= randCount) {
                     clearInterval(sessionIntervalStar);
@@ -86,21 +93,23 @@ async function startIntervalStar() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesStar, false);
-                    function redYell() {
+                    redElement.addEventListener("click", function () {
                         red_yellow = true;
-                    }
-                    redElement.addEventListener("click", redYell);
-                    function blueYell() {
+                    });
+                    blueElement.addEventListener("click", function () {
                         blue_yellow = true;
-                    };
-                    blueElement.addEventListener("click", blueYell);
+                    });
                     setTimeout(() => {
-                        startIntervalStar();
+                        sessionIntervalStar();
                         reset_yellowCar();
-                        countStar = 0;
+                        count = 0;
                         yellowPress();
-                        redElement.removeEventListener("click", redYell);
-                        blueElement.removeEventListener("click", blueYell);
+                        redElement.removeEventListener("click", function () {
+                            red_yellow = true;
+                        });
+                        blueElement.removeEventListener("click", function () {
+                            blue_yellow = true;
+                        });
                     }, 800);
                 } else {
                     countStar++;
@@ -110,18 +119,16 @@ async function startIntervalStar() {
                         document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
                         redElement.onclick = function () {
                             correctFirstRedPressStar.push(new Date().getTime() - milliseconds);
-                            corrPressRed = function () {
+                            redElement.addEventListener("click", function () {
                                 correctRedPressStar.push(new Date().getTime() - milliseconds);
-                            }
-                            redElement.addEventListener("click", corrPressRed);
+                            })
                         };
-                        blueElement.onclick = function () {
+                        document.getElementById("blueButton").onclick = function () {
                             incorrectBluePressStar.push(new Date().getTime() - milliseconds);
                         };
 
                         setTimeout(() => {
                             reset_redCar();
-                            redElement.removeEventListener("click", corrPressRed);
                         }, carSpeed * 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -132,20 +139,18 @@ async function startIntervalStar() {
                         };
                         blueElement.onclick = function () {
                             correctFirstBluePressStar.push(new Date().getTime() - milliseconds);
-                            corrPressBlue = function () {
+                            // allCorrectFirstPressStar.push(new Date().getTime() - milliseconds);
+                            blueElement.addEventListener("click", function () {
                                 correctBluePressStar.push(new Date().getTime() - milliseconds);
-                            }
-                            blueElement.addEventListener("click", corrPressBlue);
+                            })
                         };
 
                         setTimeout(() => {
                             reset_blueCar();
-                            blueElement.removeEventListener("click", corrPressBlue);
                         }, carSpeed * 1000);
                     };
 
                 };
-
             }, 1200);// (Maximal carSpeed)*1000
 
         let sessionTimerStar = setTimeout(function timecountStar() {
