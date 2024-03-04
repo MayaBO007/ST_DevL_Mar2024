@@ -100,7 +100,7 @@ async function startIntervalStar() {
                         blue_yellow = true;
                     });
                     setTimeout(() => {
-                        sessionIntervalStar();
+                        startIntervalStar();
                         reset_yellowCar();
                         countStar = 0;
                         yellowPress();
