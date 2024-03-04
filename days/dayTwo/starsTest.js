@@ -128,7 +128,7 @@ async function startIntervalStar() {
 
                         setTimeout(() => {
                             reset_redCar();
-                            redElement.removeEventListenerEventListener("click", redClick);
+                            redElement.removeEventListener("click", redClick);
                         }, carSpeed * 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
