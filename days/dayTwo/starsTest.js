@@ -79,10 +79,6 @@ async function startIntervalStar() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoiceStar.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesStar, false);
-                    redElement.onclick = function () {
-                        red_yellow = true;
-                        console.log("red_yellow_onclick");
-                    }
                     blueElement.addEventListener("touchstart", yellowBlue);
                     redElement.addEventListener("touchstart", yellowRed);
                     setTimeout(() => {
@@ -90,8 +86,8 @@ async function startIntervalStar() {
                         reset_yellowCar();
                         countStar = 0;
                         yellowPressStar();
-                        redElement.removeEventListener("click", yellowRed);
-                        blueElement.removeEventListener("click", yellowBlue);
+                        redElement.removeEventListener("touchstart", yellowRed);
+                        blueElement.removeEventListener("touchstart", yellowBlue);
                     }, 800);
                 } else {
                     countStar++;
