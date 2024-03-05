@@ -78,7 +78,7 @@
 
 
     <!-- <link rel="apple-touch-startup-image" href="pics/Instructions/1.png"> -->
-    <!-- <img id="startImage" src="pics/moveToApp.png"> -->
+    <img id="startImage" src="pics/moveToApp.png">
     <img id="installIns" ; src="pics/Instructions/installIns.png">
     <img id="andInstructions" ; src="pics/Instructions/installation_guide_Android.png">
     <img id="iphoneInstructions" ; src="pics/Instructions/installation_guide_iOS.png">
@@ -117,8 +117,9 @@
 <body style="margin:0; padding:0; height:100vh; width:100vh;">
 
     <script>
+        document.getElementById("startImage").style.display = "inline";
+
         function notAppYet() {
-            // document.getElementById("startImage").style.display = "none";
             document.getElementById("installIns").style.display = "inline";
             document.getElementById("iphoneYellow").style.display = "inline";
             document.getElementById("notIphoneYellow").style.display = "inline";
