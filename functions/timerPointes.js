@@ -25,6 +25,13 @@ function getMillisec() {
     return milliseconds;
 }
 
+yellowRed = function () {
+    red_yellow = true;
+};
+
+yellowBlue = function () {
+    blue_yellow = true;
+};
 // async function getIndexSessionData(data) {
 //     let i = data.length - 1;
 //     while (i >= 0) {
