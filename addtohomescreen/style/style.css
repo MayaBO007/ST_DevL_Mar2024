@@ -22,6 +22,8 @@ body {
 	background-size: cover;
 	position: absolute;
 	display: inline;
+	z-index: -2;
+
 }
 
 #installIns {
