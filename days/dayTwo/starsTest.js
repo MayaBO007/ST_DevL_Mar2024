@@ -79,15 +79,15 @@ async function startIntervalStar() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoiceStar.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesStar, false);
-                    redElement.addEventListener("click", yellowRed());
-                    blueElement.addEventListener("click", yellowBlue());
+                    redElement.addEventListener("click", yellowRed);
+                    blueElement.addEventListener("click", yellowBlue);
                     setTimeout(() => {
                         startIntervalStar();
                         reset_yellowCar();
                         countStar = 0;
                         yellowPressStar();
-                        redElement.removeEventListener("click", yellowRed());
-                        blueElement.removeEventListener("click", yellowBlue());
+                        redElement.removeEventListener("click", yellowRed);
+                        blueElement.removeEventListener("click", yellowBlue);
                     }, 800);
                 } else {
                     countStar++;
