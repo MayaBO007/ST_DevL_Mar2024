@@ -15,7 +15,7 @@ const scoreDiv = document.getElementById("scoreContainer");
 let questions = [
     {
         question: 'כמה זמן יימשך המשחק?',
-        choiceA: 'משך המשחק אינו מוגדר מראש, אך המשחק יכול להימשך עד 13 ימים',
+        choiceA: '3 ימים',
         choiceB: 'שבועיים',
         choiceC: 'חודש',
         correct: "A"
@@ -49,6 +49,12 @@ let questions = [
         choiceA: 'כשעוברת מכונית, אין לחץ זמן',
         choiceB: 'כאשר עוברת מכונית אדומה/כחולה ולפני שהמכונית הבאה מופיעה',
         choiceC: 'צריך ללחוץ רק על הכפתור האדום תמיד',
+        correct: "B"
+    }, {
+        question: 'מה עושים כשעוברת מכונית צהובה?',
+        choiceA: 'כלום',
+        choiceB: 'לוחצים על שני הכפתורים יחד',
+        choiceC: 'לוחצים על הכפתור האדום ומחכים למכונית הבאה',
         correct: "B"
     }, {
         question: 'כיצד אוכל להרוויח כסף אמיתי?',
