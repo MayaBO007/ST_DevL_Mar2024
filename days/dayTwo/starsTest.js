@@ -79,7 +79,10 @@ async function startIntervalStar() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoiceStar.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesStar, false);
-                    redElement.addEventListener("touchstart", yellowRed);
+                    redElement.onclick = function () {
+                        red_yellow = true;
+                        console.log("red_yellow");
+                    }
                     blueElement.addEventListener("touchstart", yellowBlue);
                     setTimeout(() => {
                         startIntervalStar();
