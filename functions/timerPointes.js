@@ -25,12 +25,12 @@ function getMillisec() {
     return milliseconds;
 }
 
-yellowRed = function () {
+function yellowRed() {
     red_yellow = true;
     console.log("red_yellow");
 };
 
-yellowBlue = function () {
+function yellowBlue() {
     blue_yellow = true;
     console.log("red_yellow");
 };
