@@ -227,14 +227,15 @@
         //     check if implemented as PWA:
         const ifPWAitr = setInterval(() => {
 
-            var isInWebAppiOS = window.navigator.standalone === true;
-            var isInWebAppChrome =
-                window.matchMedia("(display-mode: fullscreen)").matches ||
-                window.matchMedia("(display-mode: standalone)").matches ||
-                window.matchMedia("(display-mode: minimal-ui)").matches;
+            // var isInWebAppiOS = window.navigator.standalone === true;
+            // var isInWebAppChrome =
+            //     window.matchMedia("(display-mode: fullscreen)").matches ||
+            //     window.matchMedia("(display-mode: standalone)").matches ||
+            //     window.matchMedia("(display-mode: minimal-ui)").matches;
 
-            //     // if app PWA:
-            if (isInWebAppiOS || isInWebAppChrome) {
+            // //     // if app PWA:
+            // if (isInWebAppiOS || isInWebAppChrome) {
+            if (localStorage.getItem('standaloneMode') === 'true') {
                 clearInterval(ifPWAitr);
                 if (window.matchMedia("(orientation: landscape)").matches) {
                     document.getElementById("moveToAppButton_lan").style.display = "inline";
