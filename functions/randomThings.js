@@ -194,7 +194,7 @@ function randTopButtons() {
     return (topArrayButtons[indexB1]);
 }
 
-const speedArrySpeeds = [0.8, 1.1, 1.3];
+const speedArrySpeeds = [0.6, 0.7, 0.8];
 const choseSpeedSpeeds = Array.from({ length: 1000 });
 for (let i = 0; i < choseSpeedSpeeds.length; i++) {
     let speed = speedArrySpeeds[Math.floor(Math.random() * speedArrySpeeds.length)];

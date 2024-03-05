@@ -27,12 +27,12 @@ function getMillisec() {
 
 function yellowRed() {
     red_yellow = true;
-    console.log("red_yellow_touch");
+    // console.log("red_yellow_touch");
 };
 
 function yellowBlue() {
     blue_yellow = true;
-    console.log("blue_yellow");
+    // console.log("blue_yellow");
 };
 // async function getIndexSessionData(data) {
 //     let i = data.length - 1;

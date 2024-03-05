@@ -66,21 +66,15 @@ async function startDevTest() {
                         document.getElementById("yellowCar").style.animationPlayState = "running";
                         yellowChoice.push(new Date().getTime() - milliseconds);
                         platform.saveSession(responsesDev, false);
-                        yellowRed = function () {
-                            red_yellow = true;
-                        };
-                        redElement.addEventListener("click", yellowRed);
-                        yellowBlue = function () {
-                            blue_yellow = true;
-                        };
-                        blueElement.addEventListener("click", yellowBlue);
+                        redElement.addEventListener("touchstart", yellowRed);
+                        blueElement.addEventListener("touchstart", yellowBlue);
                         setTimeout(() => {
                             startIntervalDevtest();
                             reset_yellowCar();
                             count = 0;
                             yellowPressDev();
-                            redElement.removeEventListener("click", yellowRed);
-                            blueElement.removeEventListener("click", yellowBlue);
+                            redElement.removeEventListener("touchstart", yellowRed);
+                            blueElement.removeEventListener("touchstart", yellowBlue);
                         }, 800);
                     } else {
                         count++;

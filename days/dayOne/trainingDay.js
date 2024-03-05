@@ -96,21 +96,15 @@ async function trainingDay() {
                             document.getElementById("yellowCar").style.animationPlayState = "running";
                             yellowChoice.push(new Date().getTime() - milliseconds);
                             platform.saveSession(responsesTrainingData, false);
-                            yellowRed = function () {
-                                red_yellow = true;
-                            };
-                            redElement.addEventListener("click", yellowRed);
-                            yellowBlue = function () {
-                                blue_yellow = true;
-                            };
-                            blueElement.addEventListener("click", yellowBlue);
+                            redElement.addEventListener("touchstart", yellowRed);
+                            blueElement.addEventListener("touchstart", yellowBlue);
                             setTimeout(() => {
                                 startIntervalTrainingDay();
                                 reset_yellowCar();
                                 count = 0;
                                 yellowPress();
-                                redElement.removeEventListener("click", yellowRed);
-                                blueElement.removeEventListener("click", yellowBlue);
+                                redElement.removeEventListener("touchstart", yellowRed);
+                                blueElement.removeEventListener("touchstart", yellowBlue);
                             }, 800);
                         } else {
                             count++;

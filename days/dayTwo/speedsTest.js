@@ -68,21 +68,15 @@ async function startIntervalSpeeds() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoiceSpeeds.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesSpeeds, false);
-                    yellowRed = function () {
-                        red_yellow = true;
-                    };
-                    redElement.addEventListener("click", yellowRed);
-                    yellowBlue = function () {
-                        blue_yellow = true;
-                    };
-                    blueElement.addEventListener("click", yellowBlue)
+                    redElement.addEventListener("touchstart", yellowRed);
+                    blueElement.addEventListener("touchstart", yellowBlue)
                     setTimeout(() => {
                         startIntervalSpeeds();
                         reset_yellowCar();
                         countSpeeds = 0;
                         yellowPressSpeeds();
-                        redElement.removeEventListener("click", yellowRed);
-                        blueElement.removeEventListener("click", yellowBlue);
+                        redElement.removeEventListener("touchstart", yellowRed);
+                        blueElement.removeEventListener("touchstart", yellowBlue);
                     }, 800);
                 } else {
                     countSpeeds++;
@@ -131,7 +125,7 @@ async function startIntervalSpeeds() {
                     };
 
                 };
-            }, 1400);// (Maximal carSpeed)*1000
+            }, 900);// (Maximal carSpeed)*1000
 
         let sessionTimerSpeeds = setTimeout(function timecountSpeeds() {
             // document.getElementById("blueButton").style.display = "none";

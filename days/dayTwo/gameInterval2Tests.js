@@ -65,34 +65,21 @@ async function startInterval2Tests() {
                 buttonChoice = 0;
                 redPress = 0;
                 bluePress = 0;
-                blueElement.removeEventListener("touchstart", function () {
-                    correctBluePress.push(new Date().getTime() - milliseconds);
-                })
-                redElement.removeEventListener("touchstart", function () {
-                    correctRedPress.push(new Date().getTime() - milliseconds);
-                });
                 if (count >= randCount) {
                     clearInterval(sessionInterval2Test);
                     document.getElementById("yellowCar").style.display = "inline";
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesTrainingDataThree, false);
-                    yellowRed = function () {
-                        red_yellow = true;
-                    };
-                    redElement.addEventListener("click", yellowRed);
-                    yellowBlue = function () {
-                        blue_yellow = true;
-                    };
-                    blueElement.addEventListener("click", yellowBlue);
-
+                    redElement.addEventListener("touchstart", yellowRed);
+                    blueElement.addEventListener("touchstart", yellowBlue);
                     setTimeout(() => {
                         startInterval2Tests();
                         reset_yellowCar();
                         count = 0;
                         yellowPress();
-                        redElement.removeEventListener("click", yellowRed);
-                        blueElement.removeEventListener("click", yellowBlue);
+                        redElement.removeEventListener("touchstart", yellowRed);
+                        blueElement.removeEventListener("touchstart", yellowBlue);
                     }, 800);
                 } else {
                     count++;
@@ -197,33 +184,21 @@ async function startInterval2Tests2() {
                 buttonChoice = 0;
                 redPress = 0;
                 bluePress = 0;
-                blueElement.removeEventListener("touchstart", function () {
-                    correctBluePress.push(new Date().getTime() - milliseconds);
-                })
-                redElement.removeEventListener("touchstart", function () {
-                    correctRedPress.push(new Date().getTime() - milliseconds);
-                });
                 if (countTwo >= randCount) {
                     clearInterval(sessionInterval2Test2);
                     document.getElementById("yellowCar").style.display = "inline";
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesTrainingDataThree, false);
-                    yellowRed = function () {
-                        red_yellow = true;
-                    };
-                    redElement.addEventListener("click", yellowRed);
-                    yellowBlue = function () {
-                        blue_yellow = true;
-                    }
-                    blueElement.addEventListener("click", yellowBlue);
+                    redElement.addEventListener("touchstart", yellowRed);
+                    blueElement.addEventListener("clitouchstartk", yellowBlue);
                     setTimeout(() => {
                         startInterval2Tests2();
                         reset_yellowCar();
                         countTwo = 0;
                         yellowPress();
-                        redElement.removeEventListener("click", yellowRed);
-                        blueElement.removeEventListener("click", yellowBlue);
+                        redElement.removeEventListener("touchstart", yellowRed);
+                        blueElement.removeEventListener("touchstart", yellowBlue);
                     }, 800);
                 } else {
                     countTwo++;
@@ -332,21 +307,15 @@ async function startInterval2Tests3() {
                     document.getElementById("yellowCar").style.animationPlayState = "running";
                     yellowChoice.push(new Date().getTime() - milliseconds);
                     platform.saveSession(responsesTrainingDataThree, false);
-                    yellowRed = function () {
-                        red_yellow = true;
-                    };
-                    redElement.addEventListener("click", yellowRed);
-                    yellowBlue = function () {
-                        blue_yellow = true;
-                    };
-                    blueElement.addEventListener("click", yellowBlue);
+                    redElement.addEventListener("touchstart", yellowRed);
+                    blueElement.addEventListener("touchstart", yellowBlue);
                     setTimeout(() => {
                         startInterval2Tests3();
                         reset_yellowCar();
                         countThree = 0;
                         yellowPress();
-                        redElement.removeEventListener("click", yellowRed);
-                        blueElement.removeEventListener("click", yellowBlue);
+                        redElement.removeEventListener("touchstart", yellowRed);
+                        blueElement.removeEventListener("touchstart", yellowBlue);
                     }, 800);
                 } else {
                     countThree++;
