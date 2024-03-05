@@ -86,8 +86,8 @@ async function startIntervalStar() {
                         reset_yellowCar();
                         countStar = 0;
                         yellowPressStar();
-                        redElement.removeEventListener("click", yellowRed);
-                        blueElement.removeEventListener("click", yellowBlue);
+                        redElement.removeEventListener("click", yellowRed());
+                        blueElement.removeEventListener("click", yellowBlue());
                     }, 800);
                 } else {
                     countStar++;
