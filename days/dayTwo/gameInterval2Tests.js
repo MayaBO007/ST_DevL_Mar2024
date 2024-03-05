@@ -87,7 +87,7 @@ async function startInterval2Tests() {
                     blueElement.addEventListener("click", yellowBlue);
 
                     setTimeout(() => {
-                        sessionInterval2Test();
+                        startInterval2Tests();
                         reset_yellowCar();
                         count = 0;
                         yellowPress();
