@@ -12,10 +12,6 @@ body {
 
 }
 
-canvas {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
-
 #startButton {
     position: absolute;
     left: 30%;
