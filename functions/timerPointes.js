@@ -205,7 +205,7 @@ function showWinningsEnd(sum) {
     document.getElementById("gameOver").innerHTML = gameOverHeb;
     document.getElementById("totWinsBlue").innerHTML = sum.blueSum + " " + totWinsBlueHeb;
     document.getElementById("totWinsRed").innerHTML = sum.redSum + " " + totWinsRedHeb;
-    document.getElementById("totWinsYellow").innerHTML = sum.redSum + " " + totWinsYellowHeb;
+    document.getElementById("totWinsYellow").innerHTML = sum.yellowSum + " " + totWinsYellowHeb;
     document.getElementById("thanksForPlaying").innerHTML = thanksForPlayingHeb;
     document.getElementById("contectUs").innerHTML = contectUsHeb;
 }
@@ -264,6 +264,7 @@ async function sumCorrectFirstPress() {
         platform.getAllSessions().then((data) => {
             let totalBlueSum = 0;
             let totalRedSum = 0;
+            let totalYellowSum = 0;
 
             data.forEach((entry) => {
                 for (const key in entry) {
@@ -276,12 +277,16 @@ async function sumCorrectFirstPress() {
                         }
                         const pressArray = entry[key];
                         totalRedSum += pressArray.length;
+                    } else if (key.startsWith('correctYellowPress')) {
+                        const pressArray = entry[key];
+                        totalYellowSum += pressArray.length;
                     }
                 }
             });
-            const sum = { blueSum: totalBlueSum, redSum: totalRedSum };
+            const sum = { blueSum: totalBlueSum, redSum: totalRedSum, yellowSum: totalYellowSum };
             totalBlues.push(sum.blueSum);
             totalReds.push(sum.redSum);
+            totalYellows.push(sum.yellowSum);
 
 
             resolve(sum);
@@ -405,5 +410,6 @@ const devButton = [];
 
 const totalBlues = [];
 const totalReds = [];
+const totalYellows = [];
 
 let countingCars = null;
