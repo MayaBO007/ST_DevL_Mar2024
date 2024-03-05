@@ -24,8 +24,6 @@ let redPress = 0;
 let bluePress = 0;
 let redClick;
 let blueClick;
-let yellowRed;
-let yellowBlue;
 
 
 redElement.addEventListener("touchstart", function () {
