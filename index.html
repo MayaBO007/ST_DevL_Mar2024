@@ -117,12 +117,12 @@
 <body style="margin:0; padding:0; height:100vh; width:100vh;">
 
     <script>
-        setTimeout(function () {
+        function notAppYet() {
             // document.getElementById("startImage").style.display = "none";
             document.getElementById("installIns").style.display = "inline";
             document.getElementById("iphoneYellow").style.display = "inline";
             document.getElementById("notIphoneYellow").style.display = "inline";
-        }, 1500);
+        };
         // document.getElementById("installIns").style.display = "inline";
         // document.getElementById("iphoneYellow").style.display = "inline";
         // document.getElementById("notIphoneYellow").style.display = "inline";
@@ -189,6 +189,7 @@
             ||
             (!window.matchMedia('(disply-mode: standalone)').matches) //android
         ) {
+            notAppYet();
             addToHomescreen()
         }
 
