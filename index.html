@@ -117,7 +117,6 @@
 <body style="margin:0; padding:0; height:100vh; width:100vh;">
 
     <script>
-        document.getElementById("startImage").style.display = "inline";
 
         function notAppYet() {
             setTimeout(() => {
@@ -126,9 +125,6 @@
                 document.getElementById("notIphoneYellow").style.display = "inline";
             }, 3000);
         }
-        // document.getElementById("installIns").style.display = "inline";
-        // document.getElementById("iphoneYellow").style.display = "inline";
-        // document.getElementById("notIphoneYellow").style.display = "inline";
 
         function androidIns() {
             document.getElementById("installIns").style.display = "none";
@@ -187,13 +183,20 @@
     <div id="loading_lan"> </div>
     <script>
 
-        if (
-            (("standalone" in window.navigator) && !window.navigator.standalone) // for ios
-            ||
-            (!window.matchMedia('(disply-mode: standalone)').matches) //android
-        ) {
+        if (localStorage.getItem('standaloneMode') === 'true') {
+            // The web app is running in standalone mode
+            document.getElementById("startImage").style.display = "inline";
+        } else {
+            // The web app is not running in standalone mode
+            // console.log('Web app is not running in standalone mode');
+            // } if (
+            //     (("standalone" in window.navigator) && !window.navigator.standalone) // for ios
+            //     ||
+            //     (!window.matchMedia('(disply-mode: standalone)').matches) //android
+            // ) {
             notAppYet();
             addToHomescreen()
+            localStorage.setItem('standaloneMode', 'true');
         }
 
         function startApp() {
