@@ -81,9 +81,10 @@ async function startIntervalStar() {
                     platform.saveSession(responsesStar, false);
                     redElement.onclick = function () {
                         red_yellow = true;
-                        console.log("red_yellow");
+                        console.log("red_yellow_onclick");
                     }
                     blueElement.addEventListener("touchstart", yellowBlue);
+                    redElement.addEventListener("touchstart", yellowRed);
                     setTimeout(() => {
                         startIntervalStar();
                         reset_yellowCar();
