@@ -114,24 +114,24 @@ function randSpeedCar() {
     return (choseSpeed[indexC1]);
 };
 
-function randDevButton() {
-    const buttonArry = [0, 1];
-    let buttonChoise = buttonArry[Math.floor(Math.random() * buttonArry.length)];
-    devButton.push(buttonChoise);
-    if (buttonChoise == 0) {
-        button = "startDevtestButtonBlue";
-    } else {
-        button = "startDevtestButtonRed";
-    } devButton.push(buttonChoise);
-    return button
-}
+// function randDevButton() {
+//     const buttonArry = [0, 1];
+//     let buttonChoise = buttonArry[Math.floor(Math.random() * buttonArry.length)];
+//     devButton.push(buttonChoise);
+//     if (buttonChoise == 0) {
+//         button = "startDevtestButtonBlue";
+//     } else {
+//         button = "startDevtestButtonRed";
+//     } devButton.push(buttonChoise);
+//     return button
+// }
 
 // rands for stars
 
 // Random time array
 const timeArrayStarts = Array.from({ length: 100 });
 for (let i = 0; i < timeArrayStarts.length; i++) {
-    let timeToShine = Math.random() * (4000 - 1000) + 1000;
+    let timeToShine = Math.random() * (3500 - 1000) + 1000;
     timeArrayStarts.fill(timeToShine, i);
 };
 
@@ -194,7 +194,7 @@ function randTopButtons() {
     return (topArrayButtons[indexB1]);
 }
 
-const speedArrySpeeds = [0.6, 0.7, 0.8];
+const speedArrySpeeds = [0.6, 0.8];
 const choseSpeedSpeeds = Array.from({ length: 1000 });
 for (let i = 0; i < choseSpeedSpeeds.length; i++) {
     let speed = speedArrySpeeds[Math.floor(Math.random() * speedArrySpeeds.length)];
