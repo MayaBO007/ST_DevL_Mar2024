@@ -133,7 +133,7 @@ body {
 #progress {
     height: 10vh;
     /* Changed to viewport height units */
-    width: 40vw;
+    width: 60vw;
     /* Changed to viewport width units */
     position: absolute;
     bottom: 2.5%;
