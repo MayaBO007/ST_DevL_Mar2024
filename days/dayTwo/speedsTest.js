@@ -78,6 +78,54 @@ async function startIntervalSpeeds() {
                         redElement.removeEventListener("touchstart", yellowRed);
                         blueElement.removeEventListener("touchstart", yellowBlue);
                     }, 800);
+                } else if (countSpeeds == 12 || countSpeeds == 5) {
+                    countSpeeds++;
+                    clearInterval(sessionIntervalSpeeds);
+                    if (choseCar >= 0.5) {
+                        document.getElementById("redCar").style.display = "inline";
+                        document.getElementById("redCar").style.animationPlayState = "running";
+                        document.getElementById("redCar").style.animationDuration = "1.1s";
+                        redClick = function () {
+                            redPress++;
+                            if (redPress == 1) {
+                                correctFirstRedPressSpeeds.push(new Date().getTime() - milliseconds);
+                            } else {
+                                correctRedPressSpeeds.push(new Date().getTime() - milliseconds);
+                            }
+                        };
+                        redElement.addEventListener("click", redClick);
+                        blueElement.onclick = function () {
+                            incorrectBluePressSpeeds.push(new Date().getTime() - milliseconds);
+                        };
+
+                        setTimeout(() => {
+                            reset_redCar();
+                            redElement.removeEventListener("click", redClick);
+                            startIntervalSpeeds();
+                        }, 1100);
+                    } else {
+                        document.getElementById("blueCar").style.display = "inline";
+                        document.getElementById("blueCar").style.animationPlayState = "running";
+                        document.getElementById("blueCar").style.animationDuration = "1.1s";
+                        redElement.onclick = function () {
+                            incorrectRedPressSpeeds.push(new Date().getTime() - milliseconds);
+                        };
+                        blueClick = function () {
+                            bluePress++;
+                            if (bluePress == 1) {
+                                correctFirstBluePressSpeeds.push(new Date().getTime() - milliseconds);
+                            } else {
+                                correctBluePressSpeeds.push(new Date().getTime() - milliseconds);
+                            }
+                        }
+                        blueElement.addEventListener("click", blueClick);
+
+                        setTimeout(() => {
+                            reset_blueCar();
+                            blueElement.removeEventListener("click", blueClick)
+                            startIntervalSpeeds();
+                        }, 1100);
+                    };
                 } else {
                     countSpeeds++;
                     if (choseCar >= 0.5) {
