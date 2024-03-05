@@ -27,10 +27,12 @@ function getMillisec() {
 
 yellowRed = function () {
     red_yellow = true;
+    console.log("red_yellow");
 };
 
 yellowBlue = function () {
     blue_yellow = true;
+    console.log("red_yellow");
 };
 // async function getIndexSessionData(data) {
 //     let i = data.length - 1;
