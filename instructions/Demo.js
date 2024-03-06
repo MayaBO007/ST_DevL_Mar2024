@@ -41,8 +41,8 @@ async function demo() {
                         document.getElementById("yellowCar").style.display = "inline";
                         document.getElementById("yellowCar").style.animationPlayState = "running";
                         document.getElementById("yellowCar").style.animationDuration = "1s";
-                        redElement.addEventListener("touchstart", yellowRed);
-                        blueElement.addEventListener("touchstart", yellowBlue);
+                        document.getElementById("redButton").addEventListener("touchstart", yellowRed);
+                        document.getElementById("blueButton").addEventListener("touchstart", yellowBlue);
                         setInterval(() => {
                             if (red_yellow || blue_yellow) {
                                 document.getElementById("wrongYellow").style.display = "inline";
@@ -97,8 +97,8 @@ function yellowPress() {
         document.getElementById("corrYellow").style.display = "inline";
         setTimeout(() => {
             resolve("done");
-            redElement.removeEventListener("touchstart", yellowRed);
-            blueElement.removeEventListener("touchstart", yellowBlue);
+            document.getElementById("redButton").removeEventListener("touchstart", yellowRed);
+            document.getElementById("blueButton").removeEventListener("touchstart", yellowBlue);
         }, 1500)
     }
 }
