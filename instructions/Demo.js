@@ -3,6 +3,7 @@
 
 let redPressDemo = null;
 let bluePressDemo = null;
+let yellowPressDemo = false;
 let mistakeDemo = null;
 
 async function demo() {
@@ -55,48 +56,62 @@ async function demo() {
                                 setTimeout(() => {
                                     document.getElementById("wrongYellow").style.display = "none";
                                 }, 2000);
+                            } else if (red_yellow && blue_yellow) {
+                                document.getElementById("corrYellow").style.display = "inline";
+                                yellowPressDemo = true;
+                                setTimeout(() => {
+                                    document.getElementById("redButton").removeEventListener("touchstart", yellowRed);
+                                    document.getElementById("blueButton").removeEventListener("touchstart", yellowBlue);
+                                    document.getElementById("corrYellow").style.display = "none";
+                                    document.getElementById("yellowCar").style.display = "none";
+                                    document.getElementById("wrongYellow").style.display = "none";
+                                    clearInterval(checkYellowPress);
+                                }, 1000)
                             }
                         }, 2000);
-                        checkYellowPress = setInterval(() => {
-                            yellowPress()
-
-                        }, 500);
                     }, 1000);
-
-                }
-                document.getElementById("redButton").onclick = function () {
-                    document.getElementById("wrongBlue").style.display = "inline";
                     setTimeout(() => {
-                        document.getElementById("wrongBlue").style.display = "none";
-                        document.getElementById("blueCar").style.display = "inline";
-                        document.getElementById("blueCar").style.animationPlayState = "running";
-                        // document.getElementById("blueCar").style.animationIterationCount = "1";
-                        document.getElementById("blueCar").style.animationDuration = "1.5s"
+                        setInterval(() => {
+                            if (yellowPressDemo == true) {
+                                resolve("done");
+                            }
+                        }, 1000);
+                    }, 5000);
+
+
+                    document.getElementById("redButton").onclick = function () {
+                        document.getElementById("wrongBlue").style.display = "inline";
+                        setTimeout(() => {
+                            document.getElementById("wrongBlue").style.display = "none";
+                            document.getElementById("blueCar").style.display = "inline";
+                            document.getElementById("blueCar").style.animationPlayState = "running";
+                            // document.getElementById("blueCar").style.animationIterationCount = "1";
+                            document.getElementById("blueCar").style.animationDuration = "1.5s"
+                        }, 2000);
+                    }
+                }
+                document.getElementById("blueButton").onclick = function () {
+                    document.getElementById("wrongRed").style.display = "inline";
+                    setTimeout(() => {
+                        document.getElementById("wrongRed").style.display = "none";
+                        document.getElementById("redCar").style.display = "inline";
+                        document.getElementById("redCar").style.animationPlayState = "running";
+                        document.getElementById("redCar").style.animationDuration = "1.5s"
+                        // document.getElementById("redCar").style.animationIterationCount = "1";
                     }, 2000);
                 }
-            }
-            document.getElementById("blueButton").onclick = function () {
-                document.getElementById("wrongRed").style.display = "inline";
                 setTimeout(() => {
-                    document.getElementById("wrongRed").style.display = "none";
-                    document.getElementById("redCar").style.display = "inline";
-                    document.getElementById("redCar").style.animationPlayState = "running";
-                    document.getElementById("redCar").style.animationDuration = "1.5s"
-                    // document.getElementById("redCar").style.animationIterationCount = "1";
-                }, 2000);
-            }
-            setTimeout(() => {
-                if (redPressDemo == null || bluePressDemo == null) {
-                    document.getElementById("pressButton").style.display = "inline";
-                    setTimeout(function () {
-                        document.getElementById("pressButton").style.display = "none";
-                    }, 3000);
-                }
-            }, 60000);
-            // }
-            // }
-            // afterOnload();
-        }, 5000);
+                    if (redPressDemo == null || bluePressDemo == null) {
+                        document.getElementById("pressButton").style.display = "inline";
+                        setTimeout(function () {
+                            document.getElementById("pressButton").style.display = "none";
+                        }, 3000);
+                    }
+                }, 60000);
+                // }
+                // }
+                // afterOnload();
+            }, 5000);
 
         setTimeout(() => {
             setInterval(() => {
