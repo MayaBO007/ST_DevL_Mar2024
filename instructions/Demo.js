@@ -70,6 +70,7 @@ async function demo() {
                             }
                         }, 2000);
                     }, 1000);
+
                     setTimeout(() => {
                         setInterval(() => {
                             if (yellowPressDemo == true) {
@@ -111,12 +112,13 @@ async function demo() {
                 // }
                 // }
                 // afterOnload();
-            }, 5000);
+            }
+        }, 5000);
 
         setTimeout(() => {
             setInterval(() => {
                 if (yellowPress() == "done") {
-                    resolveDemo();
+                    resolve("done");
                 }
             }, 1000);
         }, 4000);
