@@ -48,7 +48,7 @@ async function demo() {
                         document.getElementById("redButton").addEventListener("touchstart", yellowRed);
                         document.getElementById("blueButton").addEventListener("touchstart", yellowBlue);
                         setInterval(() => {
-                            if (red_yellow || blue_yellow) {
+                            if (red_yellow && !blue_yellow || blue_yellow && !red_yellow) {
                                 document.getElementById("wrongYellow").style.display = "inline";
                                 red_yellow = false;
                                 blue_yellow = false;
@@ -62,13 +62,7 @@ async function demo() {
 
                         }, 500);
                     }, 1000);
-                    setTimeout(() => {
-                        setInterval(() => {
-                            if (yellowPress() == "done") {
-                                resolve("done");
-                            }
-                        }, 1000);
-                    }, 2000)
+
                 }
                 document.getElementById("redButton").onclick = function () {
                     document.getElementById("wrongBlue").style.display = "inline";
@@ -103,6 +97,14 @@ async function demo() {
             // }
             // afterOnload();
         }, 5000);
+
+        setTimeout(() => {
+            setInterval(() => {
+                if (yellowPress() == "done") {
+                    resolveDemo();
+                }
+            }, 1000);
+        }, 4000);
     });
 }
 
