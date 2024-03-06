@@ -57,7 +57,7 @@ async function demo() {
                                 }, 2000);
                             }
                         }, 2000);
-                        setInterval(() => {
+                        checkYellowPress = setInterval(() => {
                             yellowPress()
 
                         }, 500);
@@ -117,6 +117,7 @@ function yellowPress() {
             document.getElementById("corrYellow").style.display = "none";
             document.getElementById("yellowCar").style.display = "none";
             document.getElementById("wrongYellow").style.display = "none";
+            clearInterval(checkYellowPress);
             return "done";
         }, 1500)
 
