@@ -22,6 +22,7 @@ async function demo() {
             document.getElementById("redCar").style.animationDuration = "1.5s"
             // document.getElementById("redCar").style.animationIterationCount = "1";
             document.getElementById("redButton").onclick = function () {
+                redPressDemo = 1;
                 document.getElementById("corrRed").style.display = "inline";
                 document.getElementById("redCar").style.animationPlayState = "paused";
                 document.getElementById("redCar").style.display = "none";
@@ -33,6 +34,7 @@ async function demo() {
                     document.getElementById("blueCar").style.animationDuration = "1.5s"
                 }, 1000);
                 document.getElementById("blueButton").onclick = function () {
+                    bluePressDemo = 1;
                     document.getElementById("blueCar").style.display = "none";
                     document.getElementById("blueCar").style.animationPlayState = "paused";
                     document.getElementById("corrBlue").style.display = "inline";
@@ -107,7 +109,9 @@ function yellowPress() {
             document.getElementById("blueButton").removeEventListener("touchstart", yellowBlue);
             document.getElementById("corrYellow").style.display = "none";
             document.getElementById("yellowCar").style.display = "none";
+            document.getElementById("wrongYellow").style.display = "none";
+            return "done";
         }, 1500)
-        return "done";
+
     }
 }
