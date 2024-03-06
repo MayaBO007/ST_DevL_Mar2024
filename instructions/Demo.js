@@ -48,13 +48,18 @@ async function demo() {
                         setInterval(() => {
                             if (red_yellow || blue_yellow) {
                                 document.getElementById("wrongYellow").style.display = "inline";
+                                red_yellow = false;
+                                blue_yellow = false;
                                 setTimeout(() => {
                                     document.getElementById("wrongYellow").style.display = "none";
                                 }, 2000);
                             }
                         }, 2000);
                         setInterval(() => {
-                            yellowPress();
+                            yellowPress()
+                            if (yellowPress() == "done") {
+                                resolve("done");
+                            }
                         }, 500);
                     }, 1000);
                 }
@@ -98,9 +103,9 @@ function yellowPress() {
     if (red_yellow && blue_yellow) {
         document.getElementById("corrYellow").style.display = "inline";
         setTimeout(() => {
-            resolve("done");
             document.getElementById("redButton").removeEventListener("touchstart", yellowRed);
             document.getElementById("blueButton").removeEventListener("touchstart", yellowBlue);
         }, 1500)
+        return "done";
     }
 }
