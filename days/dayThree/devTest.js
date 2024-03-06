@@ -16,6 +16,7 @@ const responsesDev = {
     allBluePressesDev: allBluePressesDev,
     allCorrectFirstPressDev: allCorrectFirstPressDev,
     allChoicesDev: allChoicesDev,
+    devColorInput: devColorInput,
     devButton: devButton
 };
 let saveAttemptDev = 0;
@@ -44,6 +45,16 @@ function yellowPressDev() {
         blue_yellow = false;
     }
 }
+
+function isString(input) {
+    return typeof input === 'string';
+}
+async function getDevColor() {
+    do {
+        devColor = prompt("מה הצבע של הנקודות שלא נצברו?", "");
+    } while (devColor == null || devColor == "" || isNaN(isString(devColor)));
+    return devColor;
+};
 
 async function startDevTest() {
     return new Promise(resolve => {
@@ -151,22 +162,25 @@ async function startDevTest() {
                 document.getElementById("redButton").style.display = "none";
                 clearInterval(sessionIntervalTest);
                 clearTimeout(sessionTimerTest);
-                function savingDev() {
-                    platform.saveSession(responsesDev, false).then(() => {
-                        resolve("doneDevTest");
-                        reset_yellowCar();
-                        reset_blueCar();
-                        reset_redCar();
-                    }).catch(() => {
-                        if (saveAttemptDev >= 2000) {
-                            problemOrient();
-                        } else {
-                            saveAttemptDev++;
-                            savingDev()
-                        }
-                    });
-                }
-                savingDev();
+                getDevColor().then((devColor) => {
+                    devColorInput.push(devColor);
+                    function savingDev() {
+                        platform.saveSession(responsesDev, false).then(() => {
+                            resolve("doneDevTest");
+                            reset_yellowCar();
+                            reset_blueCar();
+                            reset_redCar();
+                        }).catch(() => {
+                            if (saveAttemptDev >= 2000) {
+                                problemOrient();
+                            } else {
+                                saveAttemptDev++;
+                                savingDev()
+                            }
+                        });
+                    }
+                    savingDev();
+                });
             }, 250000);
             // }, 3000);
         };

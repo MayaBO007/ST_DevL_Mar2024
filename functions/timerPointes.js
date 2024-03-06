@@ -405,6 +405,7 @@ const allBluePressesDev = [];
 const allCorrectFirstPressDev = [];
 const allChoicesDev = [];
 const devButton = [];
+const devColorInput = [];
 
 // const correctFirstRedPressButtons = [];
 // const correctFirstBluePressButtons = [];
