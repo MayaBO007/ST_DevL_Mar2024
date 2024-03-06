@@ -105,6 +105,8 @@ function yellowPress() {
         setTimeout(() => {
             document.getElementById("redButton").removeEventListener("touchstart", yellowRed);
             document.getElementById("blueButton").removeEventListener("touchstart", yellowBlue);
+            document.getElementById("corrYellow").style.display = "none";
+            document.getElementById("yellowCar").style.display = "none";
         }, 1500)
         return "done";
     }
