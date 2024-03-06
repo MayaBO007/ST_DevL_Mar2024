@@ -48,7 +48,7 @@ async function demo() {
                         document.getElementById("yellowCar").style.animationDuration = "1s";
                         document.getElementById("redButton").addEventListener("touchstart", yellowRed);
                         document.getElementById("blueButton").addEventListener("touchstart", yellowBlue);
-                        setInterval(() => {
+                        checkYellowPress = setInterval(() => {
                             if (red_yellow && !blue_yellow || blue_yellow && !red_yellow) {
                                 document.getElementById("wrongYellow").style.display = "inline";
                                 red_yellow = false;
@@ -59,6 +59,7 @@ async function demo() {
                             } else if (red_yellow && blue_yellow) {
                                 document.getElementById("corrYellow").style.display = "inline";
                                 yellowPressDemo = 1;
+                                clearInterval(checkYellowPress);
                                 setTimeout(() => {
                                     document.getElementById("redButton").removeEventListener("touchstart", yellowRed);
                                     document.getElementById("blueButton").removeEventListener("touchstart", yellowBlue);
