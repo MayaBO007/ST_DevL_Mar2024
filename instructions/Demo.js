@@ -74,7 +74,9 @@ async function demo() {
                     setTimeout(() => {
                         setInterval(() => {
                             if (yellowPressDemo == true) {
-                                resolve("done");
+                                setTimeout(() => {
+                                    resolve("done");
+                                }, 1000);
                             }
                         }, 1000);
                     }, 4000);
@@ -117,7 +119,9 @@ async function demo() {
         setTimeout(() => {
             setInterval(() => {
                 if (yellowPressDemo == true) {
-                    resolve("done");
+                    setTimeout(() => {
+                        resolve("done");
+                    }, 1000);
                 }
             }, 1000);
         }, 4000);
