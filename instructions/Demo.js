@@ -36,6 +36,8 @@ async function demo() {
                     document.getElementById("blueCar").style.display = "none";
                     document.getElementById("blueCar").style.animationPlayState = "paused";
                     document.getElementById("corrBlue").style.display = "inline";
+                    document.getElementById("blueButton").onclick = null;
+                    document.getElementById("redButton").onclick = null;
                     setTimeout(function () {
                         document.getElementById("corrBlue").style.display = "none";
                         document.getElementById("yellowCar").style.display = "inline";
