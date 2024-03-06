@@ -59,11 +59,16 @@ async function demo() {
                         }, 2000);
                         setInterval(() => {
                             yellowPress()
+
+                        }, 500);
+                    }, 1000);
+                    setTimeout(() => {
+                        setInterval(() => {
                             if (yellowPress() == "done") {
                                 resolve("done");
                             }
-                        }, 500);
-                    }, 1000);
+                        }, 1000);
+                    }, 2000)
                 }
                 document.getElementById("redButton").onclick = function () {
                     document.getElementById("wrongBlue").style.display = "inline";
