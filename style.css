@@ -633,6 +633,19 @@ body {
 
 }
 
+#wrongYellow {
+    position: fixed;
+    left: 28.5%;
+    top: 28%;
+    width: 43%;
+    height: 43%;
+    border: none;
+    color: none;
+    background-color: transparent;
+    display: none;
+
+}
+
 #corrRed {
     position: fixed;
     left: 35%;
@@ -659,7 +672,20 @@ body {
 
 }
 
-#rest {
+#corrYellow {
+    position: fixed;
+    left: 35%;
+    top: 28%;
+    width: 30%;
+    height: 36%;
+    border: none;
+    color: none;
+    background-color: transparent;
+    display: none;
+
+}
+
+/* #rest {
     position: fixed;
     left: 25%;
     top: 65%;
@@ -670,7 +696,7 @@ body {
     background-color: transparent;
     display: none;
 
-}
+} */
 
 #pressButton {
     position: fixed;

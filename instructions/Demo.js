@@ -38,29 +38,23 @@ async function demo() {
                     document.getElementById("corrBlue").style.display = "inline";
                     setTimeout(function () {
                         document.getElementById("corrBlue").style.display = "none";
-                        document.getElementById("airplane").style.display = "inline";
-                        document.getElementById("airplane").style.animationPlayState = "running";
-                        document.getElementById("airplane").style.animationDuration = "2s";
-
-                        document.getElementById("blueButton").onclick = function () {
-                            document.getElementById("rest").style.display = "inline";
-                            setTimeout(() => {
-                                document.getElementById("rest").style.display = "none";
-                            }, 1500);
-                        }
-                        document.getElementById("redButton").onclick = function () {
-                            document.getElementById("rest").style.display = "inline";
-                            setTimeout(() => {
-                                document.getElementById("rest").style.display = "none";
-                            }, 2500);
-                        }
+                        document.getElementById("yellowCar").style.display = "inline";
+                        document.getElementById("yellowCar").style.animationPlayState = "running";
+                        document.getElementById("yellowCar").style.animationDuration = "1s";
+                        redElement.addEventListener("touchstart", yellowRed);
+                        blueElement.addEventListener("touchstart", yellowBlue);
+                        setInterval(() => {
+                            if (red_yellow || blue_yellow) {
+                                document.getElementById("wrongYellow").style.display = "inline";
+                                setTimeout(() => {
+                                    document.getElementById("wrongYellow").style.display = "none";
+                                }, 2000);
+                            }
+                        }, 2000);
+                        setInterval(() => {
+                            yellowPress();
+                        }, 500);
                     }, 1000);
-
-                    setTimeout(() => {
-                        document.getElementById("airplane").style.display = "none";
-                        document.getElementById("rest").style.display = "none";
-                        resolve("done");
-                    }, 4000);
                 }
                 document.getElementById("redButton").onclick = function () {
                     document.getElementById("wrongBlue").style.display = "inline";
@@ -96,4 +90,15 @@ async function demo() {
             // afterOnload();
         }, 5000);
     });
+}
+
+function yellowPress() {
+    if (red_yellow && blue_yellow) {
+        document.getElementById("corrYellow").style.display = "inline";
+        setTimeout(() => {
+            resolve("done");
+            redElement.removeEventListener("touchstart", yellowRed);
+            blueElement.removeEventListener("touchstart", yellowBlue);
+        }, 1500)
+    }
 }
