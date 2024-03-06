@@ -58,6 +58,7 @@ async function demo() {
                                 }, 2000);
                             } else if (red_yellow && blue_yellow) {
                                 document.getElementById("corrYellow").style.display = "inline";
+                                yellowPressDemo = 1;
                                 setTimeout(() => {
                                     document.getElementById("redButton").removeEventListener("touchstart", yellowRed);
                                     document.getElementById("blueButton").removeEventListener("touchstart", yellowBlue);
