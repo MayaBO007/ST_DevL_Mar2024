@@ -18,8 +18,6 @@ const responsesTrainingData = {
 
 let redElement = document.getElementById("redButton");
 let blueElement = document.getElementById("blueButton");
-let red_yellow = false;
-let blue_yellow = false;
 let redPress = 0;
 let bluePress = 0;
 let redClick;

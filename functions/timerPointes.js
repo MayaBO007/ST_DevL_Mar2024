@@ -25,6 +25,9 @@ function getMillisec() {
     return milliseconds;
 }
 
+red_yellow = false;
+blue_yellow = false;
+
 function yellowRed() {
     red_yellow = true;
     // console.log("red_yellow_touch");

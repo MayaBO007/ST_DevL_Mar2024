@@ -1,5 +1,3 @@
-let red_yellow = false;
-let blue_yellow = false;
 
 // move to main function
 function timeline() {
