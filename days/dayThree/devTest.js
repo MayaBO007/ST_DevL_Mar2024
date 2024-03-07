@@ -210,7 +210,7 @@ async function startDevTest() {
                     }
                     savingDev();
                 });
-            }, 250000);
+            }, 2500);
             // }, 3000);
         };
         startIntervalDevtest();
