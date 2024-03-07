@@ -66,7 +66,7 @@
                 }
 
                 /* Question Styles */
-                #container {
+                .container {
                         font-size: 25px;
                         font-family: verdana, sans-serif;
                         margin: 0.5% auto;
@@ -97,7 +97,7 @@
                         direction: rtl;
                 }
 
-                * #question p {
+                .question p {
                         height: 40%;
                         background-color: rgb(255, 252, 224);
                         margin: 0;
@@ -108,7 +108,7 @@
                 }
 
                 /* Choices Styles */
-                #choices {
+                .choices {
                         font-size: 40px;
                         font-family: verdana, sans-serif;
                         width: 100%;
@@ -224,9 +224,9 @@
         <iframe id="iframe-element3" src="" class="hidden" style=" display:none; position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%;
                 border:none; margin:0; padding:0; overflow:hidden; z-index:999999;"></iframe>
 
-        <div id="container">
+        <div id="container" class="container">
 
-                <div id="question"></div>
+                <div id="question" class="question"></div>
                 <div class="choices">
                         <div class="choice" id="choiceA" onclick="checkAnswer('A')"></div>
                         <div class="choice" id="choiceB" onclick="checkAnswer('B')"></div>
