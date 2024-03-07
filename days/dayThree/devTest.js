@@ -20,6 +20,8 @@ const responsesDev = {
     devButton: devButton
 };
 let saveAttemptDev = 0;
+devColor = null;
+
 
 redElement.addEventListener("touchstart", function () {
     allRedPressesDev.push(new Date().getTime() - milliseconds);
@@ -52,14 +54,15 @@ async function devQuestion() {
     document.getElementById("choiceA").innerHTML = 'אדום';
     document.getElementById("choiceB").innerHTML = 'כחול';
 
-    document.getElementById("choiceA").addEventListener("click", function () {
-        devColor = "אדום";
-        return devColor;
-    })
-    document.getElementById("choiceB").addEventListener("click", function () {
-        devColor = "כחול";
-        return devColor;
-    })
+    do {
+        document.getElementById("choiceA").addEventListener("click", function () {
+            devColor = "אדום";
+        })
+        document.getElementById("choiceB").addEventListener("click", function () {
+            devColor = "כחול";
+        })
+    } while (devColor == null || devColor == "" || isNaN(devColor));
+    return devColor;
 }
 
 // function isString(input) {
