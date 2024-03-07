@@ -171,7 +171,7 @@ async function startInterval2Tests() {
             reset_airplane();
             // reset_redCar();
             // reset_blueCar();
-        }, 2000);
+        }, 20000);
         // }, 3000);
     });
 };
