@@ -46,15 +46,40 @@ function yellowPressDev() {
     }
 }
 
-function isString(input) {
-    return typeof input === 'string';
+let questions = [
+    {
+        question: "מה הצבע של הנקודות שלא נצברו (אדום/כחול)?",
+        choiceA: 'אדום',
+        choiceB: 'כחול'
+    }
+];
+
+function devQuestion() {
+    let q = questions[0];
+
+    question.innerHTML = "<p>" + q.question + "</p>";
+    choiceA.innerHTML = q.choiceA;
+    choiceB.innerHTML = q.choiceB;
+
+    choiceA.addEventListener("click", function () {
+        devColor = "אדום";
+        return;
+    })
+    choiceB.addEventListener("click", function () {
+        devColor = "כחול";
+        return;
+    })
 }
-async function getDevColor() {
-    do {
-        devColor = prompt("(אדום/כחול) מה הצבע של הנקודות שלא נצברו?", "");
-    } while (devColor == null || devColor == "" || isNaN(isString(devColor)));
-    return devColor;
-};
+
+// function isString(input) {
+//     return typeof input === ('אדום' || 'כחול' || 'אדומות' || 'כחולות');
+// }
+// async function getDevColor() {
+//     do {
+//         devColor = prompt("מה הצבע של הנקודות שלא נצברו (אדום/כחול)?", "");
+//     } while (devColor == null || devColor == "" || isNaN(isString(devColor)));
+//     return devColor;
+// };
 
 async function startDevTest() {
     return new Promise(resolve => {
@@ -166,7 +191,7 @@ async function startDevTest() {
                 document.getElementById("redButton").style.display = "none";
                 clearInterval(sessionIntervalTest);
                 clearTimeout(sessionTimerTest);
-                getDevColor().then((devColor) => {
+                devQuestion().then((devColor) => {
                     devColorInput.push(devColor);
                     function savingDev() {
                         platform.saveSession(responsesDev, false).then(() => {
