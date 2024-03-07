@@ -90,6 +90,7 @@ async function startDevTest() {
                     } else {
                         count++;
                         if (choseCar >= 0.5) {
+                            redChoiceDev.push(new Date().getTime() - milliseconds);
                             document.getElementById("redCar").style.display = "inline";
                             document.getElementById("redCar").style.animationPlayState = "running";
                             // document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
@@ -109,8 +110,10 @@ async function startDevTest() {
                             setTimeout(() => {
                                 reset_redCar();
                                 redElement.removeEventListener("touchstart", redClick);
+                                blueElement.onclick = null;
                             }, 900);//carSpeed * 1000);
                         } else {
+                            blueChoiceDev.push(new Date().getTime() - milliseconds);
                             document.getElementById("blueCar").style.display = "inline";
                             document.getElementById("blueCar").style.animationPlayState = "running";
                             // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
@@ -130,6 +133,7 @@ async function startDevTest() {
                             setTimeout(() => {
                                 reset_blueCar();
                                 blueElement.removeEventListener("touchstart", blueClick);
+                                redElement.onclick = null;
                             }, 900);//carSpeed * 1000);
                         }
 

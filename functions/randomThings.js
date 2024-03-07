@@ -59,11 +59,11 @@ function randColorStar() {
 function randColorDev() {
     const colorArry = [0, 1];
     let car = colorArry[Math.floor(Math.random() * colorArry.length)]
-    if (car == 0) {
-        blueChoiceDev.push(new Date().getTime() - milliseconds);
-    } else {
-        redChoiceDev.push(new Date().getTime() - milliseconds)
-    }
+    // if (car == 0) {
+    //     blueChoiceDev.push(new Date().getTime() - milliseconds);
+    // } else {
+    //     redChoiceDev.push(new Date().getTime() - milliseconds)
+    // }
     // allChoicesDev.push(new Date().getTime() - milliseconds);
     return car
 };

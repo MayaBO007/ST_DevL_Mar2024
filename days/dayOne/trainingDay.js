@@ -109,6 +109,7 @@ async function trainingDay() {
                             // document.getElementById("carSpeedShow").innerHTML = carSpeed;
                             // document.getElementById("finishedShow").innerHTML = "Started";
                             if (choseCar == 1) { // 1=red, 0=blue
+                                redChoice.push(new Date().getTime() - milliseconds);
                                 document.getElementById("redCar").style.display = "inline";
                                 document.getElementById("redCar").style.animationPlayState = "running";
                                 // document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
@@ -128,10 +129,12 @@ async function trainingDay() {
                                 setTimeout(() => {
                                     reset_redCar();
                                     redElement.removeEventListener("touchstart", redClick);
+                                    blueElement.onclick = null;
                                     // document.getElementById("finishedShow").innerHTML = "Finished";
                                 }, 900);
                                 // }, carSpeed * 1000);
                             } else {
+                                blueChoice.push(new Date().getTime() - milliseconds);
                                 document.getElementById("blueCar").style.display = "inline";
                                 document.getElementById("blueCar").style.animationPlayState = "running";
                                 // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
@@ -152,6 +155,7 @@ async function trainingDay() {
                                 setTimeout(() => {
                                     reset_blueCar();
                                     blueElement.removeEventListener("touchstart", blueClick);
+                                    redElement.onclick = null;
                                     // document.getElementById("finishedShow").innerHTML = "Finished";
                                 }, 900);//carSpeed * 1000);
                             }
