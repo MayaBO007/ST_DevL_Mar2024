@@ -48,21 +48,23 @@ function yellowPressDev() {
     }
 }
 
-async function devQuestion() {
-    do {
+function devQuestion() {
+    return new Promise((resolve, reject) => {
         document.getElementById("container").style.display = "inline";
         document.getElementById("question").innerHTML = "מה הצבע של הנקודות שלא נצברו (אדום/כחול)?";
         document.getElementById("choiceA").innerHTML = 'אדום';
         document.getElementById("choiceB").innerHTML = 'כחול';
 
         document.getElementById("choiceA").addEventListener("click", function () {
-            devColor = "אדום";
-        })
+            document.getElementById("container").style.display = "none"; // Hide the container after the user clicks
+            resolve("אדום");
+        });
+
         document.getElementById("choiceB").addEventListener("click", function () {
-            devColor = "כחול";
-        })
-    } while (devColor == null || devColor == "" || isNaN(devColor));
-    return devColor;
+            document.getElementById("container").style.display = "none"; // Hide the container after the user clicks
+            resolve("כחול");
+        });
+    });
 }
 
 // function isString(input) {
@@ -203,6 +205,9 @@ async function startDevTest() {
                         });
                     }
                     savingDev();
+                }).catch(() => {
+                    problemOrient()
+                    // Handle any errors
                 });
             }, 2500);
             // }, 3000);
