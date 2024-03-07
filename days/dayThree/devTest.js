@@ -54,7 +54,7 @@ let questions = [
     }
 ];
 
-function devQuestion() {
+async function devQuestion() {
     let q = questions[0];
 
     question.innerHTML = "<p>" + q.question + "</p>";
@@ -63,11 +63,11 @@ function devQuestion() {
 
     choiceA.addEventListener("click", function () {
         devColor = "אדום";
-        return;
+        return devColor;
     })
     choiceB.addEventListener("click", function () {
         devColor = "כחול";
-        return;
+        return devColor;
     })
 }
 
