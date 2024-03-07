@@ -101,14 +101,14 @@ async function startDevTest() {
                                     correctRedPressDevtest.push(new Date().getTime() - milliseconds);
                                 }
                             };
-                            redElement.addEventListener("click", redClick);
+                            redElement.addEventListener("touchstart", redClick);
                             document.getElementById("blueButton").onclick = function () {
                                 incorrectBluePressDevtest.push(new Date().getTime() - milliseconds);
                             };
 
                             setTimeout(() => {
                                 reset_redCar();
-                                redElement.removeEventListener("click", redClick);
+                                redElement.removeEventListener("touchstart", redClick);
                             }, 900);//carSpeed * 1000);
                         } else {
                             document.getElementById("blueCar").style.display = "inline";
@@ -125,11 +125,11 @@ async function startDevTest() {
                                     correctBluePressDevtest.push(new Date().getTime() - milliseconds);
                                 }
                             }
-                            blueElement.addEventListener("click", blueClick);
+                            blueElement.addEventListener("touchstart", blueClick);
 
                             setTimeout(() => {
                                 reset_blueCar();
-                                blueElement.removeEventListener("click", blueClick);
+                                blueElement.removeEventListener("touchstart", blueClick);
                             }, 900);//carSpeed * 1000);
                         }
 

@@ -78,7 +78,7 @@ async function startIntervalSpeeds() {
                         redElement.removeEventListener("touchstart", yellowRed);
                         blueElement.removeEventListener("touchstart", yellowBlue);
                     }, 800);
-                } else if (countSpeeds == 12 || countSpeeds == 5) {
+                } else if (countSpeeds == 12 || countSpeeds == 5 || countSpeeds == 2) {
                     countSpeeds++;
                     clearInterval(sessionIntervalSpeeds);
                     if (choseCar >= 0.5) {
@@ -93,14 +93,14 @@ async function startIntervalSpeeds() {
                                 correctRedPressSpeeds.push(new Date().getTime() - milliseconds);
                             }
                         };
-                        redElement.addEventListener("click", redClick);
+                        redElement.addEventListener("touchstart", redClick);
                         blueElement.onclick = function () {
                             incorrectBluePressSpeeds.push(new Date().getTime() - milliseconds);
                         };
 
                         setTimeout(() => {
                             reset_redCar();
-                            redElement.removeEventListener("click", redClick);
+                            redElement.removeEventListener("touchstart", redClick);
                             startIntervalSpeeds();
                         }, 1100);
                     } else {
@@ -118,11 +118,11 @@ async function startIntervalSpeeds() {
                                 correctBluePressSpeeds.push(new Date().getTime() - milliseconds);
                             }
                         }
-                        blueElement.addEventListener("click", blueClick);
+                        blueElement.addEventListener("touchstart", blueClick);
 
                         setTimeout(() => {
                             reset_blueCar();
-                            blueElement.removeEventListener("click", blueClick)
+                            blueElement.removeEventListener("touchstart", blueClick)
                             startIntervalSpeeds();
                         }, 1100);
                     };
@@ -140,14 +140,14 @@ async function startIntervalSpeeds() {
                                 correctRedPressSpeeds.push(new Date().getTime() - milliseconds);
                             }
                         };
-                        redElement.addEventListener("click", redClick);
+                        redElement.addEventListener("touchstart", redClick);
                         blueElement.onclick = function () {
                             incorrectBluePressSpeeds.push(new Date().getTime() - milliseconds);
                         };
 
                         setTimeout(() => {
                             reset_redCar();
-                            redElement.removeEventListener("click", redClick);
+                            redElement.removeEventListener("touchstart", redClick);
                         }, carSpeed * 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -164,11 +164,11 @@ async function startIntervalSpeeds() {
                                 correctBluePressSpeeds.push(new Date().getTime() - milliseconds);
                             }
                         }
-                        blueElement.addEventListener("click", blueClick);
+                        blueElement.addEventListener("touchstart", blueClick);
 
                         setTimeout(() => {
                             reset_blueCar();
-                            blueElement.removeEventListener("click", blueClick)
+                            blueElement.removeEventListener("touchstart", blueClick)
                         }, carSpeed * 1000);
                     };
 

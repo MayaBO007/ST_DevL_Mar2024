@@ -96,7 +96,7 @@ async function startInterval2Tests() {
                                 correctRedPress.push(new Date().getTime() - milliseconds);
                             }
                         };
-                        redElement.addEventListener("click", redClick);
+                        redElement.addEventListener("touchstart", redClick);
 
                         blueElement.onclick = function () {
                             incorrectBluePress.push(new Date().getTime() - milliseconds);
@@ -104,7 +104,7 @@ async function startInterval2Tests() {
 
                         setTimeout(() => {
                             reset_redCar();
-                            redElement.removeEventListener("click", redClick);
+                            redElement.removeEventListener("touchstart", redClick);
                         }, 900);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -121,13 +121,13 @@ async function startInterval2Tests() {
                                 correctBluePress.push(new Date().getTime() - milliseconds);
                             }
                         }
-                        blueElement.addEventListener("click", blueClick);
+                        blueElement.addEventListener("touchstart", blueClick);
 
 
 
                         setTimeout(() => {
                             reset_blueCar();
-                            blueElement.removeEventListener("click", blueClick);
+                            blueElement.removeEventListener("touchstart", blueClick);
                         }, 900);
                     };
                 };
@@ -214,7 +214,7 @@ async function startInterval2Tests2() {
                                 correctRedPress.push(new Date().getTime() - milliseconds);
                             }
                         };
-                        redElement.addEventListener("click", redClick);
+                        redElement.addEventListener("touchstart", redClick);
 
                         document.getElementById("blueButton").onclick = function () {
                             incorrectBluePress.push(new Date().getTime() - milliseconds);
@@ -222,7 +222,7 @@ async function startInterval2Tests2() {
 
                         setTimeout(() => {
                             reset_redCar();
-                            redElement.removeEventListener("click", redClick);
+                            redElement.removeEventListener("touchstart", redClick);
                         }, 900);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -239,11 +239,11 @@ async function startInterval2Tests2() {
                                 correctBluePress.push(new Date().getTime() - milliseconds);
                             }
                         }
-                        blueElement.addEventListener("click", blueClick);
+                        blueElement.addEventListener("touchstart", blueClick);
 
                         setTimeout(() => {
                             reset_blueCar();
-                            blueElement.removeEventListener("click", blueClick);
+                            blueElement.removeEventListener("touchstart", blueClick);
                         }, 900);
                     };
 
@@ -331,7 +331,7 @@ async function startInterval2Tests3() {
                                 correctRedPress.push(new Date().getTime() - milliseconds);
                             }
                         };
-                        redElement.addEventListener("click", redClick);
+                        redElement.addEventListener("touchstart", redClick);
 
                         document.getElementById("blueButton").onclick = function () {
                             incorrectBluePress.push(new Date().getTime() - milliseconds);
@@ -339,7 +339,7 @@ async function startInterval2Tests3() {
 
                         setTimeout(() => {
                             reset_redCar();
-                            redElement.removeEventListener("click", redClick);
+                            redElement.removeEventListener("touchstart", redClick);
                             // }, carSpeed * 1000);
                         }, 900);
                     } else {
@@ -357,11 +357,11 @@ async function startInterval2Tests3() {
                                 correctBluePress.push(new Date().getTime() - milliseconds);
                             }
                         }
-                        blueElement.addEventListener("click", blueClick);
+                        blueElement.addEventListener("touchstart", blueClick);
 
                         setTimeout(() => {
                             reset_blueCar();
-                            blueElement.removeEventListener("click", blueClick);
+                            blueElement.removeEventListener("touchstart", blueClick);
                             // }, carSpeed * 1000);
                         }, 900);
                     };

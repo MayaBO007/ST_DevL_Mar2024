@@ -103,14 +103,14 @@ async function startIntervalStar() {
                                 correctRedPressStar.push(new Date().getTime() - milliseconds);
                             }
                         };
-                        redElement.addEventListener("click", redClick);
+                        redElement.addEventListener("touchstart", redClick);
                         blueElement.onclick = function () {
                             incorrectBluePressStar.push(new Date().getTime() - milliseconds);
                         };
 
                         setTimeout(() => {
                             reset_redCar();
-                            redElement.removeEventListener("click", redClick);
+                            redElement.removeEventListener("touchstart", redClick);
                             // }, carSpeed * 1000);
                         }, 900);
                     } else {
@@ -128,11 +128,11 @@ async function startIntervalStar() {
                                 correctBluePressStar.push(new Date().getTime() - milliseconds);
                             }
                         }
-                        blueElement.addEventListener("click", blueClick);
+                        blueElement.addEventListener("touchstart", blueClick);
 
                         setTimeout(() => {
                             reset_blueCar();
-                            blueElement.removeEventListener("click", blueClick)
+                            blueElement.removeEventListener("touchstart", blueClick)
                         }, 900);
                         // }, carSpeed * 1000);
                     };
