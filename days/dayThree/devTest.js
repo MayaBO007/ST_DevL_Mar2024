@@ -49,12 +49,12 @@ function yellowPressDev() {
 }
 
 async function devQuestion() {
-    document.getElementById("container").style.display = "inline";
-    document.getElementById("question").innerHTML = "מה הצבע של הנקודות שלא נצברו (אדום/כחול)?";
-    document.getElementById("choiceA").innerHTML = 'אדום';
-    document.getElementById("choiceB").innerHTML = 'כחול';
-
     do {
+        document.getElementById("container").style.display = "inline";
+        document.getElementById("question").innerHTML = "מה הצבע של הנקודות שלא נצברו (אדום/כחול)?";
+        document.getElementById("choiceA").innerHTML = 'אדום';
+        document.getElementById("choiceB").innerHTML = 'כחול';
+
         document.getElementById("choiceA").addEventListener("click", function () {
             devColor = "אדום";
         })
