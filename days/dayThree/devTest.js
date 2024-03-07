@@ -46,26 +46,17 @@ function yellowPressDev() {
     }
 }
 
-let questions = [
-    {
-        question: "מה הצבע של הנקודות שלא נצברו (אדום/כחול)?",
-        choiceA: 'אדום',
-        choiceB: 'כחול'
-    }
-];
-
 async function devQuestion() {
-    let q = questions[0];
+    document.getElementById("container").style.display = "inline";
+    document.getElementById("question").innerHTML = "מה הצבע של הנקודות שלא נצברו (אדום/כחול)?";
+    document.getElementById("choiceA").innerHTML = 'אדום';
+    document.getElementById("choiceB").innerHTML = 'כחול';
 
-    question.innerHTML = "<p>" + q.question + "</p>";
-    choiceA.innerHTML = q.choiceA;
-    choiceB.innerHTML = q.choiceB;
-
-    choiceA.addEventListener("click", function () {
+    document.getElementById("choiceA").addEventListener("click", function () {
         devColor = "אדום";
         return devColor;
     })
-    choiceB.addEventListener("click", function () {
+    document.getElementById("choiceB").addEventListener("click", function () {
         devColor = "כחול";
         return devColor;
     })
