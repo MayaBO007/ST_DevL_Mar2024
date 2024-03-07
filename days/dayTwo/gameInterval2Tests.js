@@ -105,6 +105,7 @@ async function startInterval2Tests() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("touchstart", redClick);
+                            blueElement.onclick = null;
                         }, 900);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -128,6 +129,7 @@ async function startInterval2Tests() {
                         setTimeout(() => {
                             reset_blueCar();
                             blueElement.removeEventListener("touchstart", blueClick);
+                            redElement.onclick = null;
                         }, 900);
                     };
                 };
@@ -223,6 +225,7 @@ async function startInterval2Tests2() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("touchstart", redClick);
+                            blueElement.onclick = null;
                         }, 900);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -244,6 +247,7 @@ async function startInterval2Tests2() {
                         setTimeout(() => {
                             reset_blueCar();
                             blueElement.removeEventListener("touchstart", blueClick);
+                            redElement.onclick = null;
                         }, 900);
                     };
 
@@ -340,6 +344,7 @@ async function startInterval2Tests3() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("touchstart", redClick);
+                            blueElement.onclick = null;
                             // }, carSpeed * 1000);
                         }, 900);
                     } else {
@@ -362,6 +367,7 @@ async function startInterval2Tests3() {
                         setTimeout(() => {
                             reset_blueCar();
                             blueElement.removeEventListener("touchstart", blueClick);
+                            redElement.onclick = null;
                             // }, carSpeed * 1000);
                         }, 900);
                     };

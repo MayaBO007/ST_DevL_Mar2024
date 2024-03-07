@@ -111,6 +111,7 @@ async function startIntervalStar() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("touchstart", redClick);
+                            blueElement.onclick = null;
                             // }, carSpeed * 1000);
                         }, 900);
                     } else {
@@ -133,6 +134,7 @@ async function startIntervalStar() {
                         setTimeout(() => {
                             reset_blueCar();
                             blueElement.removeEventListener("touchstart", blueClick)
+                            redElement.onclick = null;
                         }, 900);
                         // }, carSpeed * 1000);
                     };

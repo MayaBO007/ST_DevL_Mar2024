@@ -120,14 +120,14 @@ async function trainingDay() {
                                         correctRedPress.push(new Date().getTime() - milliseconds);
                                     }
                                 };
-                                redElement.addEventListener("click", redClick);
+                                redElement.addEventListener("touchstart", redClick);
                                 document.getElementById("blueButton").onclick = function () {
                                     incorrectBluePress.push(new Date().getTime() - milliseconds);
                                 };
 
                                 setTimeout(() => {
                                     reset_redCar();
-                                    redElement.removeEventListener("click", redClick);
+                                    redElement.removeEventListener("touchstart", redClick);
                                     // document.getElementById("finishedShow").innerHTML = "Finished";
                                 }, 900);
                                 // }, carSpeed * 1000);
@@ -146,12 +146,12 @@ async function trainingDay() {
                                         correctBluePressStar.push(new Date().getTime() - milliseconds);
                                     }
                                 }
-                                blueElement.addEventListener("click", blueClick);
+                                blueElement.addEventListener("touchstart", blueClick);
 
 
                                 setTimeout(() => {
                                     reset_blueCar();
-                                    blueElement.removeEventListener("click", blueClick);
+                                    blueElement.removeEventListener("touchstart", blueClick);
                                     // document.getElementById("finishedShow").innerHTML = "Finished";
                                 }, 900);//carSpeed * 1000);
                             }

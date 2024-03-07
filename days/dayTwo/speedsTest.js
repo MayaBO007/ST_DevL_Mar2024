@@ -101,6 +101,7 @@ async function startIntervalSpeeds() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("touchstart", redClick);
+                            blueElement.onclick = null;
                             startIntervalSpeeds();
                         }, 1100);
                     } else {
@@ -122,7 +123,8 @@ async function startIntervalSpeeds() {
 
                         setTimeout(() => {
                             reset_blueCar();
-                            blueElement.removeEventListener("touchstart", blueClick)
+                            blueElement.removeEventListener("touchstart", blueClick);
+                            redElement.onclick = null;
                             startIntervalSpeeds();
                         }, 1100);
                     };
@@ -148,6 +150,7 @@ async function startIntervalSpeeds() {
                         setTimeout(() => {
                             reset_redCar();
                             redElement.removeEventListener("touchstart", redClick);
+                            blueElement.onclick = null;
                         }, carSpeed * 1000);
                     } else {
                         document.getElementById("blueCar").style.display = "inline";
@@ -168,7 +171,8 @@ async function startIntervalSpeeds() {
 
                         setTimeout(() => {
                             reset_blueCar();
-                            blueElement.removeEventListener("touchstart", blueClick)
+                            blueElement.removeEventListener("touchstart", blueClick);
+                            redElement.onclick = null;
                         }, carSpeed * 1000);
                     };
 
