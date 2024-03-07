@@ -85,6 +85,7 @@ async function startInterval2Tests() {
                     count++;
                     countingCars++;
                     if (choseCar >= 0.5) {
+                        redChoice.push(new Date().getTime() - milliseconds);
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
                         // document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
@@ -108,6 +109,7 @@ async function startInterval2Tests() {
                             blueElement.onclick = null;
                         }, 900);
                     } else {
+                        blueChoice.push(new Date().getTime() - milliseconds);
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
                         // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
@@ -205,6 +207,7 @@ async function startInterval2Tests2() {
                 } else {
                     countTwo++;
                     if (choseCar >= 0.5) {
+                        redChoice.push(new Date().getTime() - milliseconds);
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
                         // document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
@@ -228,6 +231,7 @@ async function startInterval2Tests2() {
                             blueElement.onclick = null;
                         }, 900);
                     } else {
+                        blueChoice.push(new Date().getTime() - milliseconds);
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
                         // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
@@ -324,6 +328,7 @@ async function startInterval2Tests3() {
                 } else {
                     countThree++;
                     if (choseCar >= 0.5) {
+                        redChoice.push(new Date().getTime() - milliseconds);
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
                         // document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
@@ -348,6 +353,7 @@ async function startInterval2Tests3() {
                             // }, carSpeed * 1000);
                         }, 900);
                     } else {
+                        blueChoice.push(new Date().getTime() - milliseconds);
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
                         // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";

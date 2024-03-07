@@ -82,6 +82,7 @@ async function startIntervalSpeeds() {
                     countSpeeds++;
                     clearInterval(sessionIntervalSpeeds);
                     if (choseCar >= 0.5) {
+                        redChoiceSpeeds.push(new Date().getTime() - milliseconds);
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
                         document.getElementById("redCar").style.animationDuration = "1.1s";
@@ -105,6 +106,7 @@ async function startIntervalSpeeds() {
                             startIntervalSpeeds();
                         }, 1100);
                     } else {
+                        blueChoiceSpeeds.push(new Date().getTime() - milliseconds);
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
                         document.getElementById("blueCar").style.animationDuration = "1.1s";
@@ -131,6 +133,7 @@ async function startIntervalSpeeds() {
                 } else {
                     countSpeeds++;
                     if (choseCar >= 0.5) {
+                        redChoiceSpeeds.push(new Date().getTime() - milliseconds);
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
                         document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
@@ -153,6 +156,7 @@ async function startIntervalSpeeds() {
                             blueElement.onclick = null;
                         }, carSpeed * 1000);
                     } else {
+                        blueChoiceSpeeds.push(new Date().getTime() - milliseconds);
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
                         document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";

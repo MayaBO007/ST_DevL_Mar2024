@@ -4,13 +4,13 @@ const expDay = [];
 function randColor() { // 1 or 0 - random choice of car color
     const colorArry = [0, 1];
     let car = colorArry[Math.floor(Math.random() * colorArry.length)]
-    if (car == 0) {
-        blueChoice.push(new Date().getTime() - milliseconds);
-        // allChoices.push(new Date().getTime() - milliseconds);
-    } else {
-        redChoice.push(new Date().getTime() - milliseconds);
-        // allChoices.push(new Date().getTime() - milliseconds);
-    }
+    // if (car == 0) {
+    //     blueChoice.push(new Date().getTime() - milliseconds);
+    //     // allChoices.push(new Date().getTime() - milliseconds);
+    // } else {
+    //     redChoice.push(new Date().getTime() - milliseconds);
+    //     // allChoices.push(new Date().getTime() - milliseconds);
+    // }
     return car
 };
 // Random car choise yellow test:
@@ -46,11 +46,11 @@ function randColor() { // 1 or 0 - random choice of car color
 function randColorStar() {
     const colorArry = [0, 1];
     let car = colorArry[Math.floor(Math.random() * colorArry.length)]
-    if (car == 0) {
-        blueChoiceStar.push(new Date().getTime() - milliseconds);
-    } else {
-        redChoiceStar.push(new Date().getTime() - milliseconds)
-    }
+    // if (car == 0) {
+    //     blueChoiceStar.push(new Date().getTime() - milliseconds);
+    // } else {
+    //     redChoiceStar.push(new Date().getTime() - milliseconds)
+    // }
     // allChoicesStar.push(new Date().getTime() - milliseconds);
     return car
 };
@@ -72,11 +72,11 @@ function randColorDev() {
 function randColorSpeeds() {
     const colorArry = [0, 1];
     let car = colorArry[Math.floor(Math.random() * colorArry.length)]
-    if (car == 0) {
-        blueChoiceSpeeds.push(new Date().getTime() - milliseconds);
-    } else {
-        redChoiceSpeeds.push(new Date().getTime() - milliseconds)
-    }
+    // if (car == 0) {
+    //     blueChoiceSpeeds.push(new Date().getTime() - milliseconds);
+    // } else {
+    //     redChoiceSpeeds.push(new Date().getTime() - milliseconds)
+    // }
     // allChoicesDev.push(new Date().getTime() - milliseconds);
     return car
 };

@@ -92,6 +92,7 @@ async function startIntervalStar() {
                 } else {
                     countStar++;
                     if (choseCar >= 0.5) {
+                        redChoiceStar.push(new Date().getTime() - milliseconds);
                         document.getElementById("redCar").style.display = "inline";
                         document.getElementById("redCar").style.animationPlayState = "running";
                         // document.getElementById("redCar").style.animationDuration = String(carSpeed) + "s";
@@ -115,6 +116,7 @@ async function startIntervalStar() {
                             // }, carSpeed * 1000);
                         }, 900);
                     } else {
+                        blueChoiceStar.push(new Date().getTime() - milliseconds);
                         document.getElementById("blueCar").style.display = "inline";
                         document.getElementById("blueCar").style.animationPlayState = "running";
                         // document.getElementById("blueCar").style.animationDuration = String(carSpeed) + "s";
