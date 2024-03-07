@@ -51,7 +51,7 @@ function isString(input) {
 }
 async function getDevColor() {
     do {
-        devColor = prompt("מה הצבע של הנקודות שלא נצברו?", "");
+        devColor = prompt("(אדום/כחול) מה הצבע של הנקודות שלא נצברו?", "");
     } while (devColor == null || devColor == "" || isNaN(isString(devColor)));
     return devColor;
 };
