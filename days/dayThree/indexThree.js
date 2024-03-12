@@ -43,14 +43,14 @@ function timeline() {
                             if (startTrainning == "done3") {
                                 setTimeout(() => {
                                     clearInterval(sessionInterval2Test2);
-                                    document.getElementById("startDevtestButtonBlue").style.display = "inline";
+                                    document.getElementById("startDevtestButtonRed").style.display = "inline";
                                     document.getElementById("iframe-element").style.top = "5%"
                                     document.getElementById("iframe-element").src = "../../timer/timer.html";
                                     document.getElementById('iframe-element').classList.remove('hidden');
                                     document.getElementById("iframe-element").style.display = "inline";
                                 }, 1000)
                                 setTimeout(() => {
-                                    document.getElementById("startDevtestButtonBlue").style.display = "none";
+                                    document.getElementById("startDevtestButtonRed").style.display = "none";
                                     document.getElementById("iframe-element").style.display = "none";
                                     let startDevaluation = async function () {
                                         let doneDayThree = await startDevTest(); // add promise and resolve
