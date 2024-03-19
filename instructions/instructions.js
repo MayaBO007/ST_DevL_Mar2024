@@ -1,4 +1,7 @@
 
+document.addEventListener('contextmenu', event => {
+    event.preventDefault();
+});
 
 //let nextClick = null;
 
